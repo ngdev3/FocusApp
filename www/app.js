@@ -94,7 +94,7 @@ app.config(function ($routeProvider, $httpProvider) {
         .when("/terms", {
             templateUrl: "module/cms/terms_and_conditions/terms_and_conditions.html"
         })
-        .when("/dashboard/home", {
+        .when("/dashboard/homes", {
             templateUrl: "module/dashboard/home.html"
         })
         .when("/dashboard/view_all", {

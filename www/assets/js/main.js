@@ -4,20 +4,41 @@ function openNav() {
     //document.getElementById("main").style.marginLeft = "250px";
 	//document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     document.getElementById("main").style.width = "100%";
-	$('.backdrop').css('display', 'block');
-	$('body').css({"position": "fixed", "width": "100%"});
 }
+
 function closeNav() {
+	//alert();
+	//document.getElementById("mySidenav").style.width = "0px";
+	//document.getElementById("main").style.marginLeft= "0";
+	//document.body.style.backgroundColor = "white";
 	if(event.target.id != 'asdf'){
-		$("#mySidenav").attr('style','width=block');
+		document.getElementById("mySidenav").style.width = "0";
 		//document.getElementById("main").style.marginLeft= "0";
-		$('body').css('position', 'relative');
-		$('.backdrop').css('display', 'none');
-		
+		    //document.body.style.backgroundColor = "white";
 	}
 }
 
 
+/* Side Menu for DeGvery Boy */
+function openNav_2() {
+	
+    document.getElementById("mySidenav_2").style.width = "280px";
+    //document.getElementById("main").style.marginLeft = "250px";
+	//document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    document.getElementById("main").style.width = "100%";
+}
+
+function closeNav_2() {
+	//alert();
+	//document.getElementById("mySidenav").style.width = "0px";
+	//document.getElementById("main").style.marginLeft= "0";
+	//document.body.style.backgroundColor = "white";
+	if(event.target.id != 'asdf'){
+		document.getElementById("mySidenav_2").style.width = "0";
+		//document.getElementById("main").style.marginLeft= "0";
+		    //document.body.style.backgroundColor = "white";
+	}
+}
 
 /* scroller nav*/
 
@@ -274,7 +295,6 @@ $(document).ready(function(){
 		$(this).toggleClass("fa-heart-o");
 		$(this).toggleClass("fa-heart");
 		$(this).toggleClass("fill");
-		$(this).toggleClass("un_fill");
 		
 	});
 });
@@ -300,7 +320,8 @@ $(document).ready(function(){
 	});
 });
 
-//filter
+
+//filter option
 function openFilter() {
 	
     document.getElementById("mySidenav-right").style.left = "0";
@@ -311,27 +332,3 @@ function openFilter() {
 function closeFilter() {
 	 document.getElementById("mySidenav-right").style.left = "100vw";
 }
-
-// Filter Accordian code
-
-$(document).ready(function() {
-	var acc = document.getElementsByClassName("accordion");
-	var i;
-	
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		//$(this).siblings(acc).removeClass("selected");
-		//$(this).siblings(".accordion-panel").css("max-height", "0px");
-		this.classList.toggle("selected");
-		var panel = this.nextElementSibling;
-		var allPanel = $(this).siblings(".accordion-panel");
-		if (panel.style.maxHeight){
-		  
-		  panel.style.maxHeight = null;
-		} else {
-			//allPanel.style.maxHeight = null;
-		  panel.style.maxHeight = panel.scrollHeight + "px";
-		} 
-	  });
-	}
-});
