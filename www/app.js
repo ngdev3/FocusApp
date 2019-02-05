@@ -1,4 +1,4 @@
-var project_name = 'focusweb/webservices/Webapi';
+var project_name = '/focusweb/webservices/Webapi';
 // var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
 // var base_url = 'http://192.168.31.199'
