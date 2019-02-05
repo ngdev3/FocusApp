@@ -7,14 +7,17 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.tekshapers.ifadabeta"
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.focus.androidapp"
     },
     "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "com.tekshapers.ifadabeta"
+      "PACKAGE_NAME": "com.focus.androidapp"
     },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.tekshapers.ifadabeta"
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.focus.androidapp"
     }
   },
   "dependent_plugins": {}

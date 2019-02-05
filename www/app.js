@@ -1,23 +1,21 @@
-var project_name = '/ifadabeta/webservices';
-var domain = 'in';
-var base_url = 'http://projects.tekshapers.'+domain;
+var project_name = 'focusweb/webservices/Webapi';
+// var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
+// var base_url = 'http://192.168.31.199'
+var base_url = 'http://192.168.1.43'
 var WebUrl = base_url + project_name;
-var app_upload_url = base_url + project_name; 
+var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
-var FACEBOOK_APPID = '1421853664598058';
-var api_key = '0ed2e4b57d1f837276553b00d3fc2a29';
-var db = window.openDatabase("ifadabeta", "1.0", "ifadabeta DB", 1000000);
-var store_id = '5';
+var api_key = 'focus_Lkjhg546dfhkduhrg43567';
+var apikey = 'focus_Lkjhg546dfhkduhrg43567';
+var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
 var uuid = sessionStorage.u_ids;
 var device_type = 'Android';
 sessionStorage.seq = 0;
 var lat;
 var lng;
-var profile_image_path = 'http://projects.tekshapers.'+domain+'/ifadabeta/uploads/user_image/';
-var product_image_path = 'http://projects.tekshapers.'+domain+'/ifadabeta//uploads/menu_image/';
-var subcategoryInfos = [];
-var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap','slickCarousel', 'ngSanitize', 'ngCookies','ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova', /* 'kendo.directives', */ 'rzModule', 'pascalprecht.translate']);
+var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
+var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova', /* 'kendo.directives', 'rzModule',  */'pascalprecht.translate']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
@@ -70,129 +68,133 @@ app.config(function ($routeProvider, $httpProvider) {
         .when("/register", {
             templateUrl: "module/register/register.html"
         })
-        .when("/address", {
-            templateUrl: "module/address/address.html"
+
+        .when("/focus_menu", {
+            templateUrl: "module/focus_menu/menu.html"
         })
-        .when("/address/add", {
-            templateUrl: "module/address/address_add.html"
+        .when("/focus_menu/focus_meeting", {
+            templateUrl: "module/focus_menu/focus_meeting/focus_meeting.html"
         })
-        .when("/address/edit/:id", {
-            templateUrl: "module/address/address_edit.html"
+        .when("/focus_menu/goal", {
+            templateUrl: "module/focus_menu/goal/goal.html"
         })
-        .when("/cart", {
-            templateUrl: "module/cart/cart.html"
+
+
+        .when("/focus_menu/vision/listing", {
+            templateUrl: "module/focus_menu/vision/listing/vision_listing.html"
         })
-        .when("/category", {
-            templateUrl: "module/category/category.html"
+        .when("/focus_menu/vision/detail", {
+            templateUrl: "module/focus_menu/vision/detail/vision_detail.html"
         })
+        .when("/focus_menu/vision/add", {
+            templateUrl: "module/focus_menu/vision/add/vision_add.html"
+        })
+
+        .when("/focus_menu/goal/listing", {
+            templateUrl: "module/focus_menu/goals/listing/goal_listing.html"
+        })
+        .when("/focus_menu/goal/detail", {
+            templateUrl: "module/focus_menu/goals/detail/goal_detail.html"
+        })
+        .when("/focus_menu/goal/add", {
+            templateUrl: "module/focus_menu/goals/add/goal_add.html"
+        })
+
+        .when("/focus_menu/weekly/listing", {
+            templateUrl: "module/focus_menu/weekly_focus/listing/weekly_listing.html"
+        })
+        .when("/focus_menu/weekly/detail", {
+            templateUrl: "module/focus_menu/weekly_focus/detail/weekly_detail.html"
+        })
+        .when("/focus_menu/weekly/add", {
+            templateUrl: "module/focus_menu/weekly_focus/add/weekly_add.html"
+        })
+
+        .when("/focus_menu/focus_meeting/listing", {
+            templateUrl: "module/focus_menu/focus_meeting/listing/meeting_listing.html"
+        })
+        .when("/focus_menu/focus_meeting/detail", {
+            templateUrl: "module/focus_menu/focus_meeting/detail/meeting_detail.html"
+        })
+        .when("/focus_menu/focus_meeting/add", {
+            templateUrl: "module/focus_menu/focus_meeting/add/meeting_add.html"
+        })
+
+
+        .when("/membership/before_member", {
+            templateUrl: "module/membership/before_membership/before_member.html"
+        })
+        .when("/membership/membership_plans", {
+            templateUrl: "module/membership/membership/member.html"
+        })
+
+        .when("/membership/membership_plans/coaches_corner", {
+            templateUrl: "module/membership/membership/coaches_corner/coaches_corner.html"
+        })
+        .when("/membership/membership_plans/focus_retreat", {
+            templateUrl: "module/membership/membership/focus_retreat/focus_retreat.html"
+        })
+        .when("/membership/membership_plans/master_class", {
+            templateUrl: "module/membership/membership/master_class/master_class.html"
+        })
+        .when("/membership/membership_plans/morning_focus", {
+            templateUrl: "module/membership/membership/morning_focus/morning_focus.html"
+        })
+        .when("/membership/membership_plans/focus_retreat/self_mastery", {
+            templateUrl: "module/membership/membership/focus_retreat/self_mastery/self_mastery.html"
+        })
+        .when("/membership/membership_plans/focus_retreat/self_mastery/video", {
+            templateUrl: "module/membership/membership/focus_retreat/self_mastery/video/mastery_video.html"
+        })
+        .when("/membership/membership_plans/focus_retreat/self_mastery/content", {
+            templateUrl: "module/membership/membership/focus_retreat/self_mastery/content/mastery_content.html"
+        })
+
+        .when("/membership/membership_plans/focus_retreat/leadership", {
+            templateUrl: "module/membership/membership/focus_retreat/business_leadership/self_mastery.html"
+        })
+
+        .when("/membership/membership_plans/focus_retreat/leadership/video", {
+            templateUrl: "module/membership/membership/focus_retreat/business_leadership/video/leadership_video.html"
+        })
+        .when("/membership/membership_plans/focus_retreat/leadership/content", {
+            templateUrl: "module/membership/membership/focus_retreat/business_leadership/content/leadership_content.html"
+        })
+
+
         .when("/contactus", {
             templateUrl: "module/cms/contactus/contactus.html"
         })
-        .when("/policy", {
-            templateUrl: "module/cms/privacy_policy/policy.html"
+        .when("/aboutus", {
+            templateUrl: "module/cms/about_us/about_us.html"
         })
         .when("/terms", {
             templateUrl: "module/cms/terms_and_conditions/terms_and_conditions.html"
         })
-        .when("/dashboard/homes", {
+
+        .when("/dashboard/home", {
             templateUrl: "module/dashboard/home.html"
         })
-        .when("/dashboard/view_all", {
-            templateUrl: "module/dashboard/view_all.html"
-        })
+
         .when("/myaccount/account", {
             templateUrl: "module/myaccount/myaccount.html"
         })
-        .when("/wishlist", {
-            templateUrl: "module/wishlist/wishlist.html"
-        })
+
         .when("/myaccount/profile", {
             templateUrl: "module/myaccount/myprofile.html"
         })
-        .when("/order/myorder", {
-            templateUrl: "module/order/my_orders/my_orders.html"
-        })
-        .when("/order/myorderdetails", {
-            templateUrl: "module/order/my_orders_details/my_orders_details.html"
-        })
-        .when("/order/track_order", {
-            templateUrl: "module/order/track_order/track_order.html"
-        })
-        .when("/product/list", {
-            templateUrl: "module/product/list/product_list.html"
-        })
-        .when("/product/view", {
-            templateUrl: "module/product/view/product_view.html"
-        })
+
         .when("/sidemenu", {
             templateUrl: "module/sidemenu/sidemenu.html"
         })
         .when("/splash", {
             templateUrl: "module/splash/splash.html"
         })
-        .when("/dashboard/category", {
-            templateUrl: "module/category/category.html"
-        })
-        .when("/otp", {
-            templateUrl: "module/otp/otp.html"
-        })
         .when("/notification", {
             templateUrl: "module/notification/notification.html"
         })
-        .when("/payment", {
-            templateUrl: "module/payment/payment_summary.html"
-        })
-        .when("/payment/mode", {
-            templateUrl: "module/payment/payment_mode.html"
-        })
-        .when("/addressdetail", {
-            templateUrl: "module/address_detail/address_detail.html"
-        })
-        .when("/subcategory", {
-            templateUrl: "module/subcategory/subcategory.html"
-        })
-        .when("/deliverytime", {
-            templateUrl: "module/delivery/delivery_time.html"
-        })
-        .when("/thankyou", {
-            templateUrl: "module/thankyou/thankyou.html"
-
-        }).when("/store", {
-            templateUrl: "module/fetch_store/fetch.html"
-
-        }).when("/offers", {
-            templateUrl: "module/offers/offers.html"
-
-        }).when("/newpassword", {
+        .when("/newpassword", {
             templateUrl: "module/forgot/newpassword.html"
-
-        }).when("/wallet", {
-            templateUrl: "module/wallet/wallet.html"
-
-        })
-        .when("/language", {
-            templateUrl: "module/switchlanguage/switchlanguage.html"
-
-        })
-        .when("/switch_country", {
-            templateUrl: "module/switch_country/switch_country.html"
-
-        })
-        .when("/value_packs", {
-            templateUrl: "module/value_packs/value_packs.html"
-
-        }).when("/view_ticket", {
-            templateUrl: "module/ticket/view/view_ticket.html"
-
-        }).when("/list_ticket", {
-            templateUrl: "module/ticket/list/list_ticket.html"
-
-        }).when("/aboutus", {
-            templateUrl: "module/cms/about_us/about_us.html"
-        }).when("/rewards", {
-            templateUrl: "module/myreward/myreward.html"
-        }).when("/add_ticket", {
-            templateUrl: "module/ticket/add/add_ticket.html"
 
         })
 
@@ -240,10 +242,9 @@ app.run(function ($translate, $rootScope, $cookieStore, loading, model, $http, $
         });
     }
 
-    if($cookieStore.get('userinfo')){
-        var user_type = $cookieStore.get("userinfo").left_data.user_type;
-        var uid = $cookieStore.get("userinfo").uid;
-    }else{
+    if ($cookieStore.get('userinfo')) {
+        var uid = $cookieStore.get("userinfo").id;
+    } else {
         var uid = '';
         var user_type = '';
     }
@@ -263,10 +264,6 @@ app.run(function ($translate, $rootScope, $cookieStore, loading, model, $http, $
         });
     }
 
-    $rootScope.profile_image_path = profile_image_path ;
-    $rootScope.product_image_path = product_image_path ;
-
-
     $rootScope.DeleteData = function () {
         db.transaction(function (tx) {
             tx.executeSql('DELETE FROM userinfo', [], function (tx, results) {
@@ -275,818 +272,11 @@ app.run(function ($translate, $rootScope, $cookieStore, loading, model, $http, $
         });
     }
 
-    $rootScope.checkToken = function(){
-    if(!$cookieStore.get('userinfo')){
-        uuid = sessionStorage.u_ids;
-    }else{
-        uuid = '';
-    }
-}
-    $rootScope.sort = '';
-    $rootScope.searchBar = function () {
-        var brands =$cookieStore.get('brand_array');
-        var brand_str = '';
-        angular.forEach(brands,(value,key)=>{
-            
-            if(brand_str == ''){
-                brand_str   =   value;
-            }else{
-                brand_str += ','+value;
-            }
-        });
-        var manufacturers =$cookieStore.get('manufacturer_array');
-        var manufacturer_str = '';
-        angular.forEach(manufacturers,(value,key)=>{
-            
-            if(manufacturer_str == ''){
-                manufacturer_str   =   value;
-            }else{
-                manufacturer_str += ','+value;
-            }
-        });
-
-        if (!$cookieStore.get("userinfo")) {
-            var userID = '';
-            var user_type = '';
+    $rootScope.checkToken = function () {
+        if (!$cookieStore.get('userinfo')) {
+            uuid = sessionStorage.u_ids;
         } else {
-            var userID = $cookieStore.get("userinfo").uid;
-            var user_type = $cookieStore.get("userinfo").user_type;
-        }
-        $rootScope.searchresult = '';
-
-        loading.active();
-
-        var args = $.param({
-            'country_id': sessionStorage.country,
-            'language_code': sessionStorage.lang_code,
-            'search_product': $rootScope.searchProduct,
-            'sort_by': $rootScope.sort,
-            'user_id': userID,
-            'user_type': user_type,
-            'brand': brand_str,
-            'manufacture_id': manufacturer_str,
-            'range': $rootScope.range
-        })
-        $http({
-            headers: {
-                //'token': '40d3dfd36e217abcade403b73789d732',
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/product_list',
-            data: args
-
-        }).then(function (response) {
-
-            res = response;
-
-            if (res.data.data.category_product.total_rows > 0) {
-                
-                $rootScope.searchresult = res.data.data.category_product.products;
-                $rootScope.search_product = res.data.data.category_product;
-                $rootScope.minRangeSlider = {
-                    minValue: $rootScope.search_product.min_price_for_slider,
-                    maxValue: $rootScope.search_product.max_price_for_slider,
-                    options: {
-                        step: 0.01,
-                        precision: 3
-                        
-                      },
-                    };
-                $rootScope.total_rows_remainder = res.data.data.category_product.total_rows % 10;
-                $rootScope.total_rows_page = res.data.data.category_product.total_rows / 10;
-                console.log( $rootScope.total_rows_page);
-                if($rootScope.total_rows_remainder >=1 && $rootScope.total_rows_remainder <=9 ){
-                    $rootScope.total_rows_page = $rootScope.total_rows_page + 1;
-                    $rootScope.total_pageno = Math.floor($rootScope.total_rows_page);
-                }
-                if($rootScope.brand_data == '' || $rootScope.brand_data == undefined)
-                {
-                    $rootScope.brand_data = res.data.data.brand_data;
-                }
-                if($rootScope.manufacturer_list == '' || $rootScope.manufacturer_list == undefined)
-                {
-                    $rootScope.manufacturer_list = res.data.data.manufacturer_list;
-                }
-                $rootScope.searchProduct = '';
-                // $rootScope.searchresult = '';
-                $cookieStore.remove('brand_array');
-                $location.path("/product/list");
-            } else {
-                // alert()
-                // $scope.resultstatus = false;
-                $rootScope.searchresult = '';
-                $rootScope.searchProduct = '';
-                $cookieStore.remove('brand_array');
-                $location.path("/product/list");
-                // $scope.datanotfound = true;
-            }
-
-        }).finally(function () {
-            loading.deactive();
-        });
-    }
-
-    /** 
-     * Pagination on Scrolling
-     */
-    $rootScope.page = 0;
-   $rootScope.scrollPageinsearch = function(id,url){
-       
-        var brands =$cookieStore.get('brand_array');
-        var brand_str = '';
-        angular.forEach(brands,(value,key)=>{
-            
-            if(brand_str == ''){
-                brand_str   =   value;
-            }else{
-                brand_str += ','+value;
-            }
-        });
-
-        if($cookieStore.get("userinfo")){
-            var userID = $cookieStore.get("userinfo").uid;
-            var user_type = $cookieStore.get("userinfo").user_type;
-        }else{
-            var userID = '';
-            var user_type = '';
-        }
-        $(window).scroll(function () {
-            var window_top = $(window).scrollTop();
-            var div_top = $('#main-div2').offset().top;
-            var div_height = $('#main-div2').outerHeight();
-            console.log("outside");
-            var sum = div_top + div_height + 3 - window.innerHeight;
-            console.log(window_top + " " + sum + " outside");  
-            // console.log($scope.product.length);return;
-            if (window_top == sum) {
-                console.log("inside");
-                // alert("Reached the bottom");return;
-                if( $rootScope.searchresult.length < 10){
-                    //alert("Don't have further page");
-                }else{
-                    var pageNo = $rootScope.page;
-                 //   alert(pageNo);
-
-                    if(pageNo > $rootScope.total_pageno){
-                        //alert("Don't have further page");
-                        return
-                    }
-
-                    
-                    ++pageNo;
-
-                   
-                    loading.active();
-                    var args = $.param({  
-                        country_id: sessionStorage.country,
-                        language_code: sessionStorage.lang_code,
-                        search_product: $rootScope.searchProduct,
-                        sort_by: $rootScope.sort,
-                        user_id: userID,
-                        user_type: user_type,
-                        brand: brand_str,
-                        page : pageNo                   
-                    });
-                    // alert(args);
-                    $http({
-                        method: 'POST',
-                        url: app_url + '/product_list',
-                        data: args, //forms user object
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        }
-                    }).then(function (response) {
-                            loading.deactive();
-                            //console.log(response.data);return;
-                            if (response.data.responseStatus == 'success'){                                
-                                $rootScope.page = pageNo;
-                                angular.forEach(response.data.data.category_product.products, function (value, key) {
-                                    $rootScope.searchresult.push(value);                                   
-                                });
-                            } else {
-                                alert("Something went wrong");
-                            }
-                        });
-                        // paused = true;
-                    }
-                }else{
-
-                }
-                    
-                 /* }else{
-                    if( paused ){
-                       paused = false;
-                   }  */
-                });
-            }
-        
- 
-        /**
-         * End of Function
-         */
-
-
-    /*    $rootScope.currentval = 0;
-   
-       $rootScope.getProductList = function () {
-           loading.active()
-           $rootScope.productlist = '';
-           $http({
-               headers: {
-                   'Content-Type': 'application/x-www-form-urlencoded'
-               },
-               method: 'GET',
-               url: app_url + 'productapi?catid=' + $cookieStore.get('categoryInfo').productListID + '&uid=' + $cookieStore.get('userinfo').uid + '&store_id=' + $cookieStore.get('storeinfo').store_id + '&mid=' + uuid,
-           }).then(function (response) {
-               res = response;
-               console.log(response.data);
-               if (res.status == '200') {
-                   if (res.data.data.length > 0) {
-                       $rootScope.productlist = res.data.data;
-                       $rootScope.get_brands_with_product_count = res.data.get_brands_with_product_count;
-                       $rootScope.get_category_with_product_count = res.data.get_category_with_product_count;
-                   } else {
-                       $rootScope.productlist = '';
-                   }
-               } else {
-                   //Throw error if not logged in
-                   model.show('Alert', res.data.responseMessage);
-                   $location.path('/register');
-               }
-           }).finally(function () {
-               loading.deactive();
-           })
-       } */
-
-
-
-    $rootScope.addToCart = function (weightid) {
-
-        
-    $rootScope.checkToken();
-        console.log(weightid.target.dataset);
-        // return;
-        if($cookieStore.get('userinfo')){
-            var user_type = $cookieStore.get("userinfo").left_data.user_type;
-            var uid = $cookieStore.get("userinfo").uid;
-        }else{
-            var uid = '';
-            var user_type = '';
-        }
-     
-        varient_id = weightid.target.dataset.weightid;
-        manufacture_id = weightid.target.dataset.user_id;
-        //menu_id = weightid.target.dataset.weightid;
-        menu_id = weightid.target.dataset.menuid;
-
-        $rootScope.currentval = 0;
-        addToCartID = 'addToCart_' + varient_id;
-        enableCartID = 'enableCart_' + varient_id;
-        quantityID = 'quantity_' + varient_id;
-
-
-        var args = $.param({
-            user_type: user_type,
-            user_id: uid,
-            country_id: sessionStorage.country,
-            manufacture_id: manufacture_id,
-            menu_id: menu_id,
-            menu_varient_id: varient_id,
-            token:uuid
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/add_cart',
-            data: args //forms user object
-
-        }).then(function (response) {
-            console.log(response)
-            $rootScope.usercartvalue();
-            if (response.data.data.add_cart.allow_to_add_in_cart == 'yes') {
-
-                $('.' + addToCartID).hide();
-                $('#' + addToCartID).hide();
-                $('#' + enableCartID).removeClass('hide').removeClass('ng-hide');
-                $('#' + quantityID).val('1');
-                $('#enableCart_' + varient_id).attr('data-rowid', response.data.data.add_cart.menu_row_id);
-
-
-
-            } else if (response.data.data.add_cart.allow_to_add_in_cart == 'no') {
-                model.show('alert', 'Item is out of stock');
-
-            } else if (response.data.status == 'outofstock') {
-
-                alert('Stock Problem');
-            }else if(response.data.data.add_cart.status == 'error'){
-                alert(response.data.data.add_cart.error_msg);
-            }
-
-        })
-
-    }
-    // $rootScope.usercartvalue();
-
-    $rootScope.varientCheck = function (weightid, menu_id, price, unit, manufacture_id, varient_id) {
-
-
-        $rootScope.checkToken();
-
-       /*  if (!$cookieStore.get('userinfo')) {
-            alert('Please Login First !')
-            return
-            //$location.path('')
-        } */
-
-        $('#firstt_' + menu_id).find('.add_item_button').attr('id', 'enableCart_' + varient_id);
-        $('#firstt_' + menu_id).find('.add_item_button').find('.add_item').attr('id', 'plus_' + varient_id).attr('data-weightid', varient_id);
-        $('#firstt_' + menu_id).find('.add_item_button').find('input[type="text"]').attr('id', 'quantity_' + varient_id);;
-        $('#firstt_' + menu_id).find('.less_item').attr('data-weightid', varient_id).attr('id', 'minus_' + varient_id);
-        $('#firstt_' + menu_id).find('.add_cart_button').attr('id', 'addToCart_' + varient_id);
-        $('#firstt_' + menu_id).find('.div_in_stock').attr('id', 'outofstock_' + varient_id);
-        $('#firstt_' + menu_id).find('.div_in_stock').find('.out_of_stock').attr('data-weightid', varient_id).attr('id', 'addCart_' + varient_id);
-        $('#firstt_' + menu_id).find('.add_cart_button').find('.addcart_button').attr('data-weightid', varient_id).attr('id', 'addCart_' + varient_id);
-        $('#firstt_' + menu_id).attr('data-attr', varient_id);
-
-        $('.unfill').attr('id', 'blank_' + varient_id).attr('data-varient_id', varient_id);
-        $('.fill').attr('id', 'filler_' + varient_id).attr('data-varient_id', varient_id);
-
-
-        addToCartID = 'addToCart_' + weightid;
-        enableCartID = 'enableCart_' + weightid;
-        quantityID = 'quantity_' + weightid;
-
-        var args = $.param({
-            menu_id: menu_id,
-            menu_varient_id: varient_id,
-            manufacture_id: manufacture_id,
-            country_id: sessionStorage.country,
-            user_id: uid,
-            token:uuid
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/select_another_varient',
-            data: args //forms user object
-
-        }).then(function (response) {
-
-            $('#enableCart_' + varient_id).attr('data-rowid', response.data.data.menu_row_id);
-
-            if (response.data.data.allow_to_add_in_cart == 'no') {
-                // alert()
-                console.log(1)
-                $('#outofstock_' + varient_id).removeClass('ng-hide')
-                $('#addToCart_' + varient_id).addClass('ng-hide')
-                $('#enableCart_' + varient_id).addClass('ng-hide')
-
-            }
-            if (response.data.data.is_in_cart == 'yes') {
-                console.log(2)
-                // $('#enableCart_' + varient_id).addClass('ng-hide')
-                $('#enableCart_' + varient_id).attr('data-rowid', response.data.data.menu_row_id);
-                $('#enableCart_' + varient_id).val(response.data.data.qnty);
-                $('#quantity_' + varient_id).val(response.data.data.qnty);
-                $('#outofstock_' + varient_id).addClass('ng-hide')
-                $('#addToCart_' + varient_id).addClass('ng-hide')
-                $('#enableCart_' + varient_id).removeClass('ng-hide').show()
-
-
-
-            }
-            if (response.data.data.is_in_wishlist == 'yes') {
-                //heart icon
-                console.log(3)
-                
-                $('#blank_' + varient_id).addClass('ng-hide')
-                $('#filler_' + varient_id).removeClass('ng-hide')
-
-            }
-            if (response.data.data.allow_to_add_in_cart == 'yes') {
-
-                console.log(4)
-                // alert('d')
-                if (response.data.data.is_in_cart != 'yes') {
-
-                    $('#enableCart_' + varient_id).addClass('ng-hide')
-                    $('#addToCart_' + varient_id).removeClass('ng-hide').show()
-                }
-
-                $('#outofstock_' + varient_id).addClass('ng-hide')
-
-            }
-
-            if (response.data.data.is_in_wishlist == 'no') {
-
-                console.log(5)
-                $('#blank_' + varient_id).removeClass('ng-hide')
-                $('#filler_' + varient_id).addClass('ng-hide')
-            }
-
-
-        })
-        return false;
-    }
-    $rootScope.enableCartAction = function (enabledynmicID, disabledynamicID) {
-
-        if (enabledynmicID != '') {
-            $('#' + enabledynmicID).show();
-            $('#' + disabledynamicID).hide();
-        }
-    }
-
-
-    $rootScope.plusToCart = function (weightid) {
-        $rootScope.checkToken();
-        if($cookieStore.get('userinfo')){
-            var user_type = $cookieStore.get("userinfo").left_data.user_type;
-            var uid = $cookieStore.get("userinfo").uid;
-        }else{
-            var uid = '';
-            var user_type = '';
-        }
-      
-        weightid = weightid.target.dataset.weightid;
-        rowid = $('#enableCart_' + weightid).attr('data-rowid');
-        addToCartID = 'addToCart_' + weightid;
-        enableCartID = 'enableCart_' + weightid;
-        quantityID = 'quantity_' + weightid;
-        // alert();
-        $rootScope.currentval = $('#' + quantityID).val();
-        var new_qnty = $rootScope.currentval;
-
-
-        // loading.active();
-        var args = $.param({
-            rowid: rowid,
-            qty: parseInt(new_qnty) + 1,
-            language_code: sessionStorage.lang_code,
-            user_id: uid,
-            country_id: sessionStorage.country,
-            token:uuid
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/addQtyCart',
-            data: args //forms user object
-
-        }).then(function (response) {
-            //  alert($rootScope.currentval);
-            console.log(response.data.status)
-            if (response.data.status !== 'outofstock') {
-        
-                $rootScope.in_stock_check = response.data.data.allow_to_add_in_cart;
-                $rootScope.vat_perticular = response.data.data.vat_on_this_item;
-                if( $rootScope.in_stock_check == 'no'){
-                    alert('Out of stock');
-                    return false;
-                }
-                $rootScope.currentval = parseInt($rootScope.currentval) + 1;
-            } else {
-                alert('This Item is out of stock ')
-            }
-            $rootScope.usercartvalue();
-
-            $('#' + quantityID).val($rootScope.currentval)
-            if($cookieStore.get('userinfo')){
-
-                $rootScope.apply_promo('add')
-            }
-        }).finally(function () {
-            loading.deactive();
-        });
-    }
-
-    $rootScope.minusToCart = function (weightid) {
-        $rootScope.checkToken();
-        if($cookieStore.get('userinfo')){
-            var user_type = $cookieStore.get("userinfo").left_data.user_type;
-            var uid = $cookieStore.get("userinfo").uid;
-        }else{
-            var uid = '';
-            var user_type = '';
-        }
-      
-        // console.log(weightid.target.dataset);
-        weightid = weightid.target.dataset.weightid;
-        console.log("------" + weightid)
-        rowid = $('#enableCart_' + weightid).attr('data-rowid');
-        addToCartID = 'addToCart_' + weightid;
-        enableCartID = 'enableCart_' + weightid;
-        quantityID = 'quantity_' + weightid;
-        console.log("******" + rowid);
-        $rootScope.currentval = $('#' + quantityID).val();
-        $rootScope.currentval--
-
-        //loading.active();
-        var args = $.param({
-            rowid: rowid,
-            qty: $rootScope.currentval,
-            language_code: sessionStorage.lang_code,
-            user_id: uid,
-            country_id: sessionStorage.country,
-            token:uuid
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/removeQtyCart',
-            data: args //forms user object
-
-        }).then(function (response) {
-            console.log(response.data.data.isEmpty)
-            $rootScope.vat_perticular = response.data.data.vat_on_this_item;
-            if (response.data.data.isEmpty == 0) {
-                // $rootScope.usercartvalue();
-                $('#' + addToCartID).removeClass('ng-hide').show();
-                $('#' + enableCartID).addClass('ng-hide');
-                $('#' + quantityID).val('1');
-            } else if ($rootScope.currentval == 0 && response.data.data.status == 'success') {
-                $('#' + addToCartID).removeClass('ng-hide').show();
-                $('#' + enableCartID).addClass('ng-hide');
-                $('#' + quantityID).val('1');
-            } else {
-                $('#' + quantityID).val($rootScope.currentval)
-                //  $rootScope.usercartvalue();
-            }
-            $rootScope.usercartvalue();
-            if($cookieStore.get('userinfo')){
-
-                $rootScope.apply_promo('add')
-            }
-        }).finally(function () {
-            loading.deactive();
-        });
-    }
-
-
-    $rootScope.CheckProductDetails = function () {
-
-        $rootScope.currentval++;
-
-        var args = $.param({
-            weightid: $rootScope.weightid,
-            uid: $cookieStore.get('userinfo').uid,
-            mid: uuid,
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + 'itemcartapi/checkitemCart',
-            data: args //forms user object
-
-        }).then(function (response) {
-            //console.log(response)
-        })
-    }
-
-
-    $rootScope.opencart = function () {
-        $rootScope.usercartvalue();
-        $location.path('/cart');
-    }
-
-    $rootScope.activeCartValue = 0;
-    $rootScope.usercartvalue = function () {
-
-        currentUrls = $location.path();
-        currentUrls = currentUrls.split('/')[1];
-
-        /* if (!$cookieStore.get('userinfo')) {
-
-                $rootScope.cart_count = '';
-                $rootScope.subtotalbeforediscount = '';
-                $rootScope.tax_amount = '';
-                $rootScope.finalTotal = '';
-                $rootScope.cart_data = '';
-                $rootScope.is_coupon_applied
-
-            if (currentUrls == 'cart') {
-                alert('Please Login First !')
-                return
-            } 
-            return
-        } */
-
-        if($cookieStore.get('userinfo')){
-            var user_type = $cookieStore.get("userinfo").left_data.user_type;
-            var uid = $cookieStore.get("userinfo").uid;
-        }else{
-            var uid = '';
-            var user_type = '';
-        }
-        var args = $.param({
-            user_id: uid,
-            page: '0'
-
-        });
-
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/wallet_list',
-            data: args //forms user object
-
-        }).then(function (response) {
-          //  loading.deactive();
-            res = response;
-
-            //  alert("response from the server ");
-            if (res.data.responseStatus == 'success') {
-                $rootScope.wallet_amount = res.data.data.wallet_data.wallet_total_amount - res.data.data.wallet_data.wallet_used_amount;
-                $rootScope.wallet_transaction = res.data.data.wallet_transaction;
-               
-            } else {
-                alert(res.data.responseStatus);
-            }
-
-            $rootScope.mycart();
-        })
-    }
-
-
-
-
-    $rootScope.mycart = function () {
-        $rootScope.checkToken();
-        if($cookieStore.get('userinfo')){
-            var user_type = $cookieStore.get("userinfo").left_data.user_type;
-            var uid = $cookieStore.get("userinfo").uid;
-        }else{
-            var uid = '';
-            var user_type = '';
-        }
-        var args = $.param({
-            country_id: sessionStorage.country,
-            language_code: sessionStorage.lang_code,
-            user_id: uid,
-            token:uuid,
-
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/cart/checkout',
-            data: args //forms user object
-
-        }).then(function (response) {
-            //alert();
-            // console.log(response.data)
-         //   loading.deactive();
-            res = response.data.data.cart_data;
-            console.log(response.data.data.subtotalafterdiscount)
-            $rootScope.cart_count = response.data.data.cart_item_count
-            if (response.data.responseCode !== '400') {
-
-                $rootScope.cart_data = res;
-                $rootScope.cart_values = response.data.data;
-
-                if (!$cookieStore.get("promocode")) {
-                    $rootScope.subtotalbeforediscount = response.data.data.subtotalafterdiscount;
-                    $rootScope.tax_amount = response.data.data.tax_amount;
-                    $rootScope.finalTotal = response.data.data.finalTotal;
-                    $rootScope.coupon_discount = '';
-                    $rootScope.subtotalafterdiscount = '';
-                    $rootScope.subtotalwithoutdiscount = '';
-                    // return
-                }
-                var cartdata = {
-                    'from': 'cart'
-                }
-                $cookieStore.put('cart', cartdata);
-            } else {
-                $rootScope.cart_data = '';
-                $rootScope.cart_values = ''
-            }
-        })
-    }
-
-    $rootScope.apply_promo = function (type) {
-       
-        if(!$cookieStore.get('userinfo')){
-            alert('Please Login First !');
-            $location.path('/login');
-            return false;
-        }
-        console.log($rootScope.promocode)
-        if (type == 'remove') {
-            $('#inputpromo').removeAttr('disabled', 'disabled');
-            $('#apply').removeClass('ng-hide')
-            $('#applied').addClass('ng-hide')
-            $rootScope.promocode = ''
-
-            
-            $cookieStore.remove("promocode")
-            $rootScope.mycart();
-            return;
-        };
-
-        if (type == 'add') {
-
-            if (!$cookieStore.get("promocode")) {
-
-                return
-            }
-        }
-
-        //  alert("Error");
-        var error_str = '';
-        if ($rootScope.promocode == '' || $rootScope.promocode == undefined) {
-            error_str += "Promo Code";
-        }
-
-        if (error_str !== '') {
-            error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
-            alert(error_str);
-            return
-            // model.show('Alert', error_str);
-        }
-
-        if ($rootScope.promocode != '' || $rootScope.promocode != undefined) {
-            loading.active();
-
-            var args = $.param({
-
-                promo_code: $rootScope.promocode,
-                country_id: sessionStorage.country,
-                user_id: $cookieStore.get("userinfo").uid,
-                language_code: sessionStorage.lang_code,
-                user_type: $cookieStore.get("userinfo").left_data.user_type,
-
-            });
-
-            $http({
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                method: 'POST',
-                url: app_url + '/cart/apply_promo_code',
-                data: args //forms user object
-
-            }).then(function (response) {
-                res = response;
-                console.log(res.data.data.status);
-                if (res.data.data.status != 'error') {
-
-                    console.log(response.data.data.subTotalAfterDiscount);
-                    $rootScope.subtotalafterdiscount = response.data.data.subTotalAfterDiscount;
-                    $rootScope.subtotalwithoutdiscount = response.data.data.subTotalAfterDiscount +  response.data.data.coupon_discount;
-                    $rootScope.tax_amount = response.data.data.vat;
-                    $rootScope.coupon_discount = response.data.data.coupon_discount;
-                    $rootScope.finalTotal = response.data.data.finalTotal;
-
-                    var promocode = {
-                        codename: $rootScope.promocode
-                    }
-                    
-                    $cookieStore.put("promocode", promocode);
-                    console.log(response.data.data)
-                    var coupon_data = {
-                        coupon_code: response.data.data.coupon_data.coupon_code,
-                        coupon_id: response.data.data.coupon_data.coupon_id,
-                        percentage: response.data.data.coupon_data.percentage
-                    }
-                    $cookieStore.put("coupon_data", coupon_data);
-                    $('#inputpromo').attr('disabled', 'disabled');
-                    $('#apply').addClass('ng-hide')
-                    $('#applied').removeClass('ng-hide').show();
-                } else {
-                    model.show('Alert', 'Promo Code Invalid')
-                }
-            }).finally(function () {
-                loading.deactive();
-            });
-
+            uuid = '';
         }
     }
 
@@ -1097,9 +287,6 @@ app.run(function ($translate, $rootScope, $cookieStore, loading, model, $http, $
         console.log(currentUrl)
         // $rootScope.ChangeRoute = currentUrl.split('/')[1];
         if (currentUrl !== "cart" && currentUrl !== "addressdetail" && currentUrl !== "payment" && currentUrl !== "payment/mode") {
-            $rootScope.promocode = '';
-            $cookieStore.remove("promocode")
-            $rootScope.usercartvalue();
         }
     });
 
@@ -1113,9 +300,9 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
     function onDeviceReady() {
         // Now safe to use device APIs
         model.hide();
-        
+
     }
-    
+
     window.alert = function (type, content) {
 
         if (content == '' || content == undefined) {
@@ -1151,24 +338,18 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
         window.history.back();
     }
 
-    
 
-    $rootScope.cart = function () {
-        $location.path('/cart');
-    }
+
 
     $rootScope.initOneSignal = function () {
-
-        console.log('some Thing Went Wrong :-  Init One Signal')
-        return;
-
+// alert()
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
             // Now safe to use device APIs
-
+            // alert(firebase)
             window.plugins.OneSignal
-                .startInit("207d52dd-d832-4cd8-b2e9-1b664e6e326f")
+                .startInit(firebase)
                 .endInit();
 
             window.plugins.OneSignal.getPermissionSubscriptionState(function (status) {
@@ -1184,45 +365,47 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
 
             window.plugins.OneSignal
-                .startInit("85f52950-04fc-425c-a698-ac1ce79bfaca")
+                .startInit(firebase)
                 .handleNotificationOpened(function (jsonData) {
 
 
                     var data = JSON.stringify(jsonData);
-                    var get = data.split('additionalData')[1];
+                    // alert(data)
 
-                    var data_address = get.replace(/"/g, " ");
-                    var data_address1 = get.split('},')[0];
-                    var data_address2 = data_address1.replace('":{', ' ');
-                    var data_address3 = data_address2.replace(/"/g, " ");
-                    var data_address4 = data_address3.replace(/:/g, " ");
-                    var data_address5 = data_address4.replace(/,/g, " ");
-                    var data_address6 = data_address5.split('  ');
+                    // var get = data.split('additionalData')[1];
 
-                    var timer = data_address6[2];
-                    var ads_id = data_address6[4];
-                    var user_id = data_address6[6];
+                    // var data_address = get.replace(/"/g, " ");
+                    // var data_address1 = get.split('},')[0];
+                    // var data_address2 = data_address1.replace('":{', ' ');
+                    // var data_address3 = data_address2.replace(/"/g, " ");
+                    // var data_address4 = data_address3.replace(/:/g, " ");
+                    // var data_address5 = data_address4.replace(/,/g, " ");
+                    // var data_address6 = data_address5.split('  ');
 
-                    var notification = {
-                        user_id: user_id,
-                        ads_id: ads_id,
-                        timer: timer
-                    }
-                    $cookieStore.put('notification', notification);
+                    // var timer = data_address6[2];
+                    // var ads_id = data_address6[4];
+                    // var user_id = data_address6[6];
 
-                    if ($rootScope.ChangeRoute == 'push_notify') {
-                        location.reload();
-                    } else {
+                    // var notification = {
+                    //     user_id: user_id,
+                    //     ads_id: ads_id,
+                    //     timer: timer
+                    // }
+                    // $cookieStore.put('notification', notification);
 
-                        $location.path('/push_notify')
-                        $rootScope.$apply();
-                    }
+                    // if ($rootScope.ChangeRoute == 'push_notify') {
+                    //     location.reload();
+                    // } else {
+
+                    //     $location.path('/push_notify')
+                    //     $rootScope.$apply();
+                    // }
 
                 })
                 .endInit();
 
             window.plugins.OneSignal
-                .startInit("85f52950-04fc-425c-a698-ac1ce79bfaca")
+                .startInit(firebase)
                 .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
                 .endInit();
 
@@ -1230,201 +413,9 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
+    $rootScope.initOneSignal();
 
 
-    $rootScope.BackgroundColor = function () {
-        return false;
-        // loading.active();
-        var args = $.param({
-            'api_key': api_key,
-        });
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + 'webservices/get_background_color',
-            data: args //forms user object
-
-        }).then(function (response) {
-            loading.deactive();
-            res = response;
-            if (res.data.responseCode == '200') {
-
-                $rootScope.bg_color = res.data.data.bg_color;
-                $cookieStore.put('bgcolor', $rootScope.bg_color);
-                var load = angular.element(document.querySelector('.bg-color-dynamic'));
-
-                var color_code = '#' + $cookieStore.get('bgcolor');
-
-                if (color_code) {
-                    load.css('background-color', color_code);
-                } else {
-                    load.css('background-color', '#000');
-                }
-                //$cookieStore.put('bgcolor',$rootScope.bg_color);                              
-                /*  set values in the scope for display */
-
-            } else {
-                //Throw error if not logged in    
-                model.show('Alert', res.data.responseMessage);
-                return false;
-            }
-        });
-    }
-
-    $rootScope.getCategory = function () {
-
-        return $http({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'GET',
-            url: app_url + 'categoryapi',
-        })
-    }
-
-
-    $rootScope.activeCart = function () {
-        loading.active();
-        if ($cookieStore.get('userinfo') != '' || $cookieStore.get('userinfo') != undefined) {
-            loading.active();
-            var args = $.param({
-                api_key: api_key,
-                id: $cookieStore.get('userinfo').id,
-            });
-        }
-
-        // Get the user info from Database
-        $http({
-            headers: {
-                //'token': '40d3dfd36e217abcade403b73789d732',
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + 'webservices/get_advertise_upload_and_limit',
-            data: args //forms user object
-
-        }).then(function (response) {
-
-            res = response;
-
-            if (res.data.responseCode == '200') {
-                //put cookie and redirect it    
-                // $rootScope.uploadsconfig = res.data.data;
-                $location.path('/upload_ads');
-            } else {
-                //Throw error if not logged in 
-
-                model.show('Alert', res.data.responseMessage);
-                return false;
-            }
-        }).finally(function () {
-            loading.deactive();
-        });;
-    }
-
-
-    $rootScope.addToWishlist = function (id, wishlist_status, from = null, pid= null) {
-
-        // if(from == 'detail'){
-        //     $('#whish_' + pid).
-        // }
-        // alert(pid);return;
-        // console.log("aaaaaaaaaaaaa----");
-        // console.log($rootScope.is_in_wishlist);
-        // return;
-        if (!$cookieStore.get("userinfo")) {
-            alert("Please Login First");
-            return false;
-        } else {
-            var userID = $cookieStore.get("userinfo").uid;
-        }
-
-        //  loading.active();
-        if (wishlist_status == 1) {
-            var args = $.param({
-                'country_id': sessionStorage.country,
-                'menu_varient_id': id,
-                'user_id': userID,
-                'is_for': 'delete'
-            });
-        } else {
-            var args = $.param({
-                'country_id': sessionStorage.country,
-                'menu_varient_id': id,
-                'user_id': userID,
-                'is_for': 'add'
-            });
-        }
-
-
-        // alert(args);return;
-        $http({
-            headers: {
-                //'token': '40d3dfd36e217abcade403b73789d732',
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/add_wishlist',
-            data: args
-
-        }).then(function (response) {
-
-            res = response;
-            console.log("wwwwwwwwwwwwwwwwwww");
-            console.log(res.data.data);
-            // return;
-            if (wishlist_status == 1) {
-                if (res.data.data.status == 'success') {
-                    $('#filler_' + id).addClass('ng-hide')
-                    $('#blank_' + id).removeClass('ng-hide')
-                    // $("#unclicked"+id).removeClass("fa-heart-o").addClass("fa-heart fill");         
-                    //  model.show("Alert","Removed From Wishlist Successfully");
-                    //$rootScope.is_in_wishlist = 0;
-                    // $route.reload();
-                } else {
-                    model.show("Alert", "Something went wrong");
-                }
-            } else {
-                if (res.data.data.status == 'success') {
-                    $('#blank_' + id).addClass('ng-hide')
-                    $('#filler_' + id).removeClass('ng-hide')
-                    // $("#unclicked"+id).removeClass("fa-heart-o").addClass("fa-heart fill");         
-                    //   model.show("Alert","Added To Wishlist Successfully");
-                    // $rootScope.is_in_wishlist = 1;
-                    //$route.reload();
-                } else {
-                    model.show("Alert", "Something went wrong");
-                }
-            }
-
-        }).finally(function () {
-            loading.deactive();
-        });
-    }
-
-    $rootScope.BackgroundColor();
-
-    $rootScope.TimeOutConnection = function (status) {
-
-
-        myVar = $interval(function () {
-
-            if ($location.path() == '/') {
-                $rootScope.BackgroundColor();
-            } else {
-                $interval.cancel(myVar);
-            }
-
-        }, 5000); //5 Sec timeStamp
-
-
-    }
-
-    $rootScope.TimeOutConnection();
 });
 
 
@@ -1432,136 +423,6 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, $cordovaToast, loading, $cordovaGeolocation, $cookieStore, model) {
 
 
-    $rootScope.googleHit = function (lat, lng) {
-        if ($cookieStore.get('userinfo')) {
-            var args = $.param({
-                api_key: api_key,
-                user_id: $cookieStore.get('userinfo').id,
-                latitude: lat,
-                longitude: lng
-            });
-            $http({
-                headers: {
-                    //'token': '40d3dfd36e217abcade403b73789d732',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                method: 'POST',
-                url: app_url + 'auth/google_hit',
-                data: args //forms user object
-            }).then(function (response) {
-                // alert(JSON.stringify(response));
-                loading.deactive();
-                res = response;
-                if (res.data.responseCode == '200') {
-                    $rootScope.counts = res.data.data;
-                } else {
-
-                    model.show('alert', res.data.responseMessage);
-                }
-
-
-            });
-        }
-    }
-
-
-
-    $rootScope.getcountry = function () {
-
-        var lat = '';
-        var lng = '';
-
-        cordova.plugins.diagnostic.isLocationAvailable(function (available) {
-            // alert('4');
-            if (available) {
-                // alert(available);
-                var posOptions = {
-                    timeout: 10000,
-                    enableHighAccuracy: true
-                };
-                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-
-                    $rootScope.lat = lat = position.coords.latitude;
-                    $rootScope.lng = lng = position.coords.longitude;
-                    // alert($rootScope.lat);
-                    setTimeout(function () {
-                        $rootScope.googleHit(lat, lng)
-                    }, 300)
-
-                }, function (err) {
-                    // error
-                });
-
-
-            } else {
-                $cordovaDialogs.confirm('Please Enable GPS Location...', 'Alert', ['Ok', 'Cancel'])
-                    .then(function (buttonIndex) {
-                        // no button = 0, 'OK' = 1, 'Cancel' = 2
-                        //alert(buttonIndex);
-                        if (buttonIndex == '1') {
-                            loading.deactive();
-                            cordova.plugins.diagnostic.switchToLocationSettings();
-                            // $location.path('/landing');
-                        } else {
-                            loading.deactive();
-                            return false;
-                        }
-
-                    });
-
-            }
-        });
-        // alert(lat)
-
-    };
-
-
-    // if (device.platform == 'Android') {
-    $rootScope.geolocation = function () {
-        // alert('1')
-        var permissions = cordova.plugins.permissions;
-        permissions.hasPermission(permissions.ACCESS_COARSE_LOCATION, function (status) {
-
-            if (status.hasPermission) {
-                // alert(JSON.stringify(status));
-                // alert('2')
-                $rootScope.getcountry();
-            } else {
-
-
-                // alert('3')
-                // alert(JSON.stringify(status));
-                permissions.requestPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
-
-                function error() {
-                    // alert('4')
-                    // alert(JSON.stringify(status));
-                    model.show('Info', 'Location permission is not turned on');
-                    $rootScope.geolocation();
-                }
-
-                function success(status) {
-                    if (!status.hasPermission) {
-
-                        model.show('Info', 'Location permission is not turned on');
-                        if (window.cordova && window.cordova.plugins.settings) {
-                            window.cordova.plugins.settings.open("application_details");
-                        }
-
-                    } else {
-                        $rootScope.getcountry();
-                    }
-                }
-            }
-        }, function (status) {
-            // alert(JSON.stringify(status));
-        });
-    }
-
-    myVar = $interval(function (a) {
-
-        $rootScope.geolocation();
-    }, 1800000); //30 min  timeStamp
 });
 
 
@@ -1755,11 +616,6 @@ app.service('data', function ($rootScope) {
 
 
 //End Written By Rajat Gupta//
-
-//$httpProvider.defaults.headers.post['csrf_valid'] = '40d3dfd36e217abcade403b73789d732';
-//$httpProvider.defaults.xsrfCookieName = 'csrftoken';
-//$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-
 
 /* Service for loading image */
 app.service('loading', function ($rootScope) {
@@ -1984,17 +840,6 @@ function onDeviceReady() {
     document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
-// var load = angular.element(document.querySelector('.obscure'));
-// var title = angular.element(document.querySelector('.title'));
-// var message = angular.element(document.querySelector('.message'));
-// process.show = function (a, b) {
-//     title.html(a);
-//     message.html(b);
-//     return load.removeClass('hide').addClass('show');
-// };
-// process.hide = function () {
-//     return load.removeClass('show').addClass('hide');
-// };
 
 
 function onBackKeyDown(ev) {
@@ -2076,6 +921,6 @@ app.directive("mwInputRestrict", [
 
 /**
  * get the API Cart Values From One to Another
- * 
+ *
  */
 

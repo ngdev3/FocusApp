@@ -1,13 +1,25 @@
-app.controller('splash', function ($translate, $scope, $http, $location, $interval, $cookieStore, loading, $rootScope, $cordovaFile) {
+app.controller('splash', function ($translate,$scope, $http, $location, $interval, $cookieStore, loading, $rootScope, $cordovaFile) {
 
-alert()
-    $scope.redirect = function () {
-        // $location.path('/dashboard/home');
+    //$location.path('/login');
+    $scope.season_fetch = function () {
+       
+        $rootScope.initOneSignal();
+        //  alert('--------')
+        setTimeout(function () {
+            $scope.$apply(
+                function(){
+
+                    $location.path('/login');
+                }
+            )
+         }, 1000)
     }
 
-    setTimeout(function () {
-      //  $scope.redirect();
-    }, 100)
+
+
+   
+
+
 
    
 

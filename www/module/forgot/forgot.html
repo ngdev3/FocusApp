@@ -1,47 +1,32 @@
 <div ng-controller="forgot">
-
-
-
-    <header class="container-fluid nav-down">
-        <div class="row">
-            <nav class="navbar navbar-inverse">
-                <div class="container no-padding">
-                    <ul class="nav navbar-nav top_header text-center">
-                        <li class="menu_icon "><a href="javascript:void(0)"  ><img ng-click="back()" src="assets/img/icon/back.png" alt="menu icon"style="width: 13px;" /></a></li>
-                        <li class="page_name">
-                            <a href="javascript:void(0)" class="text-left text-center">
-                                <p>{{'Forgot_Password'| translate}}</p>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
-
+    <div class="sign-up forgot-psswrd mt-50 pt-30">
+        <div class="sign-up-div mb-20 mt-20 animatedParent animateOnce">
+	        <a href="javascript:void(0)" class="sign-up animated fadeInLeft">Forgot Password</a>
+	        <p class="mt-10">Lorem ipsum is a simply dummy text printing and ipsum</p>
         </div>
-        <!-- MOBILE-MENU-AREA END -->
-    </header>
-    <!-- END HEADER -->
-    <form method="post" name="loginform" novalidate>
+        <form method="post" name="loginform" novalidate>
 
-        <div class="container">
-            <div class="login_form">
-                <div class="acnt-itext">
-                    <p class="">{{'Please_enter_your_registed_mobile_number_You_will_recive_an_OTP_to_reset_your_password' | translate}}</a></p>
-                </div>
-
-                <div class="form_container">
-                    <div class="mui-textfield col-sm-6 col-xs-12">
-                        <input type="number" id="email" placeholder="" name="mobile_no" ng-model="mobile_no" required>
-                        <label class="text-center label-center" for="email"><strong>{{'Enter_Your_Mobile_No' | translate}}</strong></label>
-                    </div>
-                </div>
-
-                <div class="submit-btn col-sm-6 col-xs-12 text-center" ng-click="forgot_password('loginform')">
-                    <a href="javascript:void(0)">{{'Submit' | translate}}</a>
-                </div>
+	    <div class="input-container pr-20 pl-20 animatedParent animateOnce" id="sign_up">
+	        <div class="sign-up-form forget-passwrd-input mb-20">
+				<input type="email" value="" placeholder="Email Id"  name="mobile_no" ng-model="mobile_no" required class="animated fadeInRight">
+				<img src="assets/img/Sign-Up-pswrd.png" class="animated fadeInLeft">
             </div>
+	        <!-- <div class="sign-up-form forget-passwrd-input mb-20">
+                <input type="password" value="" placeholder="Confirm Password" class="animated fadeInRight">
+		        <img src="assets/img/Sign-Up-pswrd.png" class="animated fadeInLeft">
+            </div> -->
+        </div>
+        
+
+	
+    <!-- SUBMIT BUTTON -->
+        <div class="sign-up-button mt-50 animatedParent animateOnce" ng-click="forgot_password('loginform')">
+    	    <a href="javascript:void(0)" ><button class="btn animated fadeInUp">Submit</button></a>
         </div>
     </form>
+		<div class="back-arrow">
+		    <a href="javascript:void(0)" ><img src="assets/img/back-arrow.png"></a>
+		</div>
+    </div>
+
 </div>

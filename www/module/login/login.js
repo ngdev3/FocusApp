@@ -1,6 +1,7 @@
 app.controller('login', function ($scope, $http, $location, $cookieStore, model, loading, $rootScope) {
 
-    
+    // loading.active()
+    // alert();
    // alert();
     if ($cookieStore.get('userinfo')) {
 
@@ -9,7 +10,7 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
 
     //create table at local database to store the data of users information at time of login
     db.transaction(function (tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS userinfo (id INTEGER PRIMARY KEY AUTOINCREMENT, uid, phone_no, email_address, country_id, date_added)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS userinfo (id INTEGER PRIMARY KEY AUTOINCREMENT, uid, fname, email_address, lname, profile_image)');
 
     });
 
@@ -60,8 +61,8 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
         if ($scope[form].$error) {
             //  alert("Error");
             var error_str = '';
-            if ($scope[form].mobileno.$error.required !== undefined || $scope[form].mobileno.$error.number) {
-                error_str += "Mobile No, ";
+            if ($scope[form].email_id.$error.required !== undefined || $scope[form].email_id.$error.email) {
+                error_str += "Email Id, ";
             }
             if ($scope[form].userpassword.$error.required !== undefined) {
                 error_str += "Password";
@@ -86,9 +87,10 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
             loading.active();
 
             var args = $.param({
-                login_mobile_number: $scope.mobileno,
-                login_password: $scope.userpassword,
-                language_code:country
+                email: $scope.email_id,
+                password: $scope.userpassword,
+                apikey:api_key,
+                login_type:device_type
             });
 
             $http({
@@ -96,62 +98,26 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 method: 'POST',
-                url: app_url + '/auth/login',
+                url: app_url + '/login',
                 data: args //forms user object
 
             }).then(function (response) {
                 console.log("---------------");
                 console.log(response);
                 
-                if (response.data.responseStatus == 'success') {
+                if (!response.data.ErrorCode) {
                     db.transaction(function (tx) {
-                        tx.executeSql('INSERT INTO userinfo ( uid, phone_no, email_address, country_id, date_added) VALUES ("' + response.data.data.id + '","' + response.data.data.mobile_number + '","' + response.data.data.email + '","' + response.data.data.country_id + '","' + response.data.data.created_date + '")');
+                        tx.executeSql('INSERT INTO userinfo ( uid, fname, email_address, lname, profile_image) VALUES ("' + response.data.data.id + '","' + response.data.data.fname + '","' + response.data.data.email + '","' + response.data.data.lname + '","' + response.data.data.profile_image + '")');
                     });
-                    var fname = response.data.data.first_name;
-                    var lname = response.data.data.last_name;
 
-                    var fullName = fname+" "+lname;
-                    // console.log(fullName);
-                    var userinfo = {
-                        'uid': response.data.data.id,
-                        'phone_no': response.data.data.mobile_number,
-                        'email_address': response.data.data.email,
-                        'country_id': response.data.data.country_id,
-                        'fullName' : fullName,
-                        'user_type' : response.data.data.user_type,
-                        'address' : response.data.data.address,
-                        'profile_image' : response.data.data.profile_image,
-                        'from'    : 'login',
-                        'left_data':response.data.data  
-                    }
-                    $cookieStore.put('userinfo', userinfo);
-                    $scope.default_hit();
+                   
+                    $cookieStore.put('userinfo', response.data.data);
                     $location.path('/dashboard/home');
 
                 } else {
 
-                    if(response.data.responseMessage == 'Your account is not verified please Verify OTP !'){
-                        var setOTPCookies = {
-                            'mobile_number': $scope.mobileno,
-                            'from' : 'login'
-                    }
-                        $cookieStore.put('otpverification', setOTPCookies);
-                        alert('Please Verify OTP');
-                        $location.path('/otp');
-                        return false;
-                    }else if(response.data.responseMessage == 'Invalid login credentials'){
-                        
-                        alert('Mobile No. is Invalid');
-                    
-                    }else if(response.data.responseMessage =='Password does not match !'){
-                        
-                        alert('Password is Invalid');
-                    
-                    }else{
-
-                        alert(response.data.responseMessage);
-                    }
-                    //model.show('Alert', response.data.responseMessage);
+                   alert(response.data.message)
+                    // model.show('Alert', response.data.responseMessage);
                 }
 
             }).finally(function () {
@@ -160,42 +126,5 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
 
         }
     };
-
-/*     $scope.default_hit = function() {
-        var args = $.param({
-           
-        });
-        
-        $http({
-            headers: {
-                //'token': '40d3dfd36e217abcade403b73789d732',
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'POST',
-            url: app_url + '/default_lang_country',
-            data: args 
-
-        }).then(function (response) {
-
-            res = response;
-
-           console.log(res.data.data.default_language_country);
-
-           if(res.data.data.status == 'success'){
-            sessionStorage.country = res.data.data.default_language_country.default_country_id;
-            sessionStorage.country_name = res.data.data.default_language_country.COUNTRY_NAME;
-                sessionStorage.lang = res.data.data.default_language_country.default_language;
-                sessionStorage.lang_code = res.data.data.default_language_country.language_code;
-                sessionStorage.currency = res.data.data.default_language_country.currency;
-               console.log("-----aaa-------"); 
-               console.log(sessionStorage) 
-               $translate.use(sessionStorage.lang_code);
-               $location.path('/dashboard/home');
-           }else{
-
-           }
-
-        })
-    } */
 
 });

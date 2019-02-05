@@ -1,0 +1,97 @@
+
+<div ng-controller="weekly_detail">
+  
+
+
+	<header class="container-fluid nav-down">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+				<div class="container no-padding">
+					<ul class="nav navbar-nav top_header">
+						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+						<li class="logo_name"><a class="text-left back">WEEKLY FOCUS</a></li>
+						<li class="edit-icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
+					</ul>
+	
+				</div>
+			</nav>
+	
+		</div>
+		<!-- MOBILE-MENU-AREA END -->
+	</header>
+	<!-- END HEADER -->
+	<div class="privacy_policy pl-10 pr-10 pt-5 mt-50">
+		<div class="weeks">
+			<div class="week-head">
+				<h3>Weeks</h3>
+			</div>
+			<ul class="week-days">    
+				<li><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Mon</p>
+					</div>
+				</div></a></li>
+				<li><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Tue</p>
+					</div>
+				</div></a></li>
+				<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Wed</p>
+					</div>
+				</div></a></li>
+				<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Thus</p>
+					</div>
+				</div></a></li>
+				<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Fri</p>
+					</div>
+				</div></a></li>
+				<li><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Sat</p>
+					</div>
+				</div></a></li>
+				<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
+					<div class="monday">
+					   <p>Sun</p>
+					</div>
+				</div></a></li>
+			</ul>			
+		</div>
+		
+		<form class="pt-20">
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Swiming" disabled>
+		
+			</div>
+			<div class="form-group bor-top">
+				<label for="time">Time</label>
+				<input type="text" class="form-control" id="time" placeholder="5:10 am" disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="reminder">Reminder</label>
+				<input type="text" class="form-control" id="reminder" placeholder="15 min" disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="Notification">Notification</label>
+				<input type="text" class="form-control" id="Notification" placeholder="5:00 pm" disabled>
+			</div>
+		</form>	
+	
+	
+	</div>
+	<script>
+		$('.digit1 input').keyup(function() {
+			if ($(this).val().length == $(this).attr("maxlength")) {
+				$(this).next().focus();
+			}
+		});
+	
+	</script>
+</div>

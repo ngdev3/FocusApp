@@ -39,7 +39,7 @@ app.controller('forgot', function ($scope, $http, $location, $cookieStore, model
             var error_str = '';
             
             if ($scope[form].mobile_no.$error.required !== undefined || $scope[form].mobile_no.$error.number) {
-                error_str += "Mobile No ";
+                error_str += "Email ID ";
             }
 
             if (error_str !== '') {
@@ -49,19 +49,12 @@ app.controller('forgot', function ($scope, $http, $location, $cookieStore, model
             }
         };
         if ($scope[form].$valid) {
-            var reg1 = /^[0-9]{10}$/;  // for limiting mobile no to 10 digits only.
-
-            if (reg1.test($scope.mobile_no) == false) {
-                error_str = "Mobile Number Length should be of 10 digits";
-                // model.show('Alert', error_str);
-                alert(error_str);
-                return false;
-            }
+          
             loading.active();
 
             var args = $.param({
-                mobile_number_varify: $scope.mobile_no,
-                Language_code:sessionStorage.lang_code
+                email: $scope.mobile_no,
+                apikey:api_key
             });
 
             $http({
@@ -70,46 +63,20 @@ app.controller('forgot', function ($scope, $http, $location, $cookieStore, model
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 method: 'POST',
-                url: app_url + '/auth/forget',
+                url: app_url + '/forgot_password',
                 data: args //forms user object
 
             }).then(function (response) {
 
                 res = response;
                 
-                if(res.data.responseStatus == 'error'){
+                if(res.data.ErrorCode == '1'){
                     alert('Please Enter Registered Mobile no.');
                 }else{
-                    alert('OTP Has been Sent Successfully on Your Email Address');
-                    var setOTPCookies = {
-                        'mobile_number': $scope.mobile_no,
-                        'from' : 'forgot'
+                    alert(res.data.message);
+                    $location.path('/login');     
                 }
-                    $cookieStore.put('otpverification', setOTPCookies);
-                    $location.path('/otp')     
-                }
-                // if (res.data.status == 'pass') {
-                //     //put cookie and redirect it    
-                //     //model.show('Alert', res.data.responseMessage);
-                //     $cookieStore.put('userid',res.data.uid);
-                //     var setOTPCookies = {
-                //         'mobile': $scope.mobile_no,
-                //         'uid': response.data.uid,
-                //         'status': response.data.status,
-                //         'from': 'login'
-                //     }
-                //     $cookieStore.put('otpverification', setOTPCookies);
-                //     alert('Otp send successfully');
-                //     $location.path('/otp');
-                //     // return false;
-
-                // } else {
-
-                //     //Throw error if not logged in
-                //     //model.show('Alert', res.data.responseMessage);
-                //     alert("Invalid Mobile Number")
-                // }
-
+               
 
             }).finally(function () {
                 loading.deactive();
