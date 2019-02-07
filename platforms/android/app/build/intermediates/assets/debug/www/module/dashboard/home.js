@@ -49,8 +49,23 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
         $location.path('/terms');
     }
 
-    $scope.signout = function(){
-        $location.path('/membership/before_member');
+    $scope.logout = function(){
+        $cookieStore.remove('userinfo');
+        $cookieStore.remove('aid');
+        $cookieStore.remove('cart');
+        $cookieStore.remove('orderID');
+        $cookieStore.remove('orderinfo');
+        $cookieStore.remove('productinfo');
+        $cookieStore.remove('search');
+        $cookieStore.remove('subcategoryInfo');
+        $cookieStore.remove('ticketid');
+        $cookieStore.remove('FullName');
+        db.transaction(function (tx) {
+            tx.executeSql('DELETE FROM userinfo');
+        });
+
+
+        $location.path('/login');
     }
 
 

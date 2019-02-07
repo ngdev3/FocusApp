@@ -1,12 +1,12 @@
 
 <div ng-controller="master_class">
 
-  <header class="container-fluid nav-down">
+  <header class="container-fluid nav-down" ng-init="get_morning_focus()">
     <div class="row">
         <nav class="navbar navbar-inverse">
             <div class="container no-padding">
                 <ul class="nav navbar-nav top_header">
-                    <li class="menu_icon back_icon"><a href="#"><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)"><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
                     <li class="logo_name"><a class="text-left back">Focus Master Class</a></li>
 
                 </ul>
@@ -19,30 +19,28 @@
 </header>
 <!-- END HEADER -->
 <div class="privacy_policy pl-10 pr-10 pt-5 mt-50">
-    <div class="focus-tech">
+    <div class="focus-tech" ng-if="truelist">
 
-        <div class="main-video-sprt">
-            <div class="play-video"><img src="assets/img/focus-video-1.png" alt=""></div>
+        <div class="main-video-sprt" ng-repeat="x in morningfocus">
+            <div class="play-video">
+                <img src="assets/img/focus-video-1.png" alt="">
+                <!-- <video src="{{x.url}}"></video> -->
+            </div>
             <div class="video-title">
-                <p>According to 1 Trainer, These 4 Workouts Burn the Most Calories</p>
+                <p>{{x.title}}</p>
             </div>
         </div>
 
-        <div class="main-video-sprt">
-            <div class="play-video"><img src="assets/img/focus-video-2.png" alt=""></div>
-            <div class="video-title">
-                <p>According to 1 Trainer, These 4 Workouts Burn the Most Calories</p>
-            </div>
-        </div>
-
-        <div class="main-video-sprt">
-            <div class="play-video"><img src="assets/img/focus-video-1.png" alt=""></div>
-            <div class="video-title">
-                <p>According to 1 Trainer, These 4 Workouts Burn the Most Calories</p>
-            </div>
-        </div>
+      
 
     </div>
+
+    <div   class="no_data_wrapper" ng-if = "!truelist">
+            <div>
+                <img src="img/no_data_found.png">
+                <h3 class="text-center" >Not Found !!!</h3>
+            </div>
+        </div>
 
 </div>
 

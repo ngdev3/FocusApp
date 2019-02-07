@@ -18,7 +18,17 @@
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.focus.androidapp"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    }
+  }
 }

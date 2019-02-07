@@ -13,6 +13,17 @@
     <feature name="OneSignalPush">
         <param name="android-package" value="com.plugin.gcm.OneSignalPush" />
     </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
     <name>FocusApp</name>
     <description>
        A Software Team  From tekshapers Software solutions Pvt Ltd (By Hybrid Team - Rajat Gupta)

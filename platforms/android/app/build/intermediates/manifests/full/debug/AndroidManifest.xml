@@ -26,6 +26,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
     <permission
         android:name="com.focus.androidapp.permission.C2D_MESSAGE"
@@ -101,6 +102,16 @@
                 <category android:name="com.focus.androidapp" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="org.apache.cordova.camera.FileProvider"
+            android:authorities="com.focus.androidapp.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/camera_provider_paths" />
+        </provider>
 
         <meta-data
             android:name="onesignal_app_id"

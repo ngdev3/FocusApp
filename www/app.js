@@ -15,7 +15,7 @@ sessionStorage.seq = 0;
 var lat;
 var lng;
 var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
-var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova', /* 'kendo.directives', 'rzModule',  */'pascalprecht.translate']);
+var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova',  'kendo.directives',  'pascalprecht.translate']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);

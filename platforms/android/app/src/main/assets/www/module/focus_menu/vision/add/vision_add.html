@@ -1,7 +1,7 @@
 
 <div ng-controller="vision_add">
     
-<header class="container-fluid nav-down">
+<header class="container-fluid nav-down" ng-init="get_choose_background()">
 	<div class="row">
 		<nav class="navbar navbar-inverse">
 		  <div class="container no-padding">
@@ -22,10 +22,8 @@
 <div class="my_vision pt-5 mt-35">
     <div class="mui-select my-visn vision-my col-sm-12 col-xs-12">
         <Select class="choose-background1">
-            <option value="">Choose Background</option>
-            <option value="">Choose Background1</option>
-            <option value="">Choose Background2</option>
-            <option value="">Choose Background3</option>
+			<option value="">Select Background</option>
+            <option value="{{x.id}}" style="color: black;" ng-repeat="x in morningfocus">{{x.scheme_color_name}}</option>
         </Select>
     </div> 
 	

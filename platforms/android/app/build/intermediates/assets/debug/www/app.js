@@ -1,10 +1,13 @@
+// var project_name = '/focusweb/webservices/Webapi';
 var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
 var base_url = 'http://192.168.31.199'
+// var base_url = 'http://192.168.1.43'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
 var api_key = 'focus_Lkjhg546dfhkduhrg43567';
+var apikey = 'focus_Lkjhg546dfhkduhrg43567';
 var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
 var uuid = sessionStorage.u_ids;
 var device_type = 'Android';
@@ -12,7 +15,7 @@ sessionStorage.seq = 0;
 var lat;
 var lng;
 var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
-var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova', /* 'kendo.directives', 'rzModule',  */'pascalprecht.translate']);
+var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova',  'kendo.directives',  'pascalprecht.translate']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
@@ -165,7 +168,6 @@ app.config(function ($routeProvider, $httpProvider) {
         .when("/aboutus", {
             templateUrl: "module/cms/about_us/about_us.html"
         })
-
         .when("/terms", {
             templateUrl: "module/cms/terms_and_conditions/terms_and_conditions.html"
         })
@@ -301,33 +303,33 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
-    // window.alert = function (type, content) {
+    window.alert = function (type, content) {
 
-    //     if (content == '' || content == undefined) {
+        if (content == '' || content == undefined) {
 
-    //         if (typeof type === 'string') {
+            if (typeof type === 'string') {
 
-    //             var j = type.toLowerCase();
-    //             var a = j.indexOf("successfully");
-    //             var b = j.indexOf("successful");
-    //             var c = j.indexOf("success");
-    //             // //console.log(c)
-    //             if (a >= 0 || b >= 0 || c >= 0) {
-    //                 model.show('Info', type);
-    //             } else {
-    //                 model.show('Alert', type);
-    //             }
+                var j = type.toLowerCase();
+                var a = j.indexOf("successfully");
+                var b = j.indexOf("successful");
+                var c = j.indexOf("success");
+                // //console.log(c)
+                if (a >= 0 || b >= 0 || c >= 0) {
+                    model.show('Info', type);
+                } else {
+                    model.show('Alert', type);
+                }
 
-    //         } else {
+            } else {
 
-    //             //it will show when u passed the object
-    //             model.show('Info', JSON.stringify(type));
-    //         }
-    //     } else {
+                //it will show when u passed the object
+                model.show('Info', JSON.stringify(type));
+            }
+        } else {
 
-    //         model.show(type, content);
-    //     }
-    // }
+            model.show(type, content);
+        }
+    }
 
 
     $rootScope.back = function () {
@@ -338,17 +340,14 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
 
 
-    $rootScope.cart = function () {
-        $location.path('/cart');
-    }
 
     $rootScope.initOneSignal = function () {
-alert()
+// alert()
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
             // Now safe to use device APIs
-            alert(firebase)
+            // alert(firebase)
             window.plugins.OneSignal
                 .startInit(firebase)
                 .endInit();
@@ -358,7 +357,7 @@ alert()
             });
 
             window.plugins.OneSignal.getIds(function (ids) {
-                alert(JSON.stringify(ids.userId))
+                // alert(JSON.stringify(ids.userId))
                 loading.active();
                 $rootScope.UniversalAppToken = ids.userId;
                 loading.deactive();
@@ -371,7 +370,7 @@ alert()
 
 
                     var data = JSON.stringify(jsonData);
-                    alert(data)
+                    // alert(data)
 
                     // var get = data.split('additionalData')[1];
 

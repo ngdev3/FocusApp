@@ -1,7 +1,7 @@
 app.controller('login', function ($scope, $http, $location, $cookieStore, model, loading, $rootScope) {
 
-    // loading.active()
-    // alert();
+     loading.active();
+     //alert();
    // alert();
     if ($cookieStore.get('userinfo')) {
 

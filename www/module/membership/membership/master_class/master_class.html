@@ -22,9 +22,12 @@
     <div class="focus-tech" ng-if="truelist">
 
         <div class="main-video-sprt" ng-repeat="x in morningfocus">
-            <div class="play-video"><img src="assets/img/focus-video-1.png" alt=""></div>
+            <div class="play-video">
+                <img src="assets/img/focus-video-1.png" alt="">
+                <!-- <video src="{{x.url}}"></video> -->
+            </div>
             <div class="video-title">
-                <p>According to 1 Trainer, These 4 Workouts Burn the Most Calories</p>
+                <p>{{x.title}}</p>
             </div>
         </div>
 
