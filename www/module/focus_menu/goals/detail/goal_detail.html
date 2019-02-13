@@ -19,21 +19,21 @@
     <!-- MOBILE-MENU-AREA END -->
 </header>
 <!-- END HEADER -->
-<div class="focus-meeting-details pl-10 pr-10 pt-5 mt-40">
+<div class="focus-meeting-details pl-10 pr-10 pt-5 mt-40" ng-init="get_focus_detail()">
     <form class="meeting-details">
         <div class="form-group">
             <label for="title">My Goal</label>
-            <input type="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Write down what you eat" disabled>
+            <input type="title" class="form-control"  value="{{goal_data.goal_name}}" aria-describedby="emailHelp" placeholder="Write down what you eat" disabled>
     
         </div>
         <div class="form-group bor-top">
             <label for="goal">Target Date</label>
-            <input type="text" class="form-control" id="goal" placeholder="18 April 2018" disabled>
+            <input type="text" class="form-control" value="{{goal_data.target_date | myDatecustomFormat}}" placeholder="18 April 2018" disabled>
         </div>
-		<div class="form-group bor-top">
+		<!-- <div class="form-group bor-top">
             <label for="time">Time</label>
             <input type="text" class="form-control" id="time" placeholder="5:10 am" disabled>
-        </div>
+        </div> -->
 		
 	</form>	
 	<div class="action-step-goal">

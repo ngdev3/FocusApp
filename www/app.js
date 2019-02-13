@@ -1,8 +1,8 @@
-var project_name = '/focusweb/webservices/Webapi';
-// var project_name = '/Projects2018/pioneer/webservices/Webapi';
+// var project_name = '/focusweb/webservices/Webapi';
+var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-// var base_url = 'http://192.168.31.199'
-var base_url = 'http://192.168.1.43'
+var base_url = 'http://192.168.31.199'
+// var base_url = 'http://192.168.1.43'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
@@ -15,7 +15,7 @@ sessionStorage.seq = 0;
 var lat;
 var lng;
 var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
-var app = angular.module("myApp", ['ngRoute', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova',  'kendo.directives',  'pascalprecht.translate']);
+var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova','pascalprecht.translate']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
@@ -303,33 +303,33 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
-    window.alert = function (type, content) {
+    // window.alert = function (type, content) {
 
-        if (content == '' || content == undefined) {
+    //     if (content == '' || content == undefined) {
 
-            if (typeof type === 'string') {
+    //         if (typeof type === 'string') {
 
-                var j = type.toLowerCase();
-                var a = j.indexOf("successfully");
-                var b = j.indexOf("successful");
-                var c = j.indexOf("success");
-                // //console.log(c)
-                if (a >= 0 || b >= 0 || c >= 0) {
-                    model.show('Info', type);
-                } else {
-                    model.show('Alert', type);
-                }
+    //             var j = type.toLowerCase();
+    //             var a = j.indexOf("successfully");
+    //             var b = j.indexOf("successful");
+    //             var c = j.indexOf("success");
+    //             // //console.log(c)
+    //             if (a >= 0 || b >= 0 || c >= 0) {
+    //                 model.show('Info', type);
+    //             } else {
+    //                 model.show('Alert', type);
+    //             }
 
-            } else {
+    //         } else {
 
-                //it will show when u passed the object
-                model.show('Info', JSON.stringify(type));
-            }
-        } else {
+    //             //it will show when u passed the object
+    //             model.show('Info', JSON.stringify(type));
+    //         }
+    //     } else {
 
-            model.show(type, content);
-        }
-    }
+    //         model.show(type, content);
+    //     }
+    // }
 
 
     $rootScope.back = function () {
@@ -342,7 +342,7 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
 
     $rootScope.initOneSignal = function () {
-// alert()
+        // alert()
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
@@ -423,6 +423,35 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, $cordovaToast, loading, $cordovaGeolocation, $cookieStore, model) {
 
 
+    $rootScope.get_days = function () {
+
+		loading.active();
+
+		var args = $.param({
+			user_id: $cookieStore.get('userinfo').id,
+			apikey: apikey
+		})
+		$http({
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			method: 'POST',
+			url: app_url + '/get_days',
+			data: args
+		}).then(function (response) {
+			//alert();
+			loading.deactive();
+			res = response;
+			console.log(res.data.data)
+			if (res.data.ErrorCode == 0) {
+				$rootScope.morningfocus = res.data.data;
+				$rootScope.truelist = true;
+			}
+
+		})
+
+    }
+    
 });
 
 
@@ -917,6 +946,66 @@ app.directive("mwInputRestrict", [
         }
     }
 ]);
+
+app.filter('myDateFormat', function myDateFormat($filter) {
+    return function (text) {
+        var tempdate = new Date(text.replace(/-/g, "/"));
+        return $filter('date')(tempdate, "dd MMMM yyyy");
+    }
+});
+
+app.filter('myTimeFormat', function myDateFormat($filter) {
+    return function (text) {
+        var tempdate = new Date(text.replace(/-/g, "/"));
+        return $filter('date')(tempdate, "hh:mma");
+    }
+});
+app.filter('myTimecustomFormat', function myDateFormat($filter) {
+    return function (text) {
+        //  alert(text)
+        if (text !== undefined) {
+
+            var tempdate = new Date(text.replace(/-/g, "/"));
+            return $filter('date')(tempdate, "hh:mma");
+        }
+    }
+});
+
+
+app.filter('myDatecustomFormat', function myDateFormat($filter) {
+    return function (text) {
+        if (text !== undefined) {
+            var tempdate = new Date(text.replace(/-/g, "/"));
+            return $filter('date')(tempdate, "dd MMMM yyyy");
+        }
+    }
+});
+
+
+app.directive('dateInput', function(){
+    return {
+        restrict : 'A',
+        scope : {
+            ngModel : '='
+        },
+        link: function (scope) {
+            if (scope.ngModel) scope.ngModel = new Date(scope.ngModel);
+        }
+    }
+});
+
+app.directive('dateFormat', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attr, ngModelCtrl) {
+        //Angular 1.3 insert a formater that force to set model to date object, otherwise throw exception.
+        //Reset default angular formatters/parsers
+        ngModelCtrl.$formatters.length = 0;
+        ngModelCtrl.$parsers.length = 0;
+      }
+    };
+  });
+
 /*End a directive for file upload*/
 
 /**

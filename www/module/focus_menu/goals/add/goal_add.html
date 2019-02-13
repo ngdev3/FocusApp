@@ -5,8 +5,9 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container no-padding">
 					<ul class="nav navbar-nav top_header">
-						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)"><img style="width:13px;" src="assets/img/icon/back.png"
-								 id="asdf" alt="menu icon" /></a></li>
+						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)"><img
+									style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a>
+						</li>
 						<li class="logo_name"><a class="text-left back">New Goal</a></li>
 
 					</ul>
@@ -17,70 +18,83 @@
 		</div>
 		<!-- MOBILE-MENU-AREA END -->
 	</header>
+
 	<!-- END HEADER -->
 	<div class=" pt-5 mt-20">
 		<div class="new-goals">
 			<div class="form_container">
-				<form class="mui-form">
+				<!-- <form> -->
+				<!-- <form method="post" class="mui-form" name="loginform" novalidate> -->
 
-					<div class="mui-textfield pl-10 pr-10  col-sm-6 col-xs-12">
-						<input type="text" id="name" placeholder="Enter Your Goal" required>
+				<div class="mui-textfield pl-10 pr-10  col-sm-6 col-xs-12">
+					<input type="text" ng-model="goal_name" name="goal_name" placeholder="Enter Your Goal">
+				</div>
+				<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 add-date">
+					<input type="date" id="date" ng-model="goal_date" name="goal_date" placeholder="Add Target Date">
+					<span><img src="assets/img/goal-date.png" alt=""></span>
+				</div>
+
+				<div class="action-step">Add Action Step</div>
+
+				<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
+					<input type="text" id="name" ng-model="action_step_one" name="action_step_one"
+						placeholder="Enter Action Step here">
+					<label for="name">Set Notification</label>
+					<span><a class="btn trigger_one popup" href="javascript:void(0);"><img
+								src="assets/img/my-goal-edit.png" alt=""></a></span>
+				</div>
+
+				<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
+					<input type="text" id="name" ng-model="action_step_two" name="action_step_two"
+						placeholder="Enter Action Step here">
+					<label for="name">Set Notification</label>
+					<span><a class="btn trigger_two popup" href="javascript:void(0);"><img
+								src="assets/img/my-goal-edit.png" alt=""></a></span>
+				</div>
+
+				<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
+					<input type="text" id="name" ng-model="action_step_three" name="action_step_three"
+						placeholder="Enter Action Step here">
+					<label for="name">Set Notification</label>
+					<span><a class="btn trigger_three popup" href="javascript:void(0);"><img
+								src="assets/img/my-goal-edit.png" alt=""></a></span>
+				</div>
+
+			
+
+						
+				<div class="action-step buttton-turn">
+					<div class="add-cal">Add To Google Calender</div>
+					<div class="turn-off">
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider round"></span>
+						</label>
 					</div>
-					<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 add-date">
-						<input type="text" id="date" placeholder="Add Target Date" required>
-						<span><img src="assets/img/goal-date.png" alt=""></span>
-					</div>
+				</div>
 
-					<div class="action-step">Add Action Step</div>
+				<div class="submit_2btn col-xs-12 text-center">
+					<button ng-click="save_goal()" class="save-l">Save</button>
+					<button ng-click="click_goal()"  class="share-r">share</button>
+				</div>
 
-					<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
-						<input type="text" id="name" placeholder="Enter Action Step here" required>
-						<label for="name">Set Notification</label>
-						<span><a class="btn trigger popup" href="javascript:;"><img src="assets/img/my-goal-edit.png" alt=""></a></span>
-					</div>
-
-					<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
-						<input type="text" id="name" placeholder="Enter Action Step here" required>
-						<label for="name">Set Notification</label>
-						<span><a class="btn trigger popup" href="javascript:;"><img src="assets/img/my-goal-edit.png" alt=""></a></span>
-					</div>
-
-					<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 set-notify">
-						<input type="text" id="name" placeholder="Enter Action Step here" required>
-						<label for="name">Set Notification</label>
-						<span><a class="btn trigger popup" href="javascript:;"><img src="assets/img/my-goal-edit.png" alt=""></a></span>
-					</div>
-
-					<div class="action-step buttton-turn">
-						<div class="add-cal">Add To Google Calender</div>
-						<div class="turn-off">
-							<label class="switch">
-								<input type="checkbox" checked>
-								<span class="slider round"></span>
-							</label>
-						</div>
-					</div>
-
-					<div class="submit_2btn col-xs-12 text-center">
-						<button class="save-l" type="submit">Save</button>
-						<button class="share-r" type="submit">share</button>
-					</div>
-
-				</form>
+				<!-- </form> -->
 			</div>
 
 		</div>
 	</div>
+
+	
 
 	<!--------------popup screen------->
 
 
 
 
-	<div class="modal-wrapper" ng-init="get_days()">
+	<div class="modal-wrapper " ng-init="get_days()" id="notification_one">
 		<div class="modal pl-20 pr-20">
 			<div class="head">
-				<a class="btn-close trigger" href="javascript:;"></a>
+				<a class="btn-close trigger" href="javascript:void(0);"></a>
 				<div class="popup-heading">
 					<h3>Set Notification</h3>
 				</div>
@@ -91,16 +105,16 @@
 						<h3>SET DAY</h3>
 					</div>
 					<ul class="week-days">
-						<li ng-repeat="x in morningfocus" id="select_day_{{x.id}}">
+						<li ng-repeat="x in morningfocus" id="select_day_one_{{x.id}}">
 							<a href="javascript:void(0)">
 								<div class="all-weeks">
-									<div class="monday" ng-click="select_day(x.id)">
+									<div class="monday" ng-click="select_day(x.id,'one')">
 										<p>{{x.short_name | ucwords}}</p>
 									</div>
 								</div>
 							</a>
 						</li>
-					
+
 					</ul>
 				</div>
 			</div>
@@ -109,46 +123,30 @@
 				<div class="set-time-notify new-goals-time">
 					<h3>SET TIME</h3>
 				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-						<input kendo-time-picker
-						ng-model="str"
-						k-ng-model="obj"
-						 style="width: 100%;" />
+				<div class="timepicker_div">
+					<timepicker-pop input-time="notification_one" name="notification_one" ng-model="notification_one"
+						required class="input-group" show-meridian='showMeridian'>
+					</timepicker-pop>
 				</div>
-				<!-- <div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="Min underline-goal">
-						<option value="">Min</option>
-						<option value="">0</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-					</Select>
-				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="AM underline-goal">
-						<option value="">AM</option>
-						<option value="">PM</option>
-					</Select>
-				</div> -->
 			</div>
 			<div class="popup-bttns">
 				<div class="cancel-popup mt-30">
-					<button class="cancel">Cancel</button>
+					<button class="cancel" ng-click="close_popup('notification_one')">Cancel</button>
 				</div>
 				<div class="save-popup mt-30">
-					<button class="save">Save</button>
+					<button class="save" ng-click="save_popup('notification_one')">Save</button>
 				</div>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="modal-wrapper" ng-init="get_days()">
+
+
+	<div class="modal-wrapper" id="notification_two">
 		<div class="modal pl-20 pr-20">
 			<div class="head">
-				<a class="btn-close trigger" href="javascript:;"></a>
+				<a class="btn-close trigger" href="javascript:void(0);"></a>
 				<div class="popup-heading">
 					<h3>Set Notification</h3>
 				</div>
@@ -159,16 +157,16 @@
 						<h3>SET DAY</h3>
 					</div>
 					<ul class="week-days">
-						<li ng-repeat="x in morningfocus" id="second_select_day_{{x.id}}">
+						<li ng-repeat="x in morningfocus" id="select_day_two_{{x.id}}">
 							<a href="javascript:void(0)">
 								<div class="all-weeks">
-									<div class="monday" ng-click="second_select_day(x.id)">
+									<div class="monday" ng-click="select_day(x.id,'two')">
 										<p>{{x.short_name | ucwords}}</p>
 									</div>
 								</div>
 							</a>
 						</li>
-					
+
 					</ul>
 				</div>
 			</div>
@@ -177,51 +175,28 @@
 				<div class="set-time-notify new-goals-time">
 					<h3>SET TIME</h3>
 				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="Hour underline-goal">
-						<option value="">Hour</option>
-						<option value="">0</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-					</Select>
-				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="Min underline-goal">
-						<option value="">Min</option>
-						<option value="">0</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-					</Select>
-				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="AM underline-goal">
-						<option value="">AM</option>
-						<option value="">PM</option>
-					</Select>
+				<div class="timepicker_div">
+					<timepicker-pop input-time="notification_two" name="notification_two" ng-model="notification_two"
+						required class="input-group" show-meridian='showMeridian'>
+					</timepicker-pop>
 				</div>
 			</div>
 			<div class="popup-bttns">
 				<div class="cancel-popup mt-30">
-					<button class="cancel">Cancel</button>
+					<button class="cancel" ng-click="close_popup('notification_two')">Cancel</button>
 				</div>
 				<div class="save-popup mt-30">
-					<button class="save">Save</button>
+					<button class="save" ng-click="save_popup('notification_two')">Save</button>
 				</div>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="modal-wrapper" ng-init="get_days()">
+	<div class="modal-wrapper" id="notification_three">
 		<div class="modal pl-20 pr-20">
 			<div class="head">
-				<a class="btn-close trigger" href="javascript:;"></a>
+				<a class="btn-close trigger" href="javascript:void(0);"></a>
 				<div class="popup-heading">
 					<h3>Set Notification</h3>
 				</div>
@@ -232,16 +207,16 @@
 						<h3>SET DAY</h3>
 					</div>
 					<ul class="week-days">
-						<li ng-repeat="x in morningfocus" id="third_select_day_{{x.id}}">
+						<li ng-repeat="x in morningfocus" id="select_day_three_{{x.id}}">
 							<a href="javascript:void(0)">
 								<div class="all-weeks">
-									<div class="monday" ng-click="third_select_day(x.id)">
+									<div class="monday" ng-click="select_day(x.id,'three')">
 										<p>{{x.short_name | ucwords}}</p>
 									</div>
 								</div>
 							</a>
 						</li>
-					
+
 					</ul>
 				</div>
 			</div>
@@ -250,49 +225,23 @@
 				<div class="set-time-notify new-goals-time">
 					<h3>SET TIME</h3>
 				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="Hour underline-goal">
-						<option value="">Hour</option>
-						<option value="">0</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-					</Select>
-				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="Min underline-goal">
-						<option value="">Min</option>
-						<option value="">0</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-					</Select>
-				</div>
-				<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-					<Select class="AM underline-goal">
-						<option value="">AM</option>
-						<option value="">PM</option>
-					</Select>
+				<div class="timepicker_div">
+					<timepicker-pop input-time="notification_three" name="notification_three"
+						ng-model="notification_three" required class="input-group" show-meridian='showMeridian'>
+					</timepicker-pop>
 				</div>
 			</div>
 			<div class="popup-bttns">
 				<div class="cancel-popup mt-30">
-					<button class="cancel">Cancel</button>
+					<button class="cancel" ng-click="close_popup('notification_three')">Cancel</button>
 				</div>
 				<div class="save-popup mt-30">
-					<button class="save">Save</button>
+					<button class="save" ng-click="save_popup('notification_three')">Save</button>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
-
-
 
 
 
@@ -306,8 +255,18 @@
 	</script>
 	<script>
 		$(document).ready(function () {
-			$('.trigger').click(function () {
-				$('.modal-wrapper').toggleClass('open');
+			$('.trigger_one').click(function () {
+				$('#notification_one').toggleClass('open');
+				$('.page-wrapper').toggleClass('blur');
+				return false;
+			});
+			$('.trigger_two').click(function () {
+				$('#notification_two').toggleClass('open');
+				$('.page-wrapper').toggleClass('blur');
+				return false;
+			});
+			$('.trigger_three').click(function () {
+				$('#notification_three').toggleClass('open');
 				$('.page-wrapper').toggleClass('blur');
 				return false;
 			});
