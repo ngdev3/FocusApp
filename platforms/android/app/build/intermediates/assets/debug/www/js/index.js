@@ -28,7 +28,6 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
-        // alert('aaaa');
         this.receivedEvent('deviceready');
         
     },
@@ -44,6 +43,7 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-};
+  };
+
 
 app.initialize();

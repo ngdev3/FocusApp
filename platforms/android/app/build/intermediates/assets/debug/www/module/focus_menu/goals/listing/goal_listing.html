@@ -1,5 +1,5 @@
 
-<div ng-controller="goal_listing">
+<div ng-controller="goal_listing" ng-init="get_morning_focus()">
    
 
 <header class="container-fluid nav-down">
@@ -20,16 +20,16 @@
 </header>
 <!-- END HEADER -->
     <div class="vision-listing pt-5 mt-60">
-	    <div class="col-sm-12 col-xs-12">
-		    <div class="vision-listing-content bg-color" ng-click="goal_detail()">
+	    <div class="col-sm-12 col-xs-12" ng-if="truelist">
+		    <div class="vision-listing-content bg-color" ng-click="goal_details(x.id)" ng-class="{'bg-color1':$index % 2 == 0}" ng-repeat="x in morningfocus">
 		        <div class="content-heading">
-				    <h3>Write Down What You Eat</h3>
+				    <h3>{{x.goal_name}}</h3>
 				</div>
 				<div class="content-para">
-				    <p>18 April 2018</p>
+				    <p>{{x.target_date | myDateFormat}}</p>
 				</div>
 		    </div>
-			<div class="vision-listing-content bg-color1">
+			<!-- <div class="vision-listing-content bg-color1">
 		        <div class="content-heading">
 				    <h3>Mediate/Pray</h3>
 				</div>
@@ -52,10 +52,10 @@
 				<div class="content-para">
 				    <p>18 April 2018</p>
 				</div>
-		    </div>
+		    </div> -->
 		</div>
-		<div class="add-btn-btn">
-		    <button class="add-new-btn" ng-click="add_goal()">ADD</button>
+		<div class="add-btn-btn" >
+			<div class="add-new-btn floating_add_btn" ng-click="add_goal()"><a>+</a></div>
 		</div>
 	</div>
 

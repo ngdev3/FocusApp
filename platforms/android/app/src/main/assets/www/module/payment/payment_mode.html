@@ -1,67 +1,113 @@
 <div class="bg" ng-controller="payment_mode" style="overflow:hidden;">
 
-    <header class="container-fluid nav-down">
-        <div class="row">
-          <nav class="navbar navbar-inverse">
-            <div class="container no-padding">
-            <ul class="nav navbar-nav top_header text-center">
-              <li class="menu_icon "><a href="javascript:void(0)"  ><img ng-click="back()" src="assets/img/icon/back.png" alt="menu icon"style="width: 13px;" /></a></li>
-              <li class="page_name left">
-                <a href="javascript:void(0)" class="text-left ">
-                  <p>{{'Payment_Options' | translate}}</p>
-                </a>
-              </li>
-              
-            </ul>
-            
-            </div>
-          </nav>
-        
-        </div>
-        <!-- MOBILE-MENU-AREA END -->
-      </header>
-      <!-- END HEADER -->
-        
-      <div class="container">
-          <div class="login_form payment-section">
-            <div class="form_container pt-10">
-              <form class="" name="paymentoption" nonvalidate>
-                <div class="col-xs-12">
-                <!--<div class="addr_heading">-->
-                <div class="" ng-if="paybywallet !== '1'">
-                    <div class="radio mb-20 mt-10">
-                    <input id="radio-1" ng-model="form.payby" name="payby" type="radio" value="1" required>
-                    <label for="radio-1" class="radio-label">{{'Cash_On_Delivery' | translate}}</label>
-                    </div>
-                    <div class="radio mb-20">
-                    <input id="radio-2" ng-model="form.payby" name="payby" type="radio" value="2" required>
-                    <label for="radio-2" class="radio-label">{{'Payment_Gateway' | translate}} <span>({{'Coming_Soon' | translate}})</span></label>
-                    </div>
-                  </div>
-                  <!-- <div class="radio mb-20">
-                    <input id="checkbox1" ng-model="iswalletused" name="iswalletused" type="checkbox" value="1" required ng-change="selectwallet()">
-                    <label for="checkbox1" class="radio-label">{{'Wallet' | translate}}<span>({{'Amount' | translate}} - {{wallet_amount | number : 2}})</span></label>
-                    </div> -->
 
-                    <div class="pretty p-icon p-curve p-pulse">
-                      <input type="checkbox" id="checkbox1" name="iswalletused" ng-model="iswalletused" value="1" required ng-change="selectwallet()" >
-                      <div class="state p-info-o">
-                          <i class="icon  fa fa-check"></i>
-                          <label for="checkbox1" style="color: #000 !important;">{{'Wallet' | translate}}<span style="font-size: 11px; color: #949494;">({{'Amount' | translate}} - {{wallet_amount | number : 2}})</span></label> 
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="submit-btn col-xs-12 text-center">
-                <a href="javascript:void(0)" ng-click="payment('paymentoption')">{{'Proceed_To_Payment' | translate}}</a>
-                </div>
-                
-              </form>
-              
-      
-      
-      
+  <header class="container-fluid nav-down">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <div class="container no-padding">
+                <ul class="nav navbar-nav top_header">
+                    <li class="menu_icon back_icon"><a href="#"><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="logo_name"><a class="text-left back">Payment information</a></li>
+
+                </ul>
+
             </div>
-          </div>
+        </nav>
+
+    </div>
+    <!-- MOBILE-MENU-AREA END -->
+</header>
+<!-- END HEADER -->
+<div class="privacy_policy pl-10 pr-10 pt-5 mt-50">
+    <div class="remark-us repay-mark">
+        <p>Fill out below info to get membership ID.</p>
+    </div>
+    <div class="login_form-pay">
+        <div class="form_container-info">
+            <form class="mui-form">
+
+                <div class="mui-textfield pay-info col-sm-6 col-xs-12">
+                    <input type="text" id="name" placeholder="First Name*" required>
+                </div>
+                <div class="mui-textfield pay-info col-sm-6 col-xs-12">
+                    <input type="text" id="name" placeholder="Phone Number" required>
+                </div>
+
+                <div class="mui-textfield pay-info col-sm-6 col-xs-12">
+                    <input type="text" id="name" placeholder="Email ID*" required>
+                </div>
+                <div class="mui-textfield pay-info col-sm-6 col-xs-12">
+                    <input type="text" id="name" placeholder="Card Number*" required>
+                </div>
+                
+                <div class="mui-textfield pay-info col-sm-6 col-xs-12">
+                    <input type="text" id="name" placeholder="Name on Card" required>
+                </div> 
+                <div class="mui-select pay-info-select payment-select pay-info col-sm-6 col-xs-12">
+                    <Select>
+                        <option value="">Duration</option>
+                        <option value="">Duration</option>
+                        <option value="">Duration</option>
+                        <option value="">Duration</option>
+                    </Select>
+                </div> 
+                <div class="mui-select pay-info payment-select col-sm-6 col-xs-12">
+                    <div class="multiselect">
+						<div class="selectBox" onclick="showCheckboxes()">
+						  <select>
+							<option>Select Payment Method</option>
+						  </select>
+						  <div class="overSelect"></div>
+						</div>
+						<div id="checkboxes">
+						    <label class="container">Paypal
+								<input type="radio" checked="checked" name="radio">
+								<span class="checkmark"></span>
+						    </label>
+							<label class="container">Apple Pay
+								<input type="radio" name="radio">
+								<span class="checkmark"></span>
+							</label>
+							<label class="container">Paypal
+								<input type="radio" name="radio">
+								<span class="checkmark"></span>
+							</label>
+							<label class="container">Apple Pay
+								<input type="radio" name="radio">
+								<span class="checkmark"></span>
+							</label>
+						</div>
+					</div>
+                </div>   
+
+                <div class="submit_2btn col-xs-12 text-center">
+                    <a href="#">Get Membership</a>
+                </div>
+
+
+            </form>
         </div>
+    </div>
+
+
+</div>
+<script>
+    $('.digit1 input').keyup(function() {
+        if ($(this).val().length == $(this).attr("maxlength")) {
+            $(this).next().focus();
+        }
+    });
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+</script>
 </div>

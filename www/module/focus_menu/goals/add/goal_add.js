@@ -3,6 +3,10 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
 
    //alert('add')
 
+   if (!$cookieStore.get('userinfo')) {
+      $location.path('/login')
+   }
+
 
    if (!$cookieStore.get('userinfo')) {
       $scope.loggedin = false;
@@ -57,6 +61,105 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
 
       })
 
+   }
+
+   $scope.get_focus_detail = function () {
+
+      loading.active();
+
+      loading.active();
+
+      var args = $.param({
+         user_id: $cookieStore.get('userinfo').id,
+         goal_id: $cookieStore.get('goal_id'),
+         apikey: apikey
+      })
+      $http({
+         headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+         },
+         method: 'POST',
+         url: app_url + '/get_goal_detail',
+         data: args
+      }).then(function (response) {
+         //alert();
+         loading.deactive();
+         res = response;
+         //  console.log(res.data.data)
+         if (res.data.ErrorCode == 0) {
+            $scope.goal_action_step = res.data.data.goal_action_step;
+            $scope.goal_name = res.data.data.goal_data.goal_name;
+            $scope.goal_days = res.data.data.goal_days;
+            $scope.goal_date = new Date(res.data.data.goal_data.target_date);
+            $scope.notification_one = new Date(res.data.data.goal_action_step[0].set_time);
+            $scope.notification_two = new Date(res.data.data.goal_action_step[1].set_time);
+            $scope.notification_three = new Date(res.data.data.goal_action_step[2].set_time);
+
+            $scope.action_step_one = res.data.data.goal_action_step[0].title;
+            $scope.action_step_two = res.data.data.goal_action_step[1].title;
+            $scope.action_step_three = res.data.data.goal_action_step[2].title;
+
+            setTimeout(function () {
+               $.each($scope.goal_days[0], function (i, v) {
+                  console.log(v.id)
+                  $scope.select_days_one.push(v.id);
+                  $('#select_day_one_' + v.id).addClass('select_day')
+               })
+            }, 500)
+            setTimeout(function () {
+               $.each($scope.goal_days[1], function (i, v) {
+                  console.log(v.id)
+                  $scope.select_days_two.push(v.id);
+                  $('#select_day_two_' + v.id).addClass('select_day')
+               })
+            }, 500)
+            setTimeout(function () {
+               $.each($scope.goal_days[2], function (i, v) {
+                  console.log(v.id)
+                  $scope.select_days_three.push(v.id);
+                  $('#select_day_three_' + v.id).addClass('select_day')
+               })
+            }, 500)
+
+            //   //   $scope.goal_data = res.data.data.goal_data;
+            //   var goal_date_one = '';
+            //   var goal_date_two = '';
+            //   var goal_date_three = '';
+
+            //   $scope.goal_days_one = res.data.data.goal_days[0];
+            //   $scope.goal_days_two = res.data.data.goal_days[1];
+            //   $scope.goal_days_three = res.data.data.goal_days[2];
+            //   $.each($scope.goal_days_one, function (key, val) {
+            //       console.log(key)
+            //       goal_date_one += val.short_name+","
+            //   })
+            //   $.each($scope.goal_days_two, function (key, val) {
+            //       console.log(key)
+            //       goal_date_two += val.short_name+","
+            //   })
+            //   $.each($scope.goal_days_three, function (key, val) {
+            //       console.log(key)
+            //       goal_date_three += val.short_name+","
+            //   })
+            //   setTimeout(function(){
+            //       $('#goal_0').html(goal_date_one)
+            //       $('#goal_1').html(goal_date_two)
+            //       $('#goal_2').html(goal_date_three)
+            //   },500)
+
+            //   console.log(goal_date_one);
+            $scope.truelist = true;
+         }
+
+      })
+   }
+
+   if ($cookieStore.get('goal_id')) {
+      $scope.get_days()
+      $scope.get_focus_detail();
+
+   } else {
+      $scope.get_days()
    }
 
 
@@ -190,6 +293,9 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
 
    $scope.save_goal = function (form) {
 
+      len1 = $scope.select_days_one.length;
+      len2 = $scope.select_days_two.length;
+      len3 = $scope.select_days_three.length;
 
       var error_str = '';
       if ($scope.goal_name == undefined || $scope.goal_name == '') {
@@ -230,21 +336,40 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
       collection_days = [$scope.select_days_one, $scope.select_days_two, $scope.select_days_three];
       collection_time = [$scope.notification_one, $scope.notification_two, $scope.notification_three];
 
-      var args = $.param({
-         user_id: $cookieStore.get('userinfo').id,
-         apikey: apikey,
-         goal_name: $scope.goal_name,
-         target_date: $scope.goal_date,
-         action_step_title: collection_step,
-         action_days: collection_days,
-         action_time: collection_time,
-      })
+      if (!$cookieStore.get('goal_id')) {
+         var args = $.param({
+            user_id: $cookieStore.get('userinfo').id,
+            apikey: apikey,
+            goal_name: $scope.goal_name,
+            target_date: $scope.goal_date,
+            action_step_title: collection_step,
+            action_days: collection_days,
+            action_time: collection_time,
+         })
+         fullurl = app_url + '/save_my_goal'
+      } else {
+
+         var args = $.param({
+            user_id: $cookieStore.get('userinfo').id,
+            apikey: apikey,
+            goal_name: $scope.goal_name,
+            target_date: $scope.goal_date,
+            action_step_title: collection_step,
+            action_days: collection_days,
+            action_time: collection_time,
+            goal_id: $cookieStore.get('goal_id')
+         })
+         fullurl = app_url + '/update_my_goal'
+      }
+
+
+
       $http({
          headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
          },
          method: 'POST',
-         url: app_url + '/save_my_goal',
+         url: fullurl,
          data: args
       }).then(function (response) {
          //alert();
@@ -252,6 +377,7 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
          res = response;
          console.log(res.data.data)
          if (res.data.ErrorCode == 0) {
+            $cookieStore.remove('goal_id')
             alert(res.data.message)
             $location.path('/focus_menu/goal/listing')
          } else {

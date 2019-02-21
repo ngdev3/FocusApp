@@ -1,113 +1,137 @@
 app.controller('payment_mode', function ($scope, $http, $location, $cookieStore, model, loading, $cordovaDialogs, $cordovaGeolocation, $rootScope, $routeParams) {
 
-    
+
     if (!$cookieStore.get('userinfo')) {
         $location.path("/login");
         return false;
     }
 
-    if(!$cookieStore.get('cart')){
-        alert('Some Problem in Cart');
-        $location.path('/cart');
-        return false;
-    }
 
-    if($rootScope.wallet_amount == 0 || $rootScope.wallet_amount == 0.00){
-        $("#checkbox1").attr("disabled", true);
-    }
-    // On ng-change of wallet checkbox for check that wallet have enough amount or not
-    $scope.selectwallet = function(){
-        if($('#checkbox1').prop('checked') == true){
-            
-            if($rootScope.wallet_amount >= $rootScope.finalTotal){
-                $scope.form.payby = '';
-                $scope.paybywallet = '1';
-                $scope.is_wallet_apply = '1';
-            }else{
-                $scope.paybywallet = '';
-                $scope.is_wallet_apply = '1';
-               
-            }
-            alert('Pay by Wallet');
-            //return false; 
-        }else{
-            $scope.paybywallet = '';
-            $scope.is_wallet_apply = '';
-        }
-       
-    }
-    if(!$cookieStore.get('coupon_data')){
-        var coupon_code = '';
-        var coupon_id = '';
-        var percentage = '';
-    }else{
-        var coupon_code = $cookieStore.get('coupon_data').coupon_code;
-        var coupon_id = $cookieStore.get('coupon_data').coupon_id;
-        var percentage = $cookieStore.get('coupon_data').percentage;
-    }
-
-    $scope.form ={}
-    $scope.payment = function(form){
-        console.log($scope.is_wallet_apply)
-        if($scope.paybywallet != 1){
-        if ($scope[form].$error) {
-            var error_str = '';
-                if ($scope[form].payby.$error.required !== undefined) {
-                    error_str += "Payment Method";
-                }
-                if (error_str !== '') {
-                    error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
-                   alert(error_str);
-                    return false;
-                }
-        }
-    }
-        if($scope.form.payby == '2'){
-            alert('Online Payment');
-            return false;
-        }
-        console.log($scope.form.payby)
-        loading.active();
-
+    $scope.form = {}
+    $scope.plans = function () {
         var args = $.param({
-            user_id : $cookieStore.get('userinfo').uid,
-            country_id : sessionStorage.country,
-            payment_mod : $scope.form.payby,
-            is_wallet_apply : $scope.is_wallet_apply,
-            address : $cookieStore.get('aid'),
-            coupon_code : coupon_code,
-            coupon_id : coupon_id,
-            percentage : percentage,
+            user_id: $cookieStore.get('userinfo').id,
+            apikey: apikey
         });
-        
+
         $http({
             headers: {
                 //'token': '40d3dfd36e217abcade403b73789d732',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            url: app_url + '/cart/place_order',
-            data: args 
+            url: app_url + '/get_plans',
+            data: args
 
         }).then(function (response) {
 
             res = response;
-           if(res.data.data.status == 'success')
-           {
-                $cookieStore.put('order_id',res.data.data.order_id);
-                $cookieStore.remove("coupon_data");
-                $rootScope.usercartvalue();
-                $location.path('/thankyou');
-           }
-           else{
-               alert("Some Problem in Payment Check Your Cart Again");
-                $location.path('/cart');
-           }
-
+            console.log(res)
+            if (res.data.ErrorCode == 0) {
+                $scope.morningfocus = res.data.data;
+            } else {
+                alert(res.data.message)
+            }
         }).finally(function () {
             loading.deactive();
         });
-       
-        
+    }
+
+    $scope.get_method = function () {
+        var args = $.param({
+            user_id: $cookieStore.get('userinfo').id,
+            apikey: apikey
+        });
+
+        $http({
+            headers: {
+                //'token': '40d3dfd36e217abcade403b73789d732',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            url: app_url + '/get_pay_method',
+            data: args
+
+        }).then(function (response) {
+
+            res = response;
+            console.log(res)
+            if (res.data.ErrorCode == 0) {
+                $scope.get_pay_method = res.data.data;
+            } else {
+                alert(res.data.message)
+            }
+        }).finally(function () {
+            loading.deactive();
+        });
+    }
+
+    // $scope.payment_type = 1;
+    $scope.get_payment = function (form) {
+
+        if ($scope[form].$error) {
+            //  alert("Error");
+            var error_str = '';
+            if ($scope[form].email_id.$error.required !== undefined || $scope[form].email_id.$error.email) {
+                error_str += "Email Id, ";
+            }
+            if ($scope[form].fname.$error.required !== undefined) {
+                error_str += "Full Name. ";
+            }
+            if ($scope[form].p_number.$error.required !== undefined || $scope[form].email_id.$error.tel) {
+                error_str += "Phone Number, ";
+            }
+            if ($scope[form].card_num.$error.required !== undefined || $scope[form].email_id.$error.number) {
+                error_str += "Card Number, ";
+            }
+            if ($scope[form].name_card.$error.required !== undefined) {
+                error_str += "Name on Card, ";
+            }
+            if ($scope[form].select_plans.$error.required !== undefined) {
+                error_str += "Select Duration, ";
+            }
+            if ($scope[form].payment_type.$error.required !== undefined) {
+                error_str += "Payment Method, ";
+            }
+
+            if (error_str !== '') {
+                error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
+                alert(error_str);
+                // model.show('Alert', error_str);
+            }
+        };
+        if ($scope[form].$valid) {
+            console.log($scope)
+            loading.active();
+
+            var args = $.param({
+                apikey:api_key,
+                user_id: $cookieStore.get('userinfo').id,
+                card_num:$scope.card_num,
+                fname:$scope.fname,
+                p_number:$scope.p_number,
+                email_id:$scope.email_id,
+                name_card:$scope.name_card,
+                select_plans:$scope.select_plans,
+                payment_type:$scope.payment_type,
+            });
+
+         //   alert(args)
+
+            $http({
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                method: 'POST',
+                url: app_url + '/login',
+                data: args //forms user object
+
+            }).then(function (response) {
+
+
+            }).finally(function () {
+                loading.deactive();
+            });
+        }
     }
 });

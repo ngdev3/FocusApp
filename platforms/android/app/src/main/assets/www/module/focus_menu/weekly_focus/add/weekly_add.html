@@ -7,7 +7,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container no-padding">
                 <ul class="nav navbar-nav top_header">
-                    <li class="menu_icon back_icon"><a href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
                     <li class="logo_name"><a class="text-left back">WEEKLY FOCUS</a></li>
                 </ul>
 
@@ -19,85 +19,43 @@
 </header>
 <!-- END HEADER -->
 <div class="privacy_policy pt-10 mt-50">
+		<form method="post" name="loginform" novalidate>
     <div class="weeks pd">
 		<ul class="week-days">    
-			<li><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Mon</p>
-				</div>
-			</div></a></li>
-			<li><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Tue</p>
-				</div>
-			</div></a></li>
-			<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Wed</p>
-				</div>
-			</div></a></li>
-			<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Thus</p>
-				</div>
-			</div></a></li>
-			<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Fri</p>
-				</div>
-			</div></a></li>
-			<li><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Sat</p>
-				</div>
-			</div></a></li>
-			<li class="select_day"><a href="javascript:void(0)"><div class="all-weeks">
-				<div class="monday">
-				   <p>Sun</p>
-				</div>
-			</div></a></li>
+			<span ng-repeat="x in morningfocus">
+
+				<li id="select_day_{{x.id}}" style="margin-right: 7px;">
+					<a href="javascript:void(0)">
+						<div class="all-weeks">
+							<div class="monday" ng-click="select_day(x.id)">
+								<p>{{x.short_name | ucwords}}</p>
+							</div>
+						</div>
+					</a>
+				</li>
+
+			</span>
         </ul>			
     </div>
     
-	<form class="">
+	
         <div class="form-group">
             <div class="set-time-head">
 			    <h3>Add Title</h3>
 			</div>	
-            <input type="title" class="form-control form-pay" id="title" aria-describedby="emailHelp" placeholder="Enter Title here">
-        </div>
-	</form>
+            <!-- <input type="title" class="form-control form-pay" id="title" aria-describedby="emailHelp" placeholder="Enter Title here"> -->
+			<input type="title" class="form-control pl-10 pt-20" placeholder="Enter Title here" name="meeting_name"
+			ng-model="meeting_name" required>
+		</div>
+	
 	<div class="set-time">
 	    <div class="set-time-head">
 		    <h3>Set Time</h3>
 		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="Hour">
-			    <option value="">Hour</option>
-				<option value="">0</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-			</Select>
-		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="Min">
-			    <option value="">Min</option>
-				<option value="">0</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-			</Select>
-		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="AM">
-				<option value="">AM</option>
-				<option value="">PM</option>
-			</Select>
+		<div class="timepicker_div">
+			<timepicker-pop input-time="set_time" ng-model="set_time" required class="input-group"
+				show-meridian='showMeridian'>
+			</timepicker-pop>
 		</div>
     </div>
     <div class="set-time">
@@ -105,14 +63,12 @@
 		    <h3>Set Reminder</h3>
 		</div>
 		<div class="mui-select my-visn weekly-focuss mr-15">
-			<Select class="Select-Min">
-			    <option value="">Select Min</option>
-				<option value="">0</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
+			<Select class="Select-Min" name="set_reminder" ng-model="set_reminder" required>
+				<option value="">Select Min</option>
+				<option value="15">15 min</option>
+				<option value="30">30 min</option>
+				<option value="45">45 min</option>
+				<option value="01">1 hr</option>
 			</Select>
 		</div>
     </div>
@@ -120,33 +76,11 @@
 	    <div class="set-time-head">
 		    <h3>Set Notification</h3>
 		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="Hour">
-			    <option value="">Hour</option>
-				<option value="">0</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-			</Select>
-		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="Min">
-			    <option value="">Min</option>
-				<option value="">0</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-			</Select>
-		</div>
-		<div class="mui-select my-visn weekly-focuss col-sm-4 col-xs-4">
-			<Select class="AM">
-				<option value="">AM</option>
-				<option value="">PM</option>
-			</Select>
+		
+		<div class="timepicker_div">
+			<timepicker-pop input-time="set_time_notification" ng-model="set_time_notification" required class="input-group"
+				show-meridian='showMeridian'>
+			</timepicker-pop>
 		</div>
     </div>
     
@@ -154,13 +88,13 @@
 	    <button class="measure">Measure Me</button>
 	</div>
 	<div class="col-sm-6 col-xs-6 save-me">
-	    <button class="measure">Save</button>
+	    <button class="measure"  ng-click="save_goal('loginform')">Save</button>
 	</div>
 	<div class="col-sm-6 col-xs-6 share-me">
 	    <button class="measure">Share</button>
 	</div>
 
-
+</form>
 </div>
 <script>
     $('.digit1 input').keyup(function() {

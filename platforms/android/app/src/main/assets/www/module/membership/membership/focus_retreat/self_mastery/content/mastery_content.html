@@ -29,11 +29,71 @@
     </div>
     <div class="vision-listing">
         <div class="col-sm-12 col-xs-12" ng-if="truelist">
-            <div class="self-mastery" ng-repeat="x in morningfocus">
-                <div class="self-mastery-head">
-                    <h3>{{x.title | ucwords | limitTo:30}}{{x.title.length > 30 ? '...' : ''}}</h3>
+            <div class="self-mastery" >
+                <div class="self-mastery-head" >
+                    <h3>{{first_cat.title | ucwords | limitTo:30}}</h3>
                 </div>
-                <div class="vision-listing-content bg-color">
+                <div class="vision-listing-content bg-color" ng-repeat="x in first">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head">
+                    <h3>{{second_cat.title | ucwords | limitTo:30}}</h3>
+                </div> 
+                <div class="vision-listing-content bg-color1" ng-repeat="x in second">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head">
+                    <h3>{{third_cat.title | ucwords | limitTo:30}}</h3>
+                </div>
+                <div class="vision-listing-content bg-color2" ng-repeat="x in third">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head">
+                    <h3>{{fourth_cat.title | ucwords | limitTo:30}}</h3>
+                </div>
+                <div class="vision-listing-content bg-color4" ng-repeat="x in fourth">
                     <div class="content-para-mastery">
                         <p>{{x.description | ucwords}}</p>
                     </div>

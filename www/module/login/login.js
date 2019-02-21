@@ -90,8 +90,10 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                 email: $scope.email_id,
                 password: $scope.userpassword,
                 apikey:api_key,
-                login_type:device_type
+                login_type:'Android'
             });
+
+         //   alert(args)
 
             $http({
                 headers: {
@@ -104,13 +106,11 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
             }).then(function (response) {
                 console.log("---------------");
                 console.log(response);
-                
+               // alert(response)
                 if (!response.data.ErrorCode) {
                     db.transaction(function (tx) {
                         tx.executeSql('INSERT INTO userinfo ( uid, fname, email_address, lname, profile_image) VALUES ("' + response.data.data.id + '","' + response.data.data.fname + '","' + response.data.data.email + '","' + response.data.data.lname + '","' + response.data.data.profile_image + '")');
                     });
-
-                   
                     $cookieStore.put('userinfo', response.data.data);
                     $location.path('/dashboard/home');
 

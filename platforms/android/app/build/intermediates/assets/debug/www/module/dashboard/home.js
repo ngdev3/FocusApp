@@ -2,15 +2,11 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
     
 
     if (!$cookieStore.get('userinfo')) {
-        $scope.loggedin = false;
+        $location.path('/login');
        
     }
 
-    if ($cookieStore.get('userinfo')) {
-        $scope.loggedin = true;
-        
-    }
-    
+    $scope.username = $cookieStore.get('userinfo').fname + " " + $cookieStore.get('userinfo').lname
    
 
     $scope.login = function(){
@@ -30,7 +26,8 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
     }
 
     $scope.queries = function(){
-        $location.path('/queries');
+        alert('Chat API is Needed ');
+        // $location.path('/queries');
     }
 
     $scope.change_password = function(){
@@ -42,7 +39,8 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
     }
 
     $scope.contactus = function(){
-        $location.path('/contactus');
+        alert('Coming Soon');
+        // $location.path('/contactus');
     }
 
     $scope.terms = function(){

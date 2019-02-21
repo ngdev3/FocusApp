@@ -1,8 +1,9 @@
 // var project_name = '/focusweb/webservices/Webapi';
 var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-var base_url = 'http://192.168.31.199'
+// var base_url = 'http://192.168.240.1'
 // var base_url = 'http://192.168.1.43'
+var base_url = 'http://192.168.31.199'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
@@ -15,7 +16,7 @@ sessionStorage.seq = 0;
 var lat;
 var lng;
 var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
-var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova','pascalprecht.translate']);
+var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
@@ -197,6 +198,10 @@ app.config(function ($routeProvider, $httpProvider) {
             templateUrl: "module/forgot/newpassword.html"
 
         })
+        .when("/payment_info", {
+            templateUrl: "module/payment/payment_mode.html"
+
+        })
 
 
 });
@@ -224,7 +229,7 @@ app.filter('modulo', function () {
     };
 });
 
-app.run(function ($translate, $rootScope, $cookieStore, loading, model, $http, $location, $interval) {
+app.run(function ( $rootScope, $cookieStore, loading, model, $http, $location, $interval) {
 
 
 
@@ -303,33 +308,33 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
-    // window.alert = function (type, content) {
+    window.alert = function (type, content) {
 
-    //     if (content == '' || content == undefined) {
+        if (content == '' || content == undefined) {
 
-    //         if (typeof type === 'string') {
+            if (typeof type === 'string') {
 
-    //             var j = type.toLowerCase();
-    //             var a = j.indexOf("successfully");
-    //             var b = j.indexOf("successful");
-    //             var c = j.indexOf("success");
-    //             // //console.log(c)
-    //             if (a >= 0 || b >= 0 || c >= 0) {
-    //                 model.show('Info', type);
-    //             } else {
-    //                 model.show('Alert', type);
-    //             }
+                var j = type.toLowerCase();
+                var a = j.indexOf("successfully");
+                var b = j.indexOf("successful");
+                var c = j.indexOf("success");
+                // //console.log(c)
+                if (a >= 0 || b >= 0 || c >= 0) {
+                    model.show('Info', type);
+                } else {
+                    model.show('Alert', type);
+                }
 
-    //         } else {
+            } else {
 
-    //             //it will show when u passed the object
-    //             model.show('Info', JSON.stringify(type));
-    //         }
-    //     } else {
+                //it will show when u passed the object
+                model.show('Info', JSON.stringify(type));
+            }
+        } else {
 
-    //         model.show(type, content);
-    //     }
-    // }
+            model.show(type, content);
+        }
+    }
 
 
     $rootScope.back = function () {

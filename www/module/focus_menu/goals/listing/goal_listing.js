@@ -1,11 +1,19 @@
 app.controller('goal_listing', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
 // alert('li')
+
+if (!$cookieStore.get('userinfo')) {
+    $location.path('/login')
+}
+
+
     $scope.backwithremove = function(){
         window.history.back();
     } 
+    $cookieStore.remove('goal_id');
 
     $scope.add_goal = function(){
+        $cookieStore.remove('goal_id');
       $location.path('/focus_menu/goal/add');
     } 
 

@@ -7,7 +7,7 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container no-padding">
 					<ul class="nav navbar-nav top_header">
-						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+						<li class="menu_icon back_icon"><a ng-click="back_weekly()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
 						<li class="logo_name"><a class="text-left back">Weekly Focus</a></li>
 	
 					</ul>
@@ -19,15 +19,15 @@
 		<!-- MOBILE-MENU-AREA END -->
 	</header>
 	<!-- END HEADER -->
-	<div class="pl-10 pr-10 pt-5 mt-50">
+	<div class="pl-10 pr-10 pt-5 mt-50" ng-init="get_morning_focus()">
 		<div class="weekly-process">
 			
-			<div class="weekly-up section-1 weekly-color-up-1" ng-click="weekly_detail()">
-				<div class="week-title">Schedule Your Day</div>
-				<div class="week-date">Mon, Tue, Wed, Sat</div>
-				<div class="week-time">5:10 AM</div>
+			<div class="weekly-up section-1 weekly-color-up-1" ng-click="weekly_details(x.id)" ng-class="{'weekly-color-up-2':$index % 2 == 0}" ng-repeat="x in morningfocus">
+				<div class="week-title">{{x.weekly_title | ucwords}}</div>
+				<div class="week-date"><span ng-repeat="y in x.days">{{y.short_name | ucwords}}, </span></div>
+				<div class="week-time">{{x.set_time | myTimeFormat}}</div>
 			</div>
-			<div class="weekly-up section-2 weekly-color-up-2">
+			<!-- <div class="weekly-up section-2 weekly-color-up-2">
 				<div class="week-title">Schedule Your Day</div>
 				<div class="week-date">Mon, Tue, Wed, Sat</div>
 				<div class="week-time">5:10 AM</div>
@@ -46,11 +46,11 @@
 				<div class="week-title">Schedule Your Day</div>
 				<div class="week-date">Mon, Tue, Wed, Sat</div>
 				<div class="week-time">5:10 AM</div>
-			</div>
+			</div> -->
 			
 		</div>
 		<div class="add-btn-btn" >
-			<div class="add-new-btn floating_add_btn" ng-click=""><a>+</a></div>
+			<div class="add-new-btn floating_add_btn" ng-click="add_weekly()"><a>+</a></div>
 		</div>
 	</div>
 	

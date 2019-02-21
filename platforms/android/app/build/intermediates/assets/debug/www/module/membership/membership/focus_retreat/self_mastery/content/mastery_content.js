@@ -45,7 +45,14 @@ app.controller('mastery_content', function ($rootScope, $scope, $http, $location
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
-               $scope.morningfocus = res.data.data;
+               $scope.first = res.data.data.first;
+               $scope.fourth = res.data.data.fourth;
+               $scope.second = res.data.data.second;
+               $scope.third = res.data.data.third;
+               $scope.first_cat = res.data.data.cat[0];
+               $scope.second_cat = res.data.data.cat[1];
+               $scope.third_cat = res.data.data.cat[2];
+               $scope.fourth_cat = res.data.data.cat[3];
                $scope.truelist = true;
             }
                 

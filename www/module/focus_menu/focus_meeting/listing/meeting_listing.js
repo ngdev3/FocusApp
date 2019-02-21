@@ -1,11 +1,15 @@
 app.controller('meeting_listing', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
-// alert('li')
+    if (!$cookieStore.get('userinfo')) {
+        $location.path('/login')
+    }
+
     $scope.backwithremove = function(){
         window.history.back();
     } 
 
     $scope.add_meeting = function(){
+        $cookieStore.remove('meeting_id');
       $location.path('focus_menu/focus_meeting/add');
     } 
 
@@ -46,7 +50,12 @@ app.controller('meeting_listing', function ($rootScope, $scope, $http, $location
     $scope.meeting_details = function(id){
 		$cookieStore.put('meeting_id', id);
 		$location.path('/focus_menu/focus_meeting/detail');
-	}
+    }
+    
+
+    $scope.back_weekly = function(){
+        $location.path('/focus_menu');
+      } 
 
    
 });

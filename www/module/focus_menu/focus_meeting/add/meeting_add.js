@@ -2,15 +2,9 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 
 	
 	if (!$cookieStore.get('userinfo')) {
-		$scope.loggedin = false;
-  
-	 }
-  
-	 if ($cookieStore.get('userinfo')) {
-		$scope.loggedin = true;
-  
-	 }
-	 
+        $location.path('/login')
+    }
+   	 
 	 $scope.mytime = new Date();
 	$scope.showMeridian = true;
 	$scope.goaltitle = [1, 2, 3]

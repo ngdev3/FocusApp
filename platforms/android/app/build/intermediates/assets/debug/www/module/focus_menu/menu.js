@@ -17,6 +17,11 @@ app.controller('menu', function ($rootScope, $scope, $http, $location, $interval
       $location.path('focus_menu/weekly/listing');
    } 
 
+
+   $scope.back_weekly = function(){
+      $location.path('dashboard/home');
+   } 
+
    $scope.focus_meeting = function(){
       $location.path('focus_menu/focus_meeting/listing');
    }  

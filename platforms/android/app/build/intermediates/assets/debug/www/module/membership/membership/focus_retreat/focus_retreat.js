@@ -2,7 +2,7 @@ app.controller('focus_retreat', function ($rootScope, $scope, $http, $location, 
 
     
     $scope.mastery = function(){
-        $location.path('/membership/membership_plans/focus_retreat/self_mastery')
+        $location.path('/membership/membership_plans/focus_retreat/self_mastery/content')
     }
 
     $scope.leaderships = function(){

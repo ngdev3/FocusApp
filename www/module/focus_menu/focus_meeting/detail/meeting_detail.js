@@ -1,7 +1,16 @@
 app.controller('meeting_detail', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
    
-   
+    if (!$cookieStore.get('userinfo')) {
+        $location.path('/login')
+    }
+    
+    if (!$cookieStore.get('meeting_id')) {
+        $location.path('/focus_menu/focus_meeting/listing')
+    }
+
+
+
    $scope.edit_meeting = function(){
       $location.path('focus_menu/focus_meeting/add');
    } 

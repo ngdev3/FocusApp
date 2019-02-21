@@ -18,6 +18,7 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
@@ -26,8 +27,15 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" /> <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
     <permission
         android:name="com.focus.androidapp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -35,11 +43,6 @@
     <uses-permission android:name="com.focus.androidapp.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Required, makes sure notifications are delivered on time. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--
- Required so the device vibrates on receiving a push notification.
-         Vibration settings of the device still apply.
-    -->
-    <uses-permission android:name="android.permission.VIBRATE" />
     <!--
  Use to restore notifications the user hasn't interacted with.
          They could be missed notifications if the user reboots their device if this isn't in place.
@@ -83,6 +86,16 @@
             </intent-filter>
         </activity>
 
+        <provider
+            android:name="org.apache.cordova.camera.FileProvider"
+            android:authorities="com.focus.androidapp.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/camera_provider_paths" />
+        </provider>
+
         <amazon:enable-feature
             xmlns:amazon="http://schemas.amazon.com/apk/res/android"
             android:name="com.amazon.device.messaging"
@@ -103,15 +116,23 @@
             </intent-filter>
         </receiver>
 
-        <provider
-            android:name="org.apache.cordova.camera.FileProvider"
-            android:authorities="com.focus.androidapp.provider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/camera_provider_paths" />
-        </provider>
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
 
         <meta-data
             android:name="onesignal_app_id"
