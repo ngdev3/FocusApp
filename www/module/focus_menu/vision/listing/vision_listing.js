@@ -66,7 +66,8 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
       
 
     $scope.add_visions = function(){
-      // return
+      alert('We are Working on it')
+      return
 
       $location.path('/focus_menu/vision/add');
     } 

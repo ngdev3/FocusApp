@@ -89,8 +89,12 @@ app.controller('forgot', function ($scope, $http, $location, $cookieStore, model
 
     };
 
-    /*  $scope.login = function () {
-         $location.path('/login');
-     } */
+    $scope.backwithremove = function(){
+        $location.path('/focus_menu');
+    } 
+
+     $scope.login = function () {
+          $location.path('/login');
+     } 
 
 });

@@ -49,10 +49,15 @@ app.controller('mastery_content', function ($rootScope, $scope, $http, $location
                $scope.fourth = res.data.data.fourth;
                $scope.second = res.data.data.second;
                $scope.third = res.data.data.third;
+
                $scope.first_cat = res.data.data.cat[0];
+
                $scope.second_cat = res.data.data.cat[1];
+
                $scope.third_cat = res.data.data.cat[2];
+
                $scope.fourth_cat = res.data.data.cat[3];
+               
                $scope.truelist = true;
             }
                 

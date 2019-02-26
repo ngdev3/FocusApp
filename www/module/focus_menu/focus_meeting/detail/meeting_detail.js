@@ -54,6 +54,19 @@ app.controller('meeting_detail', function ($rootScope, $scope, $http, $location,
 
    }
 
+
+   
+
+ if ($cookieStore.get('meeting_id')) {
+    $scope.get_days()
+    $scope.get_focus_detail();
+ 
+ }else{
+    $scope.get_days()
+ }
+
+
+
    $scope.edit_focus_detail = function(id){
 
       $location.path('/focus_menu/focus_meeting/add');

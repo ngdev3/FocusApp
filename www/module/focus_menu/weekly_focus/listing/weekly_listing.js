@@ -36,8 +36,12 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
-               $scope.morningfocus = res.data.data.focus_data;
-               $scope.truelist = true;
+
+              if(res.data.data.focus_data.length > 0){
+
+                $scope.morningfocus = res.data.data.focus_data;
+                $scope.truelist = true;
+              }
             }
                 
         })
