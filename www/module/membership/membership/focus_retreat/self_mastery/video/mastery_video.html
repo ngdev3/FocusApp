@@ -8,7 +8,7 @@
             <nav class="navbar navbar-inverse">
               <div class="container no-padding">
                 <ul class="nav navbar-nav top_header">
-                    <li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)"   ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="menu_icon back_icon"><a ng-click="backtoback()" href="javascript:void(0)"   ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
                     <li class="logo_name"><a class="text-left back">SELF MASTERY</a></li>
                     
                   
@@ -30,7 +30,8 @@
         <div class="vision-listing">
             <div class="self-mastery-video" ng-repeat="x in morningfocus">
                 <div class="mastery-video">
-                    <iframe width="100%" height="240" src="https://www.youtube.com/embed/UBMk30rjy0o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="220" src="{{trustSrc(x.url)}}" frameborder="0" allowfullscreen></iframe>
+      
                 </div>
                 <div class="vid-detail">
                     <p>{{x.title | ucwords | limitTo:30}}{{x.title.length > 30 ? '...' : ''}}</p>

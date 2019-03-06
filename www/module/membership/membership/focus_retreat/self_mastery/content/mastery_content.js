@@ -20,6 +20,11 @@ app.controller('mastery_content', function ($rootScope, $scope, $http, $location
         
     }
 
+    $scope.backtoback = function(){
+        $location.path('/membership/membership_plans/focus_retreat')
+    }
+    
+
     console.log($cookieStore.get('userinfo').id)
 
     $scope.truelist = false;

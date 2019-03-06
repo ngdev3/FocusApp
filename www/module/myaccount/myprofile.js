@@ -5,10 +5,16 @@ app.controller('myprofile', function ($scope, $http, $location, $interval, $cook
         $location.path('/login');
        
     }
+console.log($cookieStore.get('userinfo').profile_image)
+    if($cookieStore.get('userinfo').profile_image !== undefined || $cookieStore.get('userinfo').profile_image !== ''){
+        $('#bckground').css('background-image', 'url(' + image_url + $cookieStore.get('userinfo').profile_image + ')');
+        $('#profilepic').attr('src',image_url + $cookieStore.get('userinfo').profile_image)
+    }else{
+        $('#bckground').css('background-image', 'url(assets/img/profile-pic.png)');
+        $('#profilepic').css('background-image', 'url(assets/img/upload-pic1.png)');
 
-    $('#bckground').css('background-image', 'url(' + $cookieStore.get('userinfo').profile_image + ')');
-    $('#profilepic').attr('src',$cookieStore.get('userinfo').profile_image)
-
+    }
+    
 
 
     if ($cookieStore.get('ad_image')) {
@@ -35,24 +41,25 @@ app.controller('myprofile', function ($scope, $http, $location, $interval, $cook
         }
     
         function onSuccess(imageURI) {
-            loading.active()
+           loading.active()
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = 'random.jpg';//imageURI.substr(imageURI.lastIndexOf('/') + 1);
         
             var params = {};
-            params.user_id =$cookieStore.get('userinfo').id;
-           // params.value2 = "param";
-    
+            params.user_id = $cookieStore.get('userinfo').id;
+            options.chunkedMode = false;
             options.params = params;
-
             var ft = new FileTransfer();
-            ft.upload(imageURI, app_url + "/upload_profile",
+            ft.upload(imageURI, encodeURI(app_url + "/upload_profile"),
             function (msg) {
-             //   alert(JSON.stringify(msg))
+              // alert(JSON.stringify(msg))
                 var res = JSON.parse(msg.response);
+
                 $('#bckground').css('background-image', 'url(' + res.data.result + ')');
                 $('#profilepic').attr('src',res.data.result)
+             
+                // $cookieStore.put('userinfo',data);
                 $cookieStore.put('ad_image', res.data.result);
                 alert('Profile image successfully updated')
                 setTimeout(function(){

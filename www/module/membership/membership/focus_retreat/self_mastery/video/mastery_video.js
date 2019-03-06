@@ -1,4 +1,4 @@
-app.controller('mastery_video', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
+app.controller('mastery_video', function ($sce, $rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
 
     $scope.contents = function(){
@@ -18,6 +18,19 @@ app.controller('mastery_video', function ($rootScope, $scope, $http, $location, 
         $scope.loggedin = true;
         
     }
+
+    $scope.backtoback = function(){
+        $location.path('/membership/membership_plans/focus_retreat')
+    }
+
+
+    $scope.trustSrc = function(src) {
+         setTimeout(function(){
+            
+        loading.deactive();
+    },500)
+        return $sce.trustAsResourceUrl(src);
+      }
 
     console.log($cookieStore.get('userinfo').id)
 
@@ -40,7 +53,7 @@ app.controller('mastery_video', function ($rootScope, $scope, $http, $location, 
             data : args   
         }).then(function (response) {
             //alert();
-            loading.deactive();
+          
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){

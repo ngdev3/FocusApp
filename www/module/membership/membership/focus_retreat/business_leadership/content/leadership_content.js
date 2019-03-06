@@ -7,7 +7,9 @@ app.controller('leadership_content', function ($rootScope, $scope, $http, $locat
         $location.path('/membership/membership_plans/focus_retreat/leadership/video')
     }
 
-
+    $scope.backtoback = function(){
+        $location.path('/membership/membership_plans/focus_retreat')
+    }
         
     if (!$cookieStore.get('userinfo')) {
         $scope.loggedin = false;

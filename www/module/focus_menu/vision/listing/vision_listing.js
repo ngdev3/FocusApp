@@ -66,8 +66,8 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
       
 
     $scope.add_visions = function(){
-      alert('We are Working on it')
-      return
+      // alert('We are Working on it')
+      // return
 
       $location.path('/focus_menu/vision/add');
     } 
@@ -75,6 +75,51 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
     $scope.vision_detail = function(){
       $location.path('/focus_menu/vision/detail');
     } 
+
+    
+    $scope.truelist = false;
+    $scope.get_vision_list = function () {
+
+        loading.active();
+
+        var args = $.param({
+            user_id : $cookieStore.get('userinfo').id,
+            apikey : apikey
+        })
+        $http({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            url: app_url + '/get_vision_list',
+            data : args   
+        }).then(function (response) {
+            //alert();
+            loading.deactive();
+            res = response;
+            console.log(res.data.data)
+            if(res.data.ErrorCode == 0){
+
+              if(res.data.data.focus_data.length > 0){
+
+                $scope.morningfocus = res.data.data.focus_data;
+                $scope.truelist = true;
+              }
+            }
+                
+        })
+
+    }
+    
+    $scope.weekly_details = function(id){
+		$cookieStore.put('weekly_id', id);
+		$location.path('/focus_menu/weekly/detail');
+    }
+    
+    $scope.back_weekly = function(){
+        $location.path('/focus_menu');
+      } 
+
 
   
 

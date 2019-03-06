@@ -1,13 +1,14 @@
-// var project_name = '/focus/webservices/Webapi';
-var project_name = '/Projects2018/pioneer/webservices/Webapi';
+var project_name = '/focus/webservices/Webapi';
+// var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-// var base_url = 'http://projects.tekshapers.in'
+var base_url = 'http://projects.tekshapers.in'
 // var base_url = 'http://192.168.1.43'
-var base_url = 'http://192.168.31.199'
+// var base_url = 'http://192.168.31.199'
 // var base_url = 'http://192.168.137.1'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
+var image_url = base_url + '/Projects2018/pioneer/uploads/profile_image/'
 var api_key = 'focus_Lkjhg546dfhkduhrg43567';
 var apikey = 'focus_Lkjhg546dfhkduhrg43567';
 var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
@@ -21,8 +22,17 @@ var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', '
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+  //  console.log();
+    sessionStorage.u_ids = device.uuid;
+    uuid = device.uuid;
+}
+
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
+
 
 function networkInfo() {
     var networkState = navigator.connection.type;
@@ -309,33 +319,33 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
-    window.alert = function (type, content) {
+    // window.alert = function (type, content) {
 
-        if (content == '' || content == undefined) {
+    //     if (content == '' || content == undefined) {
 
-            if (typeof type === 'string') {
+    //         if (typeof type === 'string') {
 
-                var j = type.toLowerCase();
-                var a = j.indexOf("successfully");
-                var b = j.indexOf("successful");
-                var c = j.indexOf("success");
-                // //console.log(c)
-                if (a >= 0 || b >= 0 || c >= 0) {
-                    model.show('Info', type);
-                } else {
-                    model.show('Alert', type);
-                }
+    //             var j = type.toLowerCase();
+    //             var a = j.indexOf("successfully");
+    //             var b = j.indexOf("successful");
+    //             var c = j.indexOf("success");
+    //             // //console.log(c)
+    //             if (a >= 0 || b >= 0 || c >= 0) {
+    //                 model.show('Info', type);
+    //             } else {
+    //                 model.show('Alert', type);
+    //             }
 
-            } else {
+    //         } else {
 
-                //it will show when u passed the object
-                model.show('Info', JSON.stringify(type));
-            }
-        } else {
+    //             //it will show when u passed the object
+    //             model.show('Info', JSON.stringify(type));
+    //         }
+    //     } else {
 
-            model.show(type, content);
-        }
-    }
+    //         model.show(type, content);
+    //     }
+    // }
 
 
     $rootScope.back = function () {
@@ -875,19 +885,29 @@ function onDeviceReady() {
     document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
+function onConfirm(buttonIndex) {
+    // alert(buttonIndex)
+    if (buttonIndex == 1) {
 
+        navigator.app.exitApp();
+
+    } else if(buttonIndex == 2){
+
+        $location.path('/login');
+
+    }else{
+        
+        $location.path('/login');
+        
+    }
+}
 
 function onBackKeyDown(ev) {
     var loads = angular.element(document.querySelector('.obscure'));
     loads.removeClass('show').addClass('hide');
     var home = $("#containernew div:first-child").hasClass("homes");
     if (home) {
-        if (confirm('Do You Want To Exit App!')) {
-
-            navigator.app.exitApp();
-        } else {
-            $location.path('/login');
-        }
+        navigator.notification.confirm('Do You Want To Exit App!',onConfirm,'Exit App',['Exit','Cancel'])
     } else {
         sessionStorage.back = "";
         navigator.app.backHistory();
@@ -966,6 +986,7 @@ app.filter('myTimeFormat', function myDateFormat($filter) {
         return $filter('date')(tempdate, "hh:mma");
     }
 });
+
 app.filter('myTimecustomFormat', function myDateFormat($filter) {
     return function (text) {
         //  alert(text)

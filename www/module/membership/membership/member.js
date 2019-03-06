@@ -17,4 +17,8 @@ app.controller('member', function ($rootScope, $scope, $http, $location, $interv
         $location.path('/membership/membership_plans/focus_retreat')
     }
 
+    $scope.backtodash = function(){
+        $location.path('/dashboard/home')
+    }
+
 });
