@@ -1,10 +1,13 @@
-app.controller('leadership_video', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
+app.controller('leadership_video', function ($sce, $rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
     $scope.contents = function(){
-        $location.path('/membership/membership_plans/focus_retreat/self_mastery/content')
+        $location.path('/membership/membership_plans/focus_retreat/leadership/content')
     }
     $scope.video = function(){
-        $location.path('/membership/membership_plans/focus_retreat/self_mastery/video')
+        $location.path('/membership/membership_plans/focus_retreat/leadership/video')
+    }
+    $scope.backtoback = function(){
+        $location.path('/membership/membership_plans/focus_retreat')
     }
 
 
@@ -18,6 +21,14 @@ app.controller('leadership_video', function ($rootScope, $scope, $http, $locatio
         $scope.loggedin = true;
         
     }
+    $scope.videoloading = false;
+    $scope.trustSrc = function(src) {
+         setTimeout(function(){
+            
+        loading.deactive();
+    },500)
+        return $sce.trustAsResourceUrl(src);
+      }
 
     console.log($cookieStore.get('userinfo').id)
 
@@ -40,7 +51,7 @@ app.controller('leadership_video', function ($rootScope, $scope, $http, $locatio
             data : args   
         }).then(function (response) {
             //alert();
-            loading.deactive();
+          
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){

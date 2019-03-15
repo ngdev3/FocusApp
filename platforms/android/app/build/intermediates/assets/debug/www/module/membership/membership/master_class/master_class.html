@@ -23,7 +23,9 @@
 
         <div class="main-video-sprt" ng-repeat="x in morningfocus">
             <div class="play-video">
-                <img src="assets/img/focus-video-1.png" alt="">
+                <!-- <img src="assets/img/focus-video-1.png" alt=""> -->
+                <iframe width="100%" height="220" src="{{trustSrc(x.url)}}" frameborder="0" allowfullscreen></iframe>
+      
                 <!-- <video src="{{x.url}}"></video> -->
             </div>
             <div class="video-title">

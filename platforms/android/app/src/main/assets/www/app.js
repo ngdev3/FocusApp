@@ -1,12 +1,14 @@
-// var project_name = '/focusweb/webservices/Webapi';
+// var project_name = '/focus/webservices/Webapi';
 var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-// var base_url = 'http://192.168.240.1'
+// var base_url = 'http://projects.tekshapers.in'
 // var base_url = 'http://192.168.1.43'
 var base_url = 'http://192.168.31.199'
+// var base_url = 'http://192.168.137.1'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
+var image_url = base_url + '/Projects2018/pioneer/uploads/profile_image/'
 var api_key = 'focus_Lkjhg546dfhkduhrg43567';
 var apikey = 'focus_Lkjhg546dfhkduhrg43567';
 var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
@@ -20,8 +22,19 @@ var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', '
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 //document.getElementById("networkInfo").addEventListener("onload", networkInfo);
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+  //  console.log();
+    sessionStorage.u_ids = device.uuid;
+    sessionStorage.device_type = device.platform;
+    uuid = device.uuid;
+    alert(device.platform)
+}
+
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
+
 
 function networkInfo() {
     var networkState = navigator.connection.type;
@@ -308,33 +321,34 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
     }
 
-    window.alert = function (type, content) {
 
-        if (content == '' || content == undefined) {
+    // window.alert = function (type, content) {
 
-            if (typeof type === 'string') {
+    //     if (content == '' || content == undefined) {
 
-                var j = type.toLowerCase();
-                var a = j.indexOf("successfully");
-                var b = j.indexOf("successful");
-                var c = j.indexOf("success");
-                // //console.log(c)
-                if (a >= 0 || b >= 0 || c >= 0) {
-                    model.show('Info', type);
-                } else {
-                    model.show('Alert', type);
-                }
+    //         if (typeof type === 'string') {
 
-            } else {
+    //             var j = type.toLowerCase();
+    //             var a = j.indexOf("successfully");
+    //             var b = j.indexOf("successful");
+    //             var c = j.indexOf("success");
+    //             // //console.log(c)
+    //             if (a >= 0 || b >= 0 || c >= 0) {
+    //                 model.show('Info', type);
+    //             } else {
+    //                 model.show('Alert', type);
+    //             }
 
-                //it will show when u passed the object
-                model.show('Info', JSON.stringify(type));
-            }
-        } else {
+    //         } else {
 
-            model.show(type, content);
-        }
-    }
+    //             //it will show when u passed the object
+    //             model.show('Info', JSON.stringify(type));
+    //         }
+    //     } else {
+
+    //         model.show(type, content);
+    //     }
+    // }
 
 
     $rootScope.back = function () {
@@ -351,71 +365,75 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
+            sessionStorage.u_ids = device.uuid;
+            sessionStorage.device_type = device.platform;
+            uuid = device.uuid;
             // Now safe to use device APIs
             // alert(firebase)
             window.plugins.OneSignal
-                .startInit(firebase)
-                .endInit();
-
+            .startInit(firebase)
+            .endInit();
+            
             window.plugins.OneSignal.getPermissionSubscriptionState(function (status) {
                 $rootScope.UniversalAppToken = status.subscriptionStatus.userId;
             });
-
+            
             window.plugins.OneSignal.getIds(function (ids) {
                 // alert(JSON.stringify(ids.userId))
                 loading.active();
                 $rootScope.UniversalAppToken = ids.userId;
                 loading.deactive();
             });
-
-
+            
+            
             window.plugins.OneSignal
-                .startInit(firebase)
-                .handleNotificationOpened(function (jsonData) {
-
-
-                    var data = JSON.stringify(jsonData);
-                    // alert(data)
-
-                    // var get = data.split('additionalData')[1];
-
-                    // var data_address = get.replace(/"/g, " ");
-                    // var data_address1 = get.split('},')[0];
-                    // var data_address2 = data_address1.replace('":{', ' ');
-                    // var data_address3 = data_address2.replace(/"/g, " ");
-                    // var data_address4 = data_address3.replace(/:/g, " ");
-                    // var data_address5 = data_address4.replace(/,/g, " ");
-                    // var data_address6 = data_address5.split('  ');
-
-                    // var timer = data_address6[2];
-                    // var ads_id = data_address6[4];
-                    // var user_id = data_address6[6];
-
-                    // var notification = {
+            .startInit(firebase)
+            .handleNotificationOpened(function (jsonData) {
+                
+                
+                var data = JSON.stringify(jsonData);
+                // alert(data)
+                
+                // var get = data.split('additionalData')[1];
+                
+                // var data_address = get.replace(/"/g, " ");
+                // var data_address1 = get.split('},')[0];
+                // var data_address2 = data_address1.replace('":{', ' ');
+                // var data_address3 = data_address2.replace(/"/g, " ");
+                // var data_address4 = data_address3.replace(/:/g, " ");
+                // var data_address5 = data_address4.replace(/,/g, " ");
+                // var data_address6 = data_address5.split('  ');
+                
+                // var timer = data_address6[2];
+                // var ads_id = data_address6[4];
+                // var user_id = data_address6[6];
+                
+                // var notification = {
                     //     user_id: user_id,
                     //     ads_id: ads_id,
                     //     timer: timer
                     // }
                     // $cookieStore.put('notification', notification);
-
+                    
                     // if ($rootScope.ChangeRoute == 'push_notify') {
-                    //     location.reload();
-                    // } else {
-
-                    //     $location.path('/push_notify')
-                    //     $rootScope.$apply();
-                    // }
-
-                })
-                .endInit();
-
-            window.plugins.OneSignal
-                .startInit(firebase)
-                .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
-                .endInit();
-
-        }
-
+                        //     location.reload();
+                        // } else {
+                            
+                            //     $location.path('/push_notify')
+                            //     $rootScope.$apply();
+                            // }
+                            
+                        })
+                        .endInit();
+                        
+                        window.plugins.OneSignal
+                        .startInit(firebase)
+                        .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+                        .endInit();
+                        
+                    }
+                    
+                    // alert($rootScope.UniversalAppToken)
     }
 
     $rootScope.initOneSignal();
@@ -874,19 +892,29 @@ function onDeviceReady() {
     document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
+function onConfirm(buttonIndex) {
+    // alert(buttonIndex)
+    if (buttonIndex == 1) {
 
+        navigator.app.exitApp();
+
+    } else if(buttonIndex == 2){
+
+        $location.path('/login');
+
+    }else{
+        
+        $location.path('/login');
+        
+    }
+}
 
 function onBackKeyDown(ev) {
     var loads = angular.element(document.querySelector('.obscure'));
     loads.removeClass('show').addClass('hide');
     var home = $("#containernew div:first-child").hasClass("homes");
     if (home) {
-        if (confirm('Do You Want To Exit App!')) {
-
-            navigator.app.exitApp();
-        } else {
-            $location.path('/login');
-        }
+        navigator.notification.confirm('Do You Want To Exit App!',onConfirm,'Exit App',['Exit','Cancel'])
     } else {
         sessionStorage.back = "";
         navigator.app.backHistory();
@@ -965,6 +993,7 @@ app.filter('myTimeFormat', function myDateFormat($filter) {
         return $filter('date')(tempdate, "hh:mma");
     }
 });
+
 app.filter('myTimecustomFormat', function myDateFormat($filter) {
     return function (text) {
         //  alert(text)

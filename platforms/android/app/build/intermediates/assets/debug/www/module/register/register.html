@@ -1,96 +1,52 @@
-<style>
-.terms input {
-    position: absolute;
-    left: 16px;
-    width: 1.5em;
-    height: 1.5em;
-}
-.pretty input {
-    z-index: 0;
-}
-</style>
-<div ng-controller="user_register">
-
-  <header class="container-fluid nav-down">
-    <div class="row">
-      <nav class="navbar navbar-inverse">
-        <div class="container no-padding">
-          <ul class="nav navbar-nav top_header text-center">
-			<li class="menu_icon "><a href="javacript:void(0)"><img src="assets/img/icon/back.png" id="asdf" ng-click="backwithremove()"  alt="menu icon" style="width: 13px;" /></a>
-			</li>
-            <li class="page_name">
-              <a href="javascript:void(0)" class="text-left text-center">
-                <p>{{'Registration'| translate}}</p>
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-      </nav>
-
-    </div>
-    <!-- MOBILE-MENU-AREA END -->
-  </header>
-  <!-- END HEADER -->
+<div ng-controller="register">
 
 
-  <div class="container">
-    <div class="login_form">
-      <div class="form_container">
-        <form method="post" name="loginform" novalidate>
-          <div class="mui-textfield  col-sm-6 col-xs-12">
-            <input type="text" id="first" name="fname" ng-model="fname" placeholder="{{'First_Name' | translate}}" required>
-            <label for="first">{{'First_Name' | translate}}</label>
-          </div>
-          <div class="mui-textfield col-sm-6 col-xs-12">
-            <input type="text" id="last" ng-model="lname" name="lname" placeholder="{{'Last_Name' | translate}}" required>
-            <label for="last">{{'Last_Name' | translate}}</label>
-          </div>
-                  
-          <div class="mui-textfield col-sm-6 col-xs-12">
-            <input type="tel" id="mbl_num" name="mob_number" ng-model="mob_number" placeholder="{{'Mobile_Number' | translate}}" required>
-            <label for="mbl_num">{{'Mobile_Number' | translate}}</label>
-          </div>
-          <div class="mui-textfield col-sm-6 col-xs-12">
-            <input type="email" id="email" name="email" ng-model="email" placeholder="{{'Email' | translate}}" required>
-            <label for="email">{{'Email' | translate}}</label>
-          </div>
-          <div class="mui-textfield col-sm-6 col-xs-12">
-            <input type="password" id="pass" ng-model="password" name="password" placeholder="{{'Password' | translate}}" required>
-            <label for="pass">{{'Password' | translate}}</label>
-          </div>
-          <div class="mui-textfield col-sm-6 col-xs-12">
-            <input type="text" id="cnf_pass" ng-model="referal_code" name="referal_code" placeholder="{{'Referral_Code' | translate}}">
-            <label for="cnf_pass">{{'Referral_Code' | translate}}</label>
-          </div>
-          <div class="terms">
-              <div class="pretty p-icon p-curve p-pulse">
-                <input type="checkbox" id="retailer" name="retailer" ng-model="retailer" >
-                <div class="state p-info-o">
-                    <i class="icon  fa fa-check"></i>
-                    <label>{{'I_am_Retailer' | translate }}</label> 
-                </div>
-              </div>
-          </div>
-          
-          <div class="terms">
-              <div class="pretty p-icon p-curve p-pulse">
-                <input type="checkbox" ng-model="conditions" name="terms" required>
-                <div class="state p-info-o">
-                    <i class="icon  fa fa-check"></i>
-                    <label>{{'I_Accept' | translate }} <span ng-click="terms()"> {{'Terms_n_Conditions' | translate }}</span></label> 
-                </div>
-              </div>
-          </div> 
-          <div class="submit-btn col-sm-6 col-xs-12 text-center" ng-click="user_registers('loginform')">
-            <a href="javascript:void(0)" ng-keyup="$event.keyCode == 13 ? loginuser('loginform') : null">{{'Sign_Up' | translate}}</a>
-          </div>
-          
-        </form>
+  <div class="sign-up2">
+    <div class="sign-up-logo">
+      <div>
+        <img src="assets/img/splash-logo.png">
       </div>
-    </div>
-  </div>
-  <!--  END Banner SLIDER -->
 
+    </div>
+    <form method="post" name="loginform" novalidate>
+      <div class="sign-up-div mb-20 animatedParent animateOnce">
+        <a href="javascript:void(0)" class="sign-up animated fadeInLeft">Sign up</a>
+        <p>Lorem ipsum is a simply dummy text printing and ipsum</p>
+      </div>
+      <div class="input-container pr-20 pl-20 animatedParent animateOnce" id="sign_up">
+        <div class="sign-up-form mb-20">
+          <input type="text" value="" required name="fname" ng-model="fname" placeholder="First Name"
+            class="animated fadeInRight">
+          <img src="assets/img/Sign-Up-name.png" class="animated fadeInLeft">
+        </div>
+        <div class="sign-up-form mb-20">
+          <input type="text" value="" required name="lname" ng-model="lname" placeholder="Last Name"
+            class="animated fadeInRight">
+          <img src="assets/img/Sign-Up-name.png" class="animated fadeInLeft">
+        </div>
+        <div class="sign-up-form mb-20">
+          <input type="number" value="" required name="mobile_no" ng-model="mobile_no" placeholder="Phone No."
+            class="animated fadeInRight">
+          <img src="assets/img/Sign-Up-phone.png" class="mobile_img animated fadeInLeft">
+        </div>
+        <div class="sign-up-form mb-20">
+          <input type="email" value="" required name="email_id" ng-model="email_id" placeholder="Email"
+            class="animated fadeInRight">
+          <img src="assets/img/Sign-Up-mail.png" class="animated fadeInLeft">
+        </div>
+        <div class="sign-up-form mb-20">
+          <input type="password" value="" required name="password" ng-model="password" placeholder="Password"
+            class="animated fadeInRight">
+          <img src="assets/img/Sign-Up-pswrd.png" class="animated fadeInLeft">
+        </div>
+      </div>
+
+
+      <!-- SUBMIT BUTTON -->
+      <div class="sign-up-button mt-35 animatedParent animateOnce">
+        <a href="javascript:void(0)"><button class="btn animated fadeInUp" ng-click="loginusers('loginform')">Sign up</button></a>
+      </div>
+    </form>
+
+  </div>
 </div>

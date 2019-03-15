@@ -8,7 +8,7 @@ if (!$cookieStore.get('userinfo')) {
 
 
     $scope.backwithremove = function(){
-        window.history.back();
+        $location.path('/focus_menu');
     } 
     $cookieStore.remove('goal_id');
 

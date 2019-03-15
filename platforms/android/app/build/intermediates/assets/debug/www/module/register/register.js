@@ -1,4 +1,4 @@
-app.controller('user_register', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
+app.controller('register', function ($rootScope, $scope, $http, $location, $interval, $cookieStore, model, loading, $filter) {
 
 
     $scope.backwithremove = function(){
@@ -11,34 +11,12 @@ app.controller('user_register', function ($rootScope, $scope, $http, $location, 
         return false;
     }
 
-    if($cookieStore.get('regdata')){
-    $scope.fname = $cookieStore.get('regdata').fname
-    $scope.lname = $cookieStore.get('regdata').lname
-    $scope.mob_number = $cookieStore.get('regdata').mob_number
-    $scope.email = $cookieStore.get('regdata').email
-    $scope.referal_code = $cookieStore.get('regdata').referal_code
-    $scope.retailer = $cookieStore.get('regdata').retailer
-    $scope.conditions = $cookieStore.get('regdata').conditions
-    }
+  
+  
 
-    $scope.terms = function () {
 
-        var regdata = {
-            fname:$scope.fname,
-            lname:$scope.lname,
-            mob_number:$scope.mob_number,
-            email:$scope.email,
-            referal_code:$scope.referal_code,
-            retailer:$scope.retailer,
-            conditions:$scope.conditions
-        }
-        $cookieStore.put('regdata',regdata)
-
-        $location.path('/terms');
-    }
-
-    $scope.user_registers = function (form) {
-        // loading.active();return
+    $scope.loginusers = function (form) {
+      //  loading.active();
         var error_str = '';
         if ($scope[form].$error) {
 
@@ -50,23 +28,25 @@ app.controller('user_register', function ($rootScope, $scope, $http, $location, 
                 error_str += "Last Name, ";
             }
 
-            if ($scope[form].email.$error.required !== undefined || $scope[form].email.$error.email) {
+            if ($scope[form].email_id.$error.required !== undefined || $scope[form].email_id.$error.email) {
                 error_str += "Email Id, ";
             }
-            if ($scope[form].mob_number.$error.required !== undefined) {
+            if ($scope[form].mobile_no.$error.required !== undefined) {
                 error_str += "Mobile Number, ";
             }
 
             if ($scope[form].password.$error.required !== undefined) {
                 error_str += "Password, ";
             }
-
-             if ($scope[form].terms.$error.required !== undefined) {
-                error_str += "Terms & Conditions, ";
-            } 
-            
-
         }
+      
+
+        if(!sessionStorage.tokenid){
+         //   $rootScope.initOneSignal();
+            error_str += "Token Missing, ";
+        }
+
+
         setTimeout(function () {
             error_str = error_str.substr(0, error_str.lastIndexOf(', '));
             if (error_str !== '') {
@@ -99,7 +79,7 @@ app.controller('user_register', function ($rootScope, $scope, $http, $location, 
                 return false;
             }
 
-            if (reg3.test($scope.email) == false) {
+            if (reg3.test($scope.email_id) == false) {
                 error_str = " Please enter proper Email-ID ";
                 // model.show('Alert', error_str);
                 alert(error_str);
@@ -113,7 +93,7 @@ app.controller('user_register', function ($rootScope, $scope, $http, $location, 
                 return false;
             }
 
-            if (reg5.test($scope.mob_number) == false) {
+            if (reg5.test($scope.mobile_no) == false) {
                 error_str = "Mobile Number should contain Numbers Only & Length should be 10";
                 model.show('Alert', error_str);
                 // alert(error_str);
@@ -126,64 +106,39 @@ app.controller('user_register', function ($rootScope, $scope, $http, $location, 
                 return false;
             }
         }
-        if($('#retailer').prop('checked') == true){
-            // alert();return;
-            $scope.retailer = 'on';
-        }else{
-            $scope.retailer = '';
-          }
-
+       
         if (error_str == '') {
 
             loading.active();
             var args = $.param({
-                first_name: $scope.fname,
-                last_name: $scope.lname,
-                email: $scope.email,
-                mobile_number: $scope.mob_number,
+                fname: $scope.fname,
+                lname: $scope.lname,
+                email: $scope.email_id,
+                mobile_number: $scope.mobile_no,
                 password: $scope.password,
-                language_code: sessionStorage.lang_code,
-                referal_code: $scope.referal_code,
-                i_am_retailer : $scope.retailer
+                apikey:api_key,
+                // device_type:sessionStorage.device_type,
+                device_token:sessionStorage.tokenid
             });
-            
+            // alert(args);
             $http({
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 method: 'POST',
-                url: app_url + '/auth/registration',
+                url: app_url + '/register',
                 data: args //forms user object
 
             }).then(function (response) {
-                //loading.deactive();
-                res = response;
+                if (!response.data.ErrorCode) {
+                    alert(response.data.message)
+                $location.path('/login');
 
-                console.log("response from the server ")
-                console.log(response.data)
-                if(res.data.responseCode == 200){
-                   
-                    var setOTPCookies = {
-                        'email': res.data.data.email,
-                        'first_name': res.data.data.first_name,
-                        'last_name': res.data.data.last_name,
-                        'mobile_number': res.data.data.mobile_number,
-                        'user_id': res.data.data.user_id,
-                        'user_type': res.data.data.user_type,
-                        'status':res.data.data.status,
-                        'is_verify': res.data.data.is_verify,
-                        'from' : 'register'
-                    }
-                    $cookieStore.put('otpverification', setOTPCookies);
-                    alert('Registered Successfully')
-                    //console.log($cookieStore.get('otpverification'))
-                    $cookieStore.remove('regdata');
-                    $location.path('/otp');
-                }else{
-                    alert(res.data.responseMessage.error_msg);
-                    return false;
-                }
+            } else {
 
+               alert(response.data.message)
+                // model.show('Alert', response.data.responseMessage);
+            }
             }).finally(function () {
                 loading.deactive();
             }) 

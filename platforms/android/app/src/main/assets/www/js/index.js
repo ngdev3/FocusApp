@@ -28,7 +28,22 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
-        this.receivedEvent('deviceready');
+      window.plugins.OneSignal
+      .startInit("2e7aa0f2-7f25-4075-bd1c-f40b014db18f")
+      .endInit();
+      
+      window.plugins.OneSignal.getIds(function (ids) {
+        // alert(JSON.stringify(ids.userId))
+        // loading.active();
+        sessionStorage.tokenid= ids.userId;
+        // loading.deactive();
+    });
+
+    sessionStorage.u_ids = device.uuid;
+    sessionStorage.device_type = device.platform;
+    uuid = device.uuid;
+
+    this.receivedEvent('deviceready');
         
     },
 
@@ -41,6 +56,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+        // sessionStorage.u_ids;
         console.log('Received Event: ' + id);
     }
   };

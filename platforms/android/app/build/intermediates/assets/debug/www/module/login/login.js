@@ -25,6 +25,9 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
     $scope.SentToforgot = function () {
         $location.path('/forgot');
     }
+    $scope.SentToresgister = function () {
+        $location.path('/register');
+    }
 
     $scope.signup = function () {
         $location.path('/register');
@@ -57,7 +60,12 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
     // $scope.mobile_no = '8299334781';
     $scope.phoneVerifiedStatus = false;
     $scope.loginuser = function (form) {
-        
+      //  alert(sessionStorage.tokenid)
+        if(!sessionStorage.tokenid){
+            alert('Device Token Not Generated Try Again')
+            $rootScope.initOneSignal()
+            return false;
+        }
         if ($scope[form].$error) {
             //  alert("Error");
             var error_str = '';
@@ -90,7 +98,8 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                 email: $scope.email_id,
                 password: $scope.userpassword,
                 apikey:api_key,
-                login_type:'Android'
+                login_type:'Android',
+                login_token:sessionStorage.tokenid
             });
 
          //   alert(args)

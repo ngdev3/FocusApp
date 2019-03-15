@@ -10,6 +10,11 @@ app.controller('splash', function ($scope, $http, $location, $interval, $cookieS
                 function(){
 
                     $location.path('/login');
+                    $rootScope.initOneSignal();
+                    window.plugins.OneSignal
+                    .startInit(firebase)
+                    .endInit();
+                    
                 }
             )
          }, 1000)

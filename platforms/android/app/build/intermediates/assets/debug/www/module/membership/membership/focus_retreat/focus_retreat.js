@@ -10,6 +10,11 @@ app.controller('focus_retreat', function ($rootScope, $scope, $http, $location, 
         $location.path('/membership/membership_plans/focus_retreat/leadership/content')
     }
    
+    $scope.backtoretreat = function(){
+        // alert()
+        $location.path('/membership/membership_plans')
+    }
+   
 
 
 });

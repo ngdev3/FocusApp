@@ -6,8 +6,10 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
        
     }
 
+    console.log($cookieStore.get('userinfo'));
+
     $scope.username = $cookieStore.get('userinfo').fname + " " + $cookieStore.get('userinfo').lname
-   
+   $scope.user_type = $cookieStore.get('userinfo').user_type;
 
     $scope.login = function(){
         $location.path('/login');

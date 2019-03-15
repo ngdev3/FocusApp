@@ -1,15 +1,15 @@
 -- Merging decision tree log ---
 provider#org.apache.cordova.camera.FileProvider
-INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:9-23:20
 	android:grantUriPermissions
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:92-126
 	android:authorities
 		INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:19-66
 	android:exported
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:67-91
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:127-180
 manifest
 ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-31:12
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-31:12
@@ -27,23 +27,23 @@ MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Rajat\.
 MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\ddd13a8a3333f511b5aa29bcb1de0ef7\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\efb0f6f0ec1cba390b90568004c0fc21\AndroidManifest.xml:17:1-22:12
 MERGED from [:CordovaLib] J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\9188744016c4fe09965e567bb7e85238\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\231f0514fa4b18b13ea52e69614039e5\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\47612bd06ddf5ef19dfabf97ca3a7df7\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\49fd4bdd17aefee8952e782f75749493\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\0f724582f6b352983d5673697f81aed2\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-messaging-license-12.0.1.aar\f2640277903ec916fe5ca5ba98604223\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-location-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-location-license-12.0.1.aar\7194b6250c326dea2c5fd8341c9f87e2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\8ae771e1dc430db50379976758ee1073\AndroidManifest.xml:17:1-24:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-iid-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-12.0.1.aar\beef0ddc4f200a9cdc79d1bb4115e2a6\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\cd36c21e39e877a8f11b64e89e6f52dc\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-common-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-common-license-12.0.1.aar\1c0a52f966f31079d40fc2bb5605f271\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b877a88ba0fb2a3343646d9f43fce880\AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:17:1-22:12
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-31:12
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-31:12
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-31:12
@@ -158,39 +158,39 @@ ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\
 	android:name
 		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
 amazon:enable-feature
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:15:9-159
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:9-159
 	xmlns:amazon
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:15:100-156
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:100-156
 	android:required
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:15:75-99
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:75-99
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:15:32-74
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:12:32-74
 service#com.onesignal.ADMMessageHandler
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:16:9-92
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:9-92
 	android:exported
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:16:18-42
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:18-42
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:16:43-89
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:43-89
 receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:17:9-23:20
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:14:9-20:20
 	android:permission
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:17:75-139
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:14:75-139
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:17:19-74
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:14:19-74
 intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.focus.androidapp
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:15:13-19:29
 action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:19:17-90
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:16:17-90
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:19:25-87
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:16:25-87
 action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:20:17-85
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:17:17-85
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:20:25-82
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:17:25-82
 category#com.focus.androidapp
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:17-65
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:18:17-65
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:21:27-62
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:18:27-62
 uses-sdk
 ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:25:5-74
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:25:5-74
@@ -218,32 +218,30 @@ MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Rajat\.gradle\cache
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\efb0f6f0ec1cba390b90568004c0fc21\AndroidManifest.xml:20:5-44
 MERGED from [:CordovaLib] J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\9188744016c4fe09965e567bb7e85238\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\9188744016c4fe09965e567bb7e85238\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\231f0514fa4b18b13ea52e69614039e5\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\231f0514fa4b18b13ea52e69614039e5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\ccf569b609b7f823bd0825d8aedd47f8\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\47612bd06ddf5ef19dfabf97ca3a7df7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\47612bd06ddf5ef19dfabf97ca3a7df7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\49fd4bdd17aefee8952e782f75749493\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\49fd4bdd17aefee8952e782f75749493\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\0f724582f6b352983d5673697f81aed2\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\0f724582f6b352983d5673697f81aed2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-messaging-license-12.0.1.aar\f2640277903ec916fe5ca5ba98604223\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-messaging-license-12.0.1.aar\f2640277903ec916fe5ca5ba98604223\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-location-license-12.0.1.aar\7194b6250c326dea2c5fd8341c9f87e2\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-location-license-12.0.1.aar\7194b6250c326dea2c5fd8341c9f87e2\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\8ae771e1dc430db50379976758ee1073\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\8ae771e1dc430db50379976758ee1073\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\7173d61ff9a49180cacda8c918219212\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\23d2de8b3cf0b781e46b8f6779aad8ce\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6ed66a9efdfc021dd8ec2b0534da4f25\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-12.0.1.aar\beef0ddc4f200a9cdc79d1bb4115e2a6\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-12.0.1.aar\beef0ddc4f200a9cdc79d1bb4115e2a6\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\cd36c21e39e877a8f11b64e89e6f52dc\AndroidManifest.xml:20:5-44
@@ -252,6 +250,8 @@ MERGED from [com.google.firebase:firebase-common-license:12.0.1] C:\Users\Rajat\
 MERGED from [com.google.firebase:firebase-common-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-common-license-12.0.1.aar\1c0a52f966f31079d40fc2bb5605f271\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b877a88ba0fb2a3343646d9f43fce880\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b877a88ba0fb2a3343646d9f43fce880\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\14e3a41bae8437086b945b80d3d73c71\AndroidManifest.xml:20:5-44
 INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:25:5-74
 	android:targetSdkVersion
 		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:25:42-71
@@ -259,12 +259,8 @@ INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\ma
 		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:25:15-41
 		INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:26:5-81
-	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:26:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:27:5-79
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:26:5-79
 MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.3] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.3.aar\27a9e29bcea37f211cc18b02d01ce778\AndroidManifest.xml:9:5-79
 MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.3] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.3.aar\27a9e29bcea37f211cc18b02d01ce778\AndroidManifest.xml:9:5-79
 MERGED from [com.onesignal:OneSignal:3.10.5] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\OneSignal-3.10.5.aar\ba3b11b646e83d60e5092a63be92abda\AndroidManifest.xml:25:5-79
@@ -272,27 +268,31 @@ MERGED from [com.onesignal:OneSignal:3.10.5] C:\Users\Rajat\.gradle\caches\trans
 MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-iid-12.0.1.aar\9ebde7978a0b4b8680676574f70a35c1\AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\firebase-iid-12.0.1.aar\9ebde7978a0b4b8680676574f70a35c1\AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:27:22-76
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:26:22-76
 uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:28:5-86
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:27:5-86
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:28:22-83
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:27:22-83
 permission#com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:29:5-122
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:28:5-122
 	android:protectionLevel
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:29:84-119
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:28:84-119
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:29:17-83
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:28:17-83
 uses-permission#com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:30:5-91
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:29:5-91
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:30:22-88
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:29:22-88
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:30:22-78
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:22:13-123
 	android:resource
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:22:75-120
 	android:name
-		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
+		ADDED from J:\xampp\htdocs\Projects2018\FocusApp\platforms\android\app\src\main\AndroidManifest.xml:22:24-74
 uses-permission#android.permission.CAMERA
 ADDED from [io.card:android-sdk:5.4.0] C:\Users\Rajat\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.0.aar\f3462b5312ed683223ee96ad60286241\AndroidManifest.xml:11:5-65
 	android:name

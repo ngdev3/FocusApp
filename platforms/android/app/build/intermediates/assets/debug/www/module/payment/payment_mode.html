@@ -1,4 +1,4 @@
-<div class="bg" ng-controller="payment_mode" style="overflow:hidden;">
+<div class="bg" ng-controller="payment_mode" >
 
 
   <header class="container-fluid nav-down">
@@ -6,7 +6,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container no-padding">
                 <ul class="nav navbar-nav top_header">
-                    <li class="menu_icon back_icon"><a href="#"><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="menu_icon back_icon"><a href="javascript:void(0)"><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
                     <li class="logo_name"><a class="text-left back">Payment information</a></li>
 
                 </ul>
@@ -24,64 +24,53 @@
     </div>
     <div class="login_form-pay">
         <div class="form_container-info">
-            <form class="mui-form">
+                <form method="post" class="mui-form" name="loginform" novalidate>
 
                 <div class="mui-textfield pay-info col-sm-6 col-xs-12">
-                    <input type="text" id="name" placeholder="First Name*" required>
+                    <input type="text"  name="fname" ng-model="fname" placeholder="First Name*" required>
                 </div>
                 <div class="mui-textfield pay-info col-sm-6 col-xs-12">
-                    <input type="text" id="name" placeholder="Phone Number" required>
+                    <input type="tel"  name="p_number" ng-model="p_number" placeholder="Phone Number" required>
                 </div>
 
                 <div class="mui-textfield pay-info col-sm-6 col-xs-12">
-                    <input type="text" id="name" placeholder="Email ID*" required>
+                    <input type="email"  name="email_id" ng-model="email_id" placeholder="Email ID*" required>
                 </div>
                 <div class="mui-textfield pay-info col-sm-6 col-xs-12">
-                    <input type="text" id="name" placeholder="Card Number*" required>
+                    <input type="number"  name="card_num" ng-model="card_num" placeholder="Card Number*" required>
                 </div>
                 
                 <div class="mui-textfield pay-info col-sm-6 col-xs-12">
-                    <input type="text" id="name" placeholder="Name on Card" required>
+                    <input type="text" name="name_card" ng-model="name_card" placeholder="Name on Card" required>
                 </div> 
-                <div class="mui-select pay-info-select payment-select pay-info col-sm-6 col-xs-12">
-                    <Select>
-                        <option value="">Duration</option>
-                        <option value="">Duration</option>
-                        <option value="">Duration</option>
-                        <option value="">Duration</option>
+
+                <div class="mui-select pay-info-select payment-select pay-info col-sm-6 col-xs-12" ng-init="plans()">
+                    <Select name="select_plans" ng-model="select_plans" required>
+                        <option value="">Select Duration</option>
+                        <option value="{{x.id}}" ng-repeat="x in morningfocus">{{x.amount}} {{x.currency}} {{x.title}}</option>
+                        
                     </Select>
                 </div> 
-                <div class="mui-select pay-info payment-select col-sm-6 col-xs-12">
+                <div class="mui-select pay-info payment-select col-sm-6 col-xs-12" ng-init="get_method()">
                     <div class="multiselect">
-						<div class="selectBox" onclick="showCheckboxes()">
+						<div class="selectBox">
 						  <select>
 							<option>Select Payment Method</option>
 						  </select>
 						  <div class="overSelect"></div>
 						</div>
 						<div id="checkboxes">
-						    <label class="container">Paypal
-								<input type="radio" checked="checked" name="radio">
+						    <label class="container" ng-repeat="x in get_pay_method">{{x.title}}
+								<input type="radio" name="payment_type" value="{{x.id}}" ng-init="payment_type = '1'" ng-model="payment_type" name="radio" >
 								<span class="checkmark"></span>
 						    </label>
-							<label class="container">Apple Pay
-								<input type="radio" name="radio">
-								<span class="checkmark"></span>
-							</label>
-							<label class="container">Paypal
-								<input type="radio" name="radio">
-								<span class="checkmark"></span>
-							</label>
-							<label class="container">Apple Pay
-								<input type="radio" name="radio">
-								<span class="checkmark"></span>
-							</label>
+							
 						</div>
 					</div>
                 </div>   
 
                 <div class="submit_2btn col-xs-12 text-center">
-                    <a href="#">Get Membership</a>
+                    <a href="javascript:void(0)" ng-click="get_payment('loginform')">Get Membership</a>
                 </div>
 
 

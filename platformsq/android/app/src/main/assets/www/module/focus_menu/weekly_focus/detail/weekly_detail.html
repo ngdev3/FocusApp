@@ -1,0 +1,75 @@
+
+<div ng-controller="weekly_detail" ng-init="get_focus_detail()">
+  
+
+
+	<header class="container-fluid nav-down">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+				<div class="container no-padding">
+					<ul class="nav navbar-nav top_header">
+						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+						<li class="logo_name"><a class="text-left back">WEEKLY FOCUS</a></li>
+						<li class="edit-icon"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="edit_weekly_detail(focus_details.id)"></i></li>
+					</ul>
+	
+				</div>
+			</nav>
+	
+		</div>
+		<!-- MOBILE-MENU-AREA END -->
+	</header>
+	<!-- END HEADER -->
+	<div class="privacy_policy pl-10 pr-10 pt-5 mt-50">
+		<div class="weeks">
+			<div class="week-head">
+				<h3>Weeks</h3>
+			</div>
+			<ul class="week-days">    
+				<span ng-repeat="x in morningfocus">
+
+					<li id="select_day_{{x.id}}" style="margin-right: 7px;">
+						<a href="javascript:void(0)">
+							<div class="all-weeks">
+								<div class="monday" ng-click="select_day(x.id)">
+									<p>{{x.short_name | ucwords}}</p>
+								</div>
+							</div>
+						</a>
+					</li>
+
+				</span>
+			</ul>			
+		</div>
+		
+		<form class="pt-20">
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="{{focus_details.weekly_title | ucwords}}" disabled>
+		
+			</div>
+			<div class="form-group bor-top">
+				<label for="time">Time</label>
+				<input type="text" class="form-control" id="time" placeholder="{{focus_details.set_time | myTimecustomFormat}}" disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="reminder">Reminder</label>
+				<input type="text" class="form-control" id="reminder" placeholder="{{focus_details.set_reminder}} min" disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="Notification">Notification</label>
+				<input type="text" class="form-control" id="Notification" placeholder="{{focus_details.set_notification | myTimecustomFormat}}" disabled>
+			</div>
+		</form>	
+	
+	
+	</div>
+	<script>
+		$('.digit1 input').keyup(function() {
+			if ($(this).val().length == $(this).attr("maxlength")) {
+				$(this).next().focus();
+			}
+		});
+	
+	</script>
+</div>
