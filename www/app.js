@@ -1,9 +1,10 @@
 // var project_name = '/focus/webservices/Webapi';
-var project_name = '/Projects2018/pioneer/webservices/Webapi';
+var project_name = '/focus/webservices/Webapi';
+// var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
 // var base_url = 'http://projects.tekshapers.in'
 // var base_url = 'http://192.168.1.43'
-var base_url = 'http://192.168.31.199'
+var base_url = 'http://192.168.1.97'
 // var base_url = 'http://192.168.137.1'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
@@ -15,6 +16,7 @@ var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
 var uuid = sessionStorage.u_ids;
 var device_type = 'Android';
 sessionStorage.seq = 0;
+sessionStorage.tokenid = 'yoye879ehdhhdf8dhdhkkndhiuhihubib';
 var lat;
 var lng;
 var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
