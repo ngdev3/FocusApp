@@ -1,12 +1,12 @@
+ var project_name = '/focus/webservices/Webapi';
 // var project_name = '/focus/webservices/Webapi';
-// var project_name = '/focus/webservices/Webapi';
-var project_name = '/Projects2018/pioneer/webservices/Webapi';
+//var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-// var base_url = 'http://projects.tekshapers.in'
+ var base_url = 'http://projects.tekshapers.in'
 // var base_url = 'http://192.168.1.43'
 // var base_url = 'http://192.168.43.78'
 // var base_url = 'http://192.168.1.97'
-var base_url = 'http://192.168.31.199'
+//var base_url = 'http://192.168.31.199'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;

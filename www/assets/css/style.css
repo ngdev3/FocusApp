@@ -598,7 +598,7 @@ img {
 }
 .welcome-para{
     position: absolute;
-    bottom: 45%;
+    bottom: 43%;
     text-align: center;
 }
 .welcome-para p{
@@ -1725,8 +1725,8 @@ input[type=checkbox], input[type=radio] {
 }
 /*Changes By Deepak*/
 .add-btn-btn .floating_add_btn{
-	position: fixed;
-    bottom: 20px;
+	    position: fixed;
+    bottom: 10px;
     right: 20px;
     /* border: 1px solid #ccc; */
     padding: 15px;
