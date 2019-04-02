@@ -6,6 +6,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
     } 
 
     $scope.add_weekly = function(){
+      $cookieStore.remove('weekly_id')
       $location.path('/focus_menu/weekly/add');
     } 
 
@@ -15,6 +16,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
 
 
     $scope.truelist = false;
+    var count = 0;
     $scope.get_morning_focus = function () {
 
         loading.active();
@@ -32,7 +34,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
             data : args   
         }).then(function (response) {
             //alert();
-            loading.deactive();
+            //loading.deactive();
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
@@ -40,7 +42,25 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
               if(res.data.data.focus_data.length > 0){
 
                 $scope.morningfocus = res.data.data.focus_data;
+                setTimeout(function(){
+                  loading.deactive();
+                 
+                  $.each($scope.morningfocus, function(key, val) {
+                    console.log(count);
+                   count++;
+                    if(count < 6){
+                    console.log("#detail_data_" + val.id);
+                    $("#detail_data_" + val.id).addClass("weekly-color-up-" + count);
+                  }else{
+        
+                    count = 1;
+                    $("#detail_data_" + val.id).addClass("weekly-color-up-" + count);
+                  }
+                  });
+                },500)
                 $scope.truelist = true;
+              }else{
+                loading.deactive();
               }
             }
                 
@@ -48,6 +68,11 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
 
     }
     
+
+    $scope.undone = function(id){
+      alert(id)
+    }
+
     $scope.weekly_details = function(id){
 		$cookieStore.put('weekly_id', id);
 		$location.path('/focus_menu/weekly/detail');

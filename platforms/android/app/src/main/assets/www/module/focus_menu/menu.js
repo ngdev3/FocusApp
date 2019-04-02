@@ -4,6 +4,9 @@ app.controller('menu', function ($rootScope, $scope, $http, $location, $interval
    $scope.backwithremove = function () {
       window.history.back();
    }
+   
+  // $scope.notific_length = $rootScope.morningfocus;
+   console.log($rootScope.notification);
 
    $scope.myvision = function () {
       $location.path('focus_menu/vision/listing');
@@ -17,6 +20,9 @@ app.controller('menu', function ($rootScope, $scope, $http, $location, $interval
       $location.path('focus_menu/weekly/listing');
    }
 
+   $scope.notification = function(){
+      $location.path('/notification');
+  }
 
    $scope.back_weekly = function () {
       $location.path('dashboard/home');

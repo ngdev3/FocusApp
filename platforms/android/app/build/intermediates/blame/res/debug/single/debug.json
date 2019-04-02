@@ -28,6 +28,10 @@
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\0f724582f6b352983d5673697f81aed2\\res\\drawable\\notification_bg_low.xml"
     },
     {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_stat_onesignal_default.png.flat",
+        "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\ic_stat_onesignal_default.png"
+    },
+    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
@@ -36,16 +40,20 @@
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\OneSignal-3.10.5.aar\\ba3b11b646e83d60e5092a63be92abda\\res\\layout\\onesignal_bgimage_notif_layout.xml"
     },
     {
-        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
-        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
-    },
-    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light.xml.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\9188744016c4fe09965e567bb7e85238\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_stat_onesignal_default.png.flat",
+        "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_stat_onesignal_default.png"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
@@ -120,12 +128,12 @@
         "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
     },
     {
-        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
-        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_text_dark.xml"
-    },
-    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",
@@ -324,6 +332,10 @@
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\9188744016c4fe09965e567bb7e85238\\res\\layout\\notification_media_action.xml"
     },
     {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_stat_onesignal_default.png.flat",
+        "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_stat_onesignal_default.png"
+    },
+    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\0f724582f6b352983d5673697f81aed2\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
@@ -416,11 +428,19 @@
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\0f724582f6b352983d5673697f81aed2\\res\\drawable\\notification_tile_bg.xml"
     },
     {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_stat_onesignal_default.png.flat",
+        "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_stat_onesignal_default.png"
+    },
+    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\9593e757881b89b55d4b714a514589f1\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_stat_onesignal_default.png.flat",
+        "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_onesignal_default.png"
     }
 ]

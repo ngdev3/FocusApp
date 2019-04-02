@@ -19,7 +19,7 @@
     <!-- END HEADER -->
         <div class="vision-listing pt-5 mt-60" ng-init="get_vision_list()">
             <div class="col-sm-12 col-xs-12">
-                <div class="vision-listing-content1 bg-color" ng-class="{'weekly-color-up-2':$index % 2 == 0}" ng-click="vision_detail(x.id)" ng-repeat="x in morningfocus">
+                <div class="vision-listing-content1 bg-color" id="detail_data_{{x.id}}"   ng-click="vision_detail(x.id)" ng-repeat="x in morningfocus">
                     <div class="content-heading">
                         <h3>{{x.vision_title | ucwords}}</h3>
                     </div>

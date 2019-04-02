@@ -7,22 +7,19 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.focus.androidapp"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.focus.androidapp"
-    },
-    "cordova-plugin-file-transfer": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
-    "cordova-plugin-whitelist": {
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
-    "onesignal-cordova-plugin": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
     "com.paypal.cordova.mobilesdk": {

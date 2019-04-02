@@ -28,7 +28,7 @@ app.controller('mastery_video', function ($sce, $rootScope, $scope, $http, $loca
          setTimeout(function(){
             
         loading.deactive();
-    },500)
+    },1500)
         return $sce.trustAsResourceUrl(src);
       }
 

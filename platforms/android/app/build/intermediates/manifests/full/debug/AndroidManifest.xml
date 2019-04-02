@@ -18,14 +18,14 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
     <permission
         android:name="com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.focus.androidapp.permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -86,15 +86,6 @@
             </intent-filter>
         </activity>
 
-        <amazon:enable-feature
-            xmlns:amazon="http://schemas.amazon.com/apk/res/android"
-            android:name="com.amazon.device.messaging"
-            android:required="false" />
-
-        <service
-            android:name="com.onesignal.ADMMessageHandler"
-            android:exported="false" />
-
         <receiver
             android:name="com.onesignal.ADMMessageHandler$Receiver"
             android:permission="com.amazon.device.messaging.permission.SEND" >
@@ -106,6 +97,15 @@
             </intent-filter>
         </receiver>
 
+        <amazon:enable-feature
+            xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+            android:name="com.amazon.device.messaging"
+            android:required="false" />
+
+        <service
+            android:name="com.onesignal.ADMMessageHandler"
+            android:exported="false" />
+
         <provider
             android:name="org.apache.cordova.camera.FileProvider"
             android:authorities="com.focus.androidapp.provider"
@@ -116,10 +116,6 @@
                 android:resource="@xml/camera_provider_paths" />
         </provider>
 
-        <activity
-            android:name="io.card.payment.CardIOActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <activity android:name="io.card.payment.DataEntryActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
@@ -133,6 +129,11 @@
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
             android:exported="false" />
+
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
 
         <meta-data
             android:name="onesignal_app_id"

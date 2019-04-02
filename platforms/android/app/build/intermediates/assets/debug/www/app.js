@@ -1,13 +1,16 @@
 // var project_name = '/focus/webservices/Webapi';
-var project_name = '/Projects2018/pioneer/webservices/Webapi';
+var project_name = '/focus/webservices/Webapi';
+// var project_name = '/Projects2018/pioneer/webservices/Webapi';
 var country = 'en';
-// var base_url = 'http://projects.tekshapers.in'
+var base_url = 'http://projects.tekshapers.in'
 // var base_url = 'http://192.168.1.43'
-var base_url = 'http://192.168.31.199'
-// var base_url = 'http://192.168.137.1'
+// var base_url = 'http://192.168.43.78'
+// var base_url = 'http://192.168.1.97'
+// var base_url = 'http://192.168.31.199'
 var WebUrl = base_url + project_name;
 var app_upload_url = base_url + project_name;
 var app_url = base_url + project_name;
+// var image_url = base_url + '/Projects2018/pioneer/uploads/profile_image/'
 var image_url = base_url + '/Projects2018/pioneer/uploads/profile_image/'
 var api_key = 'focus_Lkjhg546dfhkduhrg43567';
 var apikey = 'focus_Lkjhg546dfhkduhrg43567';
@@ -15,9 +18,10 @@ var db = window.openDatabase("focus", "1.0", "focus DB", 1000000);
 var uuid = sessionStorage.u_ids;
 var device_type = 'Android';
 sessionStorage.seq = 0;
+sessionStorage.tokenid = 'ddeebac2-bdd8-4e81-8f3d-75f6e45f0e1b';
 var lat;
 var lng;
-var firebase = "2e7aa0f2-7f25-4075-bd1c-f40b014db18f";
+var firebase = "ddeebac2-bdd8-4e81-8f3d-75f6e45f0e1b";
 var app = angular.module("myApp", ['ngRoute', 'timepickerPop', 'ui.bootstrap', 'slickCarousel', 'ngSanitize', 'ngCookies', 'ngSidebarJS', 'geolocation', 'ngCordovaOauth', 'ngCordova']);
 
 //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -29,7 +33,7 @@ function onDeviceReady() {
     sessionStorage.u_ids = device.uuid;
     sessionStorage.device_type = device.platform;
     uuid = device.uuid;
-    alert(device.platform)
+    // alert(device.platform)
 }
 
 document.addEventListener("offline", onOffline, false);
@@ -379,9 +383,9 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
             });
             
             window.plugins.OneSignal.getIds(function (ids) {
-                // alert(JSON.stringify(ids.userId))
+                alert(JSON.stringify(ids.userId))
                 loading.active();
-                $rootScope.UniversalAppToken = ids.userId;
+                sessionStorage.tokenid = ids.userId;
                 loading.deactive();
             });
             
@@ -443,7 +447,7 @@ app.run(function ($rootScope, $cookieStore, loading, model, $http, $location, $i
 
 
 
-app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, $cordovaToast, loading, $cordovaGeolocation, $cookieStore, model) {
+app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, $cordovaToast, loading, $cordovaGeolocation, $cookieStore, model, $controller) {
 
 
     $rootScope.get_days = function () {
@@ -472,6 +476,33 @@ app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, 
 			}
 
 		})
+
+    }
+
+
+    $rootScope.get_vision_list = function () {
+
+//        loading.active();
+
+        var args = $.param({
+            user_id : $cookieStore.get('userinfo').id,
+            apikey : apikey
+        })
+        $http({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            url: app_url + '/notification_list',
+            data : args   
+        }).then(function (response) {
+            //alert();
+            //loading.deactive();
+            res = response;
+            $rootScope.notification_len = res.data.data.length;
+            console.log($rootScope.notification_len)
+                
+        })
 
     }
     

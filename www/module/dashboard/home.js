@@ -1,12 +1,11 @@
-app.controller('home', function ($scope, $http, $location, $cookieStore, $timeout, loading, model, $rootScope, $route) {
+app.controller('home', function ($controller, $scope, $http, $location, $cookieStore, $timeout, loading, model, $rootScope, $route) {
     
 
     if (!$cookieStore.get('userinfo')) {
         $location.path('/login');
-       
+        
     }
-
-    console.log($cookieStore.get('userinfo'));
+    
 
     $scope.username = $cookieStore.get('userinfo').fname + " " + $cookieStore.get('userinfo').lname
    $scope.user_type = $cookieStore.get('userinfo').user_type;
@@ -17,6 +16,9 @@ app.controller('home', function ($scope, $http, $location, $cookieStore, $timeou
 
     $scope.focus_menu = function(){
         $location.path('/focus_menu');
+    }
+    $scope.notification = function(){
+        $location.path('/notification');
     }
 
     $scope.membership = function(){

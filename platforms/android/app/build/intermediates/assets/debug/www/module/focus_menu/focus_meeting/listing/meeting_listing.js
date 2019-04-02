@@ -18,6 +18,7 @@ app.controller('meeting_listing', function ($rootScope, $scope, $http, $location
     } 
 
     $scope.truelist = false;
+    var count = 0;
     $scope.get_morning_focus = function () {
 
         loading.active();
@@ -35,12 +36,30 @@ app.controller('meeting_listing', function ($rootScope, $scope, $http, $location
             data : args   
         }).then(function (response) {
             //alert();
-            loading.deactive();
+           // loading.deactive();
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
                $scope.morningfocus = res.data.data;
+               setTimeout(function(){
+                loading.deactive();
+               
+                $.each($scope.morningfocus, function(key, val) {
+                  console.log(count);
+                 count++;
+                  if(count < 5){
+                  console.log("#detail_data_" + val.id);
+                  $("#detail_data_" + val.id).addClass("bg-color" + count);
+                }else{
+      
+                  count = 1;
+                  $("#detail_data_" + val.id).addClass("bg-color" + count);
+                }
+                });
+              },500)
                $scope.truelist = true;
+            }else{
+              loading.deactive();
             }
                 
         })

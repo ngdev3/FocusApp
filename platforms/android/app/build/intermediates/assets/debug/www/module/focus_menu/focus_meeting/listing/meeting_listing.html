@@ -22,7 +22,7 @@
 	<!-- END HEADER -->
 		<div class="vision-listing pt-5 mt-60">
 			<div class="col-sm-12 col-xs-12" ng-if="truelist">
-				<div class="vision-listing-content1 bg-color" ng-click="meeting_details(x.id)" ng-class="{'bg-color1':$index % 2 == 0}" ng-repeat="x in morningfocus">
+				<div class="vision-listing-content1 bg-color" id="detail_data_{{x.id}}"  ng-click="meeting_details(x.id)"  ng-repeat="x in morningfocus">
 					<div class="content-heading">
 						<h3>{{x.meeting_name | ucwords}}</h3>
 					</div>

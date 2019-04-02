@@ -22,7 +22,7 @@
   <!-- {{morningfocus/}} -->
   <div class="vision-listing mt-50">
     <div class="col-sm-12 col-xs-12" ng-if="truelist">
-      <div class="vision-listing-content morning-img bg-color" ng-class="{'bg-color3':$index % 2 == 0}" ng-repeat="x in morningfocus" ng-click="focus_detail(x.id)">
+      <div class="vision-listing-content morning-img bg-color" id="detail_data_{{x.id}}"  ng-repeat="x in morningfocus" ng-click="focus_detail(x.id)">
         <div class="content-para">
           <!-- {{$index % 2}} -->
           <p>{{x.quotation_title | ucwords}}</p>

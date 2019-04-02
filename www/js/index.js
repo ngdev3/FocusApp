@@ -29,7 +29,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
       window.plugins.OneSignal
-      .startInit("2e7aa0f2-7f25-4075-bd1c-f40b014db18f")
+      .startInit("ddeebac2-bdd8-4e81-8f3d-75f6e45f0e1b")
       .endInit();
       
       window.plugins.OneSignal.getIds(function (ids) {

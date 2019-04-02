@@ -78,6 +78,7 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
 
     
     $scope.truelist = false;
+    var count = 0;
     $scope.get_vision_list = function () {
 
         loading.active();
@@ -95,7 +96,7 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
             data : args   
         }).then(function (response) {
             //alert();
-            loading.deactive();
+          //  loading.deactive();
             res = response;
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
@@ -103,7 +104,27 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
               if(res.data.data.focus_data.length > 0){
 
                 $scope.morningfocus = res.data.data.focus_data;
+
+                setTimeout(function(){
+                  loading.deactive();
+                 
+                  $.each(res.data.data.focus_data, function(key, val) {
+                    console.log(count);
+                   count++;
+                    if(count < 4){
+                    console.log("#detail_data_" + val.id);
+                    $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  }else{
+        
+                    count = 0;
+                    $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  }
+                  });
+                },500)
+
                 $scope.truelist = true;
+              }else{
+                loading.deactive();
               }
             }
                 

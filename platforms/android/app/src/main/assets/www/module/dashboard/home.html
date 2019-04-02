@@ -1,7 +1,7 @@
 <div ng-controller="home" id="containernew">
 	<div style='display:none;' class="homes"></div>
 
-	<header class="container-fluid nav-down">
+	<header class="container-fluid nav-down" ng-init="get_vision_list()">
 		<div class="row">
 			<nav class="navbar navbar-inverse">
 				<div class="container no-padding">
@@ -12,9 +12,9 @@
 							<p>Home</p>
 						</li>
 						<li class="cart_icon">
-							<a href="javascript:void(0)">
+							<a href="javascript:void(0)" ng-click="notification()">
 								<span class="bell-icon"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-								<span class="badge">7</span>
+								<span class="badge">{{notification_len}}</span>
 							</a>
 						</li>
 					</ul>
@@ -79,11 +79,6 @@
 			</div>
 			</div>
 		</div> ---->
-
-
-
-
-
 
 	<!-----side nav----->
 	<div class="side-bar">

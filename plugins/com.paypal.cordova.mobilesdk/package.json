@@ -1,19 +1,19 @@
 {
-  "_from": "com.paypal.cordova.mobilesdk",
+  "_from": "com.paypal.cordova.mobilesdk@^3.5.0",
   "_id": "com.paypal.cordova.mobilesdk@3.5.0",
   "_inBundle": false,
   "_integrity": "sha1-qq7AtHcArQlRE7wG419i8OYirOk=",
   "_location": "/com.paypal.cordova.mobilesdk",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "com.paypal.cordova.mobilesdk",
+    "raw": "com.paypal.cordova.mobilesdk@^3.5.0",
     "name": "com.paypal.cordova.mobilesdk",
     "escapedName": "com.paypal.cordova.mobilesdk",
-    "rawSpec": "",
+    "rawSpec": "^3.5.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^3.5.0"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/com.paypal.cordova.mobilesdk/-/com.paypal.cordova.mobilesdk-3.5.0.tgz",
   "_shasum": "aaaec0b47700ad095113bc06e35f62f0e622ace9",
-  "_spec": "com.paypal.cordova.mobilesdk",
+  "_spec": "com.paypal.cordova.mobilesdk@^3.5.0",
   "_where": "J:\\xampp\\htdocs\\Projects2018\\FocusApp",
   "author": {
     "name": "paypal"

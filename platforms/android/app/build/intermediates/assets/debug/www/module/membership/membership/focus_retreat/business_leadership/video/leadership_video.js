@@ -26,7 +26,7 @@ app.controller('leadership_video', function ($sce, $rootScope, $scope, $http, $l
          setTimeout(function(){
             
         loading.deactive();
-    },500)
+    },1500)
         return $sce.trustAsResourceUrl(src);
       }
 

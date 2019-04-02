@@ -1,6 +1,5 @@
 app.controller('notification', function ($scope, $http, $location, $cookieStore, model, loading, $rootScope) {
 
-    //alert()
     if (!$cookieStore.get('userinfo')) {
         $location.path("/login");
         return false;
@@ -8,37 +7,67 @@ app.controller('notification', function ($scope, $http, $location, $cookieStore,
     
     loading.deactive();
 
-    $scope.notify = function (form) {
+    $scope.back_weekly = function(){
+        $location.path('/dashboard/home');
+    }
+
+    //notification_list
+
+    $scope.truelist = false;
+    var count = 0;
+    $rootScope.morningfocus = 0;
+    $scope.get_vision_list = function () {
+
         loading.active();
 
+        var args = $.param({
+            user_id : $cookieStore.get('userinfo').id,
+            apikey : apikey
+        })
         $http({
             headers: {
-                //'token': '40d3dfd36e217abcade403b73789d732',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            method: 'GET',
-            url: app_url + '/profileapi/notifications?mid=' + uuid,
-            //data: args 
-
+            method: 'POST',
+            url: app_url + '/notification_list',
+            data : args   
         }).then(function (response) {
-
+            //alert();
+            //loading.deactive();
             res = response;
+            console.log(res.data.data)
+            $rootScope.morningfocus = res.data.data.length;
+            if(res.data.ErrorCode == 0){
 
-            if (res.data.data != '') {
-                lengthOfSlots = res.data.data.length;
-                $scope.notificationdata = res.data.data;
-                $location.path('/notification');
-            } else {
+              if(res.data.data.length > 0){
 
-                lengthOfSlots = res.data.data.length;
-                $scope.notificationdata = res.data.data;
-                //  alert('No Data');
+                $scope.morningfocus = res.data.data;
+
+                setTimeout(function(){
+                  loading.deactive();
+                 
+                  $.each(res.data.data, function(key, val) {
+                    console.log(count);
+                   count++;
+                    if(count < 4){
+                    console.log("#detail_data_" + val.id);
+                    $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  }else{
+        
+                    count = 0;
+                    $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  }
+                  });
+                },500)
+
+                $scope.truelist = true;
+              }
+            }else{
+              loading.deactive();
             }
+                
+        })
 
-        }).finally(function () {
-            loading.deactive();
-        });
-
-
-    };
+    }
+    
 });
