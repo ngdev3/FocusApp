@@ -425,7 +425,8 @@ public final class R {
     public static final int onesignal_bgimage_notif_layout=0x7f080011;
   }
   public static final class mipmap {
-    public static final int icon=0x7f090000;
+    public static final int ic_launcher=0x7f090000;
+    public static final int icon=0x7f090001;
   }
   public static final class raw {
     public static final int consumer_onesignal_keep=0x7f0a0000;

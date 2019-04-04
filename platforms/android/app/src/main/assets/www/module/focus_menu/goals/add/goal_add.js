@@ -29,9 +29,20 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
    $scope.select_days_three = []
 
    var d = new Date();
+   // var set_date = new Date();
+   console.log(d)
+   var old_d = new Date();
    var n = d.getTime();
-   var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss Z');
-   $scope.mytime = today;
+   var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+   var old_today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+   $scope.notification_one = d //$filter('date')(new Date(), 'HH:mm:h');
+   $scope.notification_two = d //$filter('date')(new Date(), 'HH:mm:h');
+   $scope.notification_three = d //$filter('date')(new Date(), 'HH:mm:h');
+   $scope.set_date = $filter('date')(new Date(), 'yyyy-MM-dd');
+   console.log($scope.set_date)
+   // $scope.mytime = today;
+   $scope.mymintime = old_today;
+   $scope.goal_date = d;
 
    $scope.truelist = false;
    $scope.get_days = function () {

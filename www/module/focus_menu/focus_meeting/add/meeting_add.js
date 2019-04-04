@@ -6,6 +6,8 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
     }
    	 
 	 $scope.mytime = new Date();
+	 var d = new Date();
+	  var n = d.getTime();
 	$scope.showMeridian = true;
 	$scope.goaltitle = [1, 2, 3]
 	$scope.set_date = new Date();
@@ -14,8 +16,11 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 	var d = new Date();
 	var n = d.getTime();
 	var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss Z');
-	$scope.mytime = today;
+	$scope.notification = n;
+	$scope.set_time = n;
 
+
+	$scope.set_min_date = $filter('date')(new Date(), 'yyyy-MM-dd');
 	$scope.get_focus_detail = function () {
 
 		loading.active();

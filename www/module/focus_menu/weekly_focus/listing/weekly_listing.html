@@ -83,7 +83,7 @@
 				<div class="week-title" ng-click="weekly_details(x.id)">{{x.weekly_title | ucwords}}</div>
 				<div class="week-date" ng-click="weekly_details(x.id)"><span ng-repeat="y in x.days">{{y.short_name | ucwords}}, </span></div>
 				<div class="week-time" ng-click="weekly_details(x.id)">{{x.set_time | myTimeFormat}}</div>
-				<button class="undone-new" ng-click="undone(x.id)">Undone</button>
+				<button class="undone-new" ng-if="x.stats == 'done'"  ng-click="undone(x.id)">Undone</button>
 			</div>
 			<!-- <div class="weekly-up section-2 weekly-color-up-2">
 				<div class="week-title">Schedule Your Day</div>
@@ -116,7 +116,7 @@
 		<div class="add-btn-btn" >
 			<div class="add-new-btn floating_add_btn" ng-click="add_weekly()"><a>+</a></div>
 		</div>
-		<div class="col-sm-12 col-xs-12 pt-15 pb-20 measure-me">
+		<div class="col-sm-12 col-xs-12 pt-15 pb-20 measure-me" ng-show = "truelist" ng-init="totalstats()">
 	        <button class="measure btn trigger popup">Measure Me</button>
 	    </div>
 	</div>
@@ -136,12 +136,12 @@
 			</div>
 			<div class="notify-set-day">
 			    <div class="done">
-				    <h3 style="color: green;">13</h3>
+				    <h3 style="color: green;">{{get_stats.done}}</h3>
 					<h3 style="margin-top:0px;">DONE</h3>
 				    			
 			    </div>
 				 <div class="undone">
-				    <h3 style="color: #eca52b;">07</h3>
+				    <h3 style="color: #eca52b;">{{get_stats.undone}}</h3>
 					<h3 style="margin-top:0px;">UNDONE</h3>
 				    			
 			    </div>
@@ -149,7 +149,7 @@
 		    </div>
 		
 		    
-	        <div class="popup-bttns">
+	        <div class="popup-bttns" ng-click="close_popup()">
 	            <div class="cancel-popup mt-30" style="width:100%;">
 		            <button class="cancel">Ok</button>
 		        </div>

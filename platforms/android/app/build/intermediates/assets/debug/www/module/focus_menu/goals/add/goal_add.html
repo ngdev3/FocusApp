@@ -30,7 +30,7 @@
 					<input type="text" ng-model="goal_name" name="goal_name" placeholder="Enter Your Goal">
 				</div>
 				<div class="mui-textfield pl-10 pr-10 col-sm-6 col-xs-12 add-date">
-					<input type="date" id="date" ng-model="goal_date" dateFormat name="goal_date" placeholder="Add Target Date">
+					<input type="date" id="date" max="{{mymaxtime}}" min="{{set_date}}" ng-model="goal_date" dateFormat name="goal_date" placeholder="Add Target Date">
 					<span><img src="assets/img/goal-date.png" alt=""></span>
 				</div>
 

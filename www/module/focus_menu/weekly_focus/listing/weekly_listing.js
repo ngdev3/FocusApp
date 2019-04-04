@@ -57,7 +57,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
                     $("#detail_data_" + val.id).addClass("weekly-color-up-" + count);
                   }
                   });
-                },500)
+                },100)
                 $scope.truelist = true;
               }else{
                 loading.deactive();
@@ -92,6 +92,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
             console.log(res.data.data)
             if(res.data.ErrorCode == 0){
               $scope.get_morning_focus();
+              $scope.totalstats()
               alert("Successfully Updated")
             }else{
               alert("There is problem with Weekly Focus")
@@ -141,6 +142,14 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
 
    //  $scope.totalstats();
 
+
+   $scope.close_popup = function (id) {
+
+    $('.modal-wrapper').removeClass('open')
+    // alert(id);
+    return
+
+ }
 
     $scope.weekly_details = function(id){
 		$cookieStore.put('weekly_id', id);

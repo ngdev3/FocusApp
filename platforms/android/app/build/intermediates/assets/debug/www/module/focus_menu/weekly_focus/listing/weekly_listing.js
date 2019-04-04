@@ -57,7 +57,7 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
                     $("#detail_data_" + val.id).addClass("weekly-color-up-" + count);
                   }
                   });
-                },500)
+                },100)
                 $scope.truelist = true;
               }else{
                 loading.deactive();
@@ -65,13 +65,91 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
             }
                 
         })
-
     }
-    
+   
 
     $scope.undone = function(id){
-      alert(id)
+     // alert(id)//undone_weekly
+      
+      loading.active();
+
+        var args = $.param({
+            user_id : $cookieStore.get('userinfo').id,
+            apikey : apikey,
+            weekly_id:id
+        })
+        $http({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            url: app_url + '/undone_weekly',
+            data : args   
+        }).then(function (response) {
+            //alert();
+            loading.deactive();
+            res = response;
+            console.log(res.data.data)
+            if(res.data.ErrorCode == 0){
+              $scope.get_morning_focus();
+              $scope.totalstats()
+              alert("Successfully Updated")
+            }else{
+              alert("There is problem with Weekly Focus")
+            }
+                
+        })
+
+//				<button ng-if="x.stats == 'done'" ng-click="undone(x.id)">Undone</button>
+        //
     }
+
+
+    $scope.totalstats = function(id){
+      // alert(id)//undone_weekly
+       
+       loading.active();
+ 
+         var args = $.param({
+             user_id : $cookieStore.get('userinfo').id,
+             apikey : apikey,
+             weekly_id:id
+         })
+         $http({
+             headers: {
+                 'Content-Type': 'application/x-www-form-urlencoded'
+             },
+             method: 'POST',
+             url: app_url + '/get_weekly_stats',
+             data : args   
+         }).then(function (response) {
+             //alert();
+             loading.deactive();
+             res = response;
+             console.log(res.data.data)
+             if(res.data.ErrorCode == 0){
+               $scope.get_stats = res.data.data;
+              // alert("Successfully Updated")
+             }else{
+               alert("There is problem with Weekly Focus Statistic")
+             }
+                 
+         })
+ 
+ //				<button ng-if="x.stats == 'done'" ng-click="undone(x.id)">Undone</button>
+         //
+     }
+
+   //  $scope.totalstats();
+
+
+   $scope.close_popup = function (id) {
+
+    $('.modal-wrapper').removeClass('open')
+    // alert(id);
+    return
+
+ }
 
     $scope.weekly_details = function(id){
 		$cookieStore.put('weekly_id', id);

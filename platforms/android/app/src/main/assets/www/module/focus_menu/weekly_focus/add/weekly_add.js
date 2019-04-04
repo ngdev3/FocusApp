@@ -13,6 +13,8 @@ app.controller('weekly_add', function ($rootScope, $scope, $http, $location, $in
   $scope.select_days_one = []
   $scope.select_days_two = []
   $scope.select_days_three = []
+  $scope.set_time_notification = new Date();
+  $scope.set_time = new Date();
 
 
   
