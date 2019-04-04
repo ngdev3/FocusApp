@@ -11,7 +11,7 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 	$scope.showMeridian = true;
 	$scope.goaltitle = [1, 2, 3]
 	$scope.set_date = new Date();
-	$scope.select_days = [];
+	$scope.select_days = [];          
 	$scope.meeting_goals = [{},{},{}];
 	var d = new Date();
 	var n = d.getTime();
