@@ -1,0 +1,86 @@
+
+<div ng-controller="meeting_detail" >
+  
+
+	<header class="container-fluid nav-down">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+				<div class="container no-padding">
+					<ul class="nav navbar-nav top_header">
+						<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+						<li class="logo_name"><a class="text-left back">MEETING DETAILS</a></li>
+						<li class="edit-icon"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="edit_focus_detail()"></i></li>
+					</ul>
+	
+				</div>
+			</nav>
+	
+		</div>
+		<!-- MOBILE-MENU-AREA END -->
+	</header>
+	<!-- END HEADER -->
+	<div class="focus-meeting-details pl-10 pr-10 pt-5 mt-40" ng-init="get_days()">
+		<form class="meeting-details">
+				<div class="weeks pd">
+						<ul class="week-days">
+							<!-- <li ng-repeat="x in morningfocus" id="select_day_{{x.id}}" ng-class="" style="margin-right: 7px;">
+								<a href="javascript:void(0)" >
+									<div class="all-weeks">
+										<div class="monday" ng-click="select_day(x.id)">
+											<p>{{x.short_name | ucwords}}</p>
+										</div>
+									</div>
+								</a>
+							</li> -->
+							<li ng-repeat="x in goal_days" id="select_day_{{x.id}}" class="select_day" style="margin-right: 7px;">
+								<a href="javascript:void(0)" >
+									<div class="all-weeks">
+										<div class="monday" ng-click="select_day(x.id)">
+											<p>{{x.short_name | ucwords}}</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+			<div class="form-group">
+				<label for="title">Meeting Name</label>
+				<!-- {{focus_details}} -->
+				<input type="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="{{focus_details.meeting_name}}" disabled>
+		
+			</div>
+			<div class="form-group bor-top">
+				<label for="goal">Meeting Goals</label>
+				<input type="text" class="form-control" ng-repeat="x in goal_name" id="goal" value="{{$index+1}}. {{x.action_step}}" disabled>
+				
+			</div>
+			<div class="form-group bor-top">
+				<label for="time">Time</label>
+				<input type="text" class="form-control" id="time" value="{{focus_details.set_time | myTimecustomFormat}}"  disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="time">Date</label>
+				<input type="text" class="form-control" id="time" value="{{focus_details.set_date | myDatecustomFormat}}" disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="reminder">Reminder</label>
+				<input type="text" class="form-control" id="reminder" value="{{focus_details.set_reminder}} min"  disabled>
+			</div>
+			<div class="form-group bor-top">
+				<label for="Notification">Notification</label>
+				<input type="text" class="form-control" id="Notification" value="{{focus_details.set_notification  | myDatecustomFormat}}" disabled>
+			</div>
+		</form>	
+	
+	
+	</div>
+	<script>
+		$('.digit1 input').keyup(function() {
+			if ($(this).val().length == $(this).attr("maxlength")) {
+				$(this).next().focus();
+			}
+		});
+	
+	</script>
+
+</div>

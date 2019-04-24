@@ -1,0 +1,182 @@
+
+<div ng-controller="weekly_listing">
+   
+
+	<header class="container-fluid nav-down">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+				<div class="container no-padding">
+					<ul class="nav navbar-nav top_header">
+						<li class="menu_icon back_icon"><a ng-click="back_weekly()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+						<li class="logo_name"><a class="text-left back">Weekly Focus</a></li>
+	
+					</ul>
+	
+				</div>
+			</nav>
+	
+		</div>
+		<!-- MOBILE-MENU-AREA END -->
+	</header>
+	<!-- END HEADER -->
+	<style>
+.undone-new{
+   padding: 5px 15px;
+    border: none;
+    background-color: #ffffff;
+    margin-top: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 6px 1px #38383873;
+    color: #000;
+    font-weight: 600;
+}
+.measure-me button {
+   width: 75%;
+    border: none;
+    background-color: #2e4a79;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 7px 2px #2e4a79;
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+}
+
+.done, .undone{
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+	margin-top: 20px;
+}
+.done h3{
+    margin-bottom:0px;
+	font-size: 17px;
+}
+.undone h3{
+    margin-bottom:0px;
+	font-size: 17px;
+}
+.line-new{
+        top: 90px;
+    width: 2px;
+    height: 65px;
+    display: block;
+    background-color: #e6e6e6;
+    position: absolute;
+    left: 50%;
+}
+.cancel-popup button {
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #2e4a79;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px 1px #2e4a796b;
+    width: 80%;
+}
+</style>
+	<div class="pl-10 pr-10 pt-5 mt-50" ng-init="get_morning_focus()">
+		<div class="weekly-process">
+			
+			<div class="weekly-up section-1 weekly-color-up-1" id="detail_data_{{x.id}}"    ng-repeat="x in morningfocus">
+				<div class="week-title" ng-click="weekly_details(x.id)">{{x.weekly_title | ucwords}}</div>
+				<div class="week-date" ng-click="weekly_details(x.id)"><span ng-repeat="y in x.days">{{y.short_name | ucwords}}, </span></div>
+				<div class="week-time" ng-click="weekly_details(x.id)">{{x.set_time | myTimeFormat}}</div>
+				<button class="undone-new" ng-if="x.stats == 'done'"  ng-click="undone(x.id)">Undone</button>
+			</div>
+			<!-- <div class="weekly-up section-2 weekly-color-up-2">
+				<div class="week-title">Schedule Your Day</div>
+				<div class="week-date">Mon, Tue, Wed, Sat</div>
+				<div class="week-time">5:10 AM</div>
+			</div>
+			<div class="weekly-up section-3 weekly-color-up-3">
+				<div class="week-title">Schedule Your Day</div>
+				<div class="week-date">Mon, Tue, Wed, Sat</div>
+				<div class="week-time">5:10 AM</div>
+			</div>
+			<div class="weekly-up section-4 weekly-color-up-4">
+				<div class="week-title">Schedule Your Day</div>
+				<div class="week-date">Mon, Tue, Wed, Sat</div>
+				<div class="week-time">5:10 AM</div>
+			</div>
+			<div class="weekly-up section-5 weekly-color-up-5">
+				<div class="week-title">Schedule Your Day</div>
+				<div class="week-date">Mon, Tue, Wed, Sat</div>
+				<div class="week-time">5:10 AM</div>
+			</div> -->
+			
+		</div>
+		<div   class="no_data_wrapper" ng-if = "!truelist">
+			<div>
+				<img src="img/no_data_found.png">
+				<h3 class="text-center" >Not Found !!!</h3>
+			</div>
+		</div>
+		<div class="add-btn-btn" >
+			<div class="add-new-btn floating_add_btn" ng-click="add_weekly()"><a>+</a></div>
+		</div>
+		<div class="col-sm-12 col-xs-12 pt-15 pb-20 measure-me" ng-show = "truelist" ng-init="totalstats()">
+	        <button class="measure btn trigger popup">Measure Me</button>
+	    </div>
+	</div>
+	
+	<!--------------popup screen------->
+
+
+
+    
+	<div class="modal-wrapper">
+		<div class="modal pl-20 pr-20" style="height: 274px;">
+		    <div class="head">
+			    <a class="btn-close trigger" href="javascript:;"></a>
+				<div class="popup-heading">
+				    <h3>Weekly Focus</h3>
+				</div>
+			</div>
+			<div class="notify-set-day">
+			    <div class="done">
+				    <h3 style="color: green;">{{get_stats.done}}</h3>
+					<h3 style="margin-top:0px;">DONE</h3>
+				    			
+			    </div>
+				 <div class="undone">
+				    <h3 style="color: #eca52b;">{{get_stats.undone}}</h3>
+					<h3 style="margin-top:0px;">UNDONE</h3>
+				    			
+			    </div>
+				<span class="line-new"></span>
+		    </div>
+		
+		    
+	        <div class="popup-bttns" ng-click="close_popup()">
+	            <div class="cancel-popup mt-30" style="width:100%;">
+		            <button class="cancel">Ok</button>
+		        </div>
+		       
+	        </div>
+		
+	    </div>
+    </div>
+	
+	
+	
+	
+	<script>
+		$('.digit1 input').keyup(function() {
+			if ($(this).val().length == $(this).attr("maxlength")) {
+				$(this).next().focus();
+			}
+		});
+	
+	</script>
+<script>
+$( document ).ready(function() {
+  $('.trigger').click(function() {
+     $('.modal-wrapper').toggleClass('open');
+    $('.page-wrapper').toggleClass('blur');
+     return false;
+  });
+});
+</script>
+</div>

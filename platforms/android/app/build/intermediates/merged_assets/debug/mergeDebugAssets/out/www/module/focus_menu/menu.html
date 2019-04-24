@@ -1,0 +1,70 @@
+
+<div ng-controller="menu">
+
+  <header class="container-fluid nav-down" ng-init="get_vision_list()">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <div class="container no-padding">
+                <ul class="nav navbar-nav top_header">
+                    <li class="menu_icon back_icon"><a ng-click="back_weekly()" href="javascript:void(0)" ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="logo_name"><a class="text-left back">Focus Menu</a></li>
+					
+					<li class="cart_icon">
+				  <a href="javascript:void(0)"  ng-click="notification()">
+				  <span class="bell-icon"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                  <span class="badge">{{notification_len}}</span>
+				  </a>
+			  </li>
+				</ul>	
+				
+
+            </div>
+        </nav>
+
+    </div>
+    <!-- MOBILE-MENU-AREA END -->
+</header>
+<!-- END HEADER -->
+<div class="privacy_policy pl-10 pr-10 pt-5 mt-50">
+    <div class="profile-image">
+		<div id="bckground" class="bg-profile-image">
+			    
+		</div>
+		<div class="profile-pic-menu">
+			<img id="profilepic" src="assets/img/upload-pic1.png">
+		</div>
+		<!-- <div class="edit-profile-pic-menu" ng-click="sendtoprofileimage()">
+			<a href="javascript:void(0)" ><i class="fa fa-pencil-square-o"></i></a>
+		</div>
+			 -->
+	</div>
+  
+   <div class="focus-member">
+       <div class="morning-focus color-ylw mr-10 mb-10 mt-10" ng-click="myvision()">
+           <div class="mor-focus-img"><img src="assets/img/my-vision.png" alt=""></div>
+           <div class="mor-focus-text"><p>My Vision</p></div>
+       </div>
+       <div class="morning-focus coaches-corner color-blu mt-10" ng-click="mygoal()">
+           <div class="mor-focus-img"><img src="assets/img/my-goal.png" alt=""></div>
+           <div class="mor-focus-text"><p>My Goals</p></div>
+       </div>
+       <div class="morning-focus master-class color-skyblu mr-10" ng-click="weekly_focus()">
+           <div class="mor-focus-img"><img src="assets/img/weekly-focus.png" alt=""></div>
+           <div class="mor-focus-text"><p>Weekly Focus</p></div>
+       </div>
+       <div class="morning-focus focus-retreat color-grey" ng-click="focus_meeting()">
+           <div class="mor-focus-img"><img src="assets/img/focus_meeting.png" alt=""></div>
+           <div class="mor-focus-text"><p>Focus Meetings</p></div>
+       </div>
+   </div>
+
+</div>
+<script>
+    $('.digit1 input').keyup(function() {
+        if ($(this).val().length == $(this).attr("maxlength")) {
+            $(this).next().focus();
+        }
+    });
+
+</script>
+</div>

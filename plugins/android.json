@@ -1,0 +1,37 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    }
+  }
+}

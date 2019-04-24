@@ -1,0 +1,101 @@
+
+<div ng-controller="meeting_listing">
+   
+
+
+	<header class="container-fluid nav-down" ng-init="get_morning_focus()">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+			  <div class="container no-padding">
+				<ul class="nav navbar-nav top_header">
+					<li class="menu_icon back_icon"><a ng-click="back_weekly()" href="javascript:void(0)"   ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+					<li class="logo_name"><a class="text-left back">FOCUS MEETINGS</a></li>
+				  
+				</ul>
+				
+			  </div>
+			</nav>
+		
+		</div>
+		<!-- MOBILE-MENU-AREA END -->
+	</header>
+	<!-- END HEADER -->
+		<div class="vision-listing pt-5 mt-60">
+			<div class="col-sm-12 col-xs-12" ng-if="truelist">
+				<div class="vision-listing-content1 bg-color" id="detail_data_{{x.id}}"  ng-click="meeting_details(x.id)"  ng-repeat="x in morningfocus">
+					<div class="content-heading">
+						<h3>{{x.meeting_name | ucwords}}</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">{{x.created_date | myDateFormat}}</p>
+						<p class="time">{{x.set_time | myTimeFormat}}</p>
+					</div>
+				</div>
+				<!-- <div class="vision-listing-content1 bg-color1">
+					<div class="content-heading">
+						<h3>Information Sharing Meetings</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">18 April 2018</p>
+						<p class="time">05:00pm</p>
+					</div>
+				</div>
+				<div class="vision-listing-content1 bg-color2">
+					<div class="content-heading">
+						<h3>Decision Making Meetings</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">18 April 2018</p>
+						<p class="time">05:00pm</p>
+					</div>
+				</div>
+				<div class="vision-listing-content1 bg-color4">
+					<div class="content-heading">
+						<h3>Innovation Meetings</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">18 April 2018</p>
+						<p class="time">05:00pm</p>
+					</div>
+				</div>
+				<div class="vision-listing-content1 bg-color3">
+					<div class="content-heading">
+						<h3>Team Building Meetings</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">18 April 2018</p>
+						<p class="time">05:00pm</p>
+					</div>
+				</div>
+				<div class="vision-listing-content1 bg-color">
+					<div class="content-heading">
+						<h3>Office Meetings</h3>
+					</div>
+					<div class="content-para">
+						<p class="date">18 April 2018</p>
+						<p class="time">05:00pm</p>
+					</div>
+				</div> -->
+			</div>
+			<div   class="no_data_wrapper" ng-if = "!truelist">
+				<div>
+					<img src="img/no_data_found.png">
+					<h3 class="text-center" >Not Found !!!</h3>
+				</div>
+			</div>
+			<div class="add-btn-btn" >
+				<div class="add-new-btn floating_add_btn" ng-click="add_meeting()"><a>+</a></div>
+			</div>
+		</div>
+	
+	
+	<script>
+	
+		$('.digit1 input').keyup(function(){
+			if($(this).val().length==$(this).attr("maxlength")){
+				$(this).next().focus();
+			}
+		});
+	
+	</script>	
+</div>

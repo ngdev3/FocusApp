@@ -1,0 +1,58 @@
+
+<div ng-controller="leadership_video">
+
+
+    <header class="container-fluid nav-down" ng-init="get_morning_focus()">
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+              <div class="container no-padding">
+                <ul class="nav navbar-nav top_header">
+                    <li class="menu_icon back_icon"><a ng-click="backtoback()" href="javascript:void(0)"   ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                    <li class="logo_name"><a class="text-left back">BUSINESS LEADERSHIP</a></li>
+                    
+                  
+                </ul>
+                
+              </div>
+            </nav>
+        
+        </div>
+        <!-- MOBILE-MENU-AREA END -->
+    </header>
+    <!-- END HEADER -->
+        <div class="video-info-head mt-50">
+            <ul class="info-video pb-10">
+                <li class="logo_information unactive" ng-click="contents()"><a class="text-left back">INFORMATION<span class="under-line"></span></a></li>
+                <li class="logo_video " ng-click="video()"><a class="text-left back">VIDEOS<span class="under-line"></span></a></li>
+            </ul>
+        </div>	
+        <div class="vision-listing" ng-if="truelist">
+            <div class="self-mastery-video" ng-repeat="x in morningfocus">
+                <div class="mastery-video">
+                    <iframe width="100%" height="220" src="{{trustSrc(x.url)}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="vid-detail">
+                    <!-- <p>According to 1 Trainer, These 4 Workouts Burn the Most Calories</p> -->
+                    <p>{{x.title | ucwords | limitTo:30}}{{x.title.length > 30 ? '...' : ''}}</p>
+                </div> 			
+            </div>
+           
+        </div>
+        <div class="no_data_wrapper" ng-if="!truelist">
+                <div>
+                    <img src="img/no_data_found.png">
+                    <h3 class="text-center">Not Found !!!</h3>
+                </div>
+            </div>
+    
+    
+    <script>
+    
+        $('.digit1 input').keyup(function(){
+            if($(this).val().length==$(this).attr("maxlength")){
+                $(this).next().focus();
+            }
+        });
+    
+    </script>	
+</div>

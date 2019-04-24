@@ -1,0 +1,55 @@
+<div ng-controller="coaches_corner">
+
+  <header class="container-fluid nav-down" ng-init="get_morning_focus()">
+    <div class="row">
+      <nav class="navbar navbar-inverse">
+        <div class="container no-padding">
+          <ul class="nav navbar-nav top_header">
+            <li class="menu_icon back_icon"><a href="javascript:void(0)" ng-click="back()"><img style="width:13px;" src="assets/img/icon/back.png"
+                  id="asdf" alt="menu icon" /></a></li>
+            <li class="logo_name"><a class="text-left back">COACHES CENTERS</a></li>
+
+
+          </ul>
+
+        </div>
+      </nav>
+
+    </div>
+    <!-- MOBILE-MENU-AREA END -->
+  </header>
+  <!-- END HEADER -->
+  <div class="vision-listing pt-25 mt-25" ng-if="truelist">
+
+    <div class="col-sm-6 col-xs-6 self-mastery-video" ng-repeat="x in morningfocus">
+      <div class="coaches-video">
+        
+        <!-- <iframe width="100%" height="120" src="{{x.url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" -->
+        <iframe width="100%" height="120" src="{{trustSrc(x.url)}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="vid-details">
+        <p class="coaches-para">{{x.title}}</p>
+      </div>
+    </div>
+
+   
+
+  </div>
+  <div   class="no_data_wrapper" ng-if = "!truelist">
+      <div>
+          <img src="img/no_data_found.png">
+          <h3 class="text-center" >Not Found !!!</h3>
+      </div>
+  </div>
+
+
+  <script>
+
+    $('.digit1 input').keyup(function () {
+      if ($(this).val().length == $(this).attr("maxlength")) {
+        $(this).next().focus();
+      }
+    });
+
+  </script>
+</div>

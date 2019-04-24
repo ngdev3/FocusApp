@@ -1,0 +1,132 @@
+<div ng-controller="mastery_content">
+
+
+    <header class="container-fluid nav-down" ng-init="get_morning_focus()">
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container no-padding">
+                    <ul class="nav navbar-nav top_header">
+                        <li class="menu_icon back_icon"><a ng-click="backtoback()" href="javascript:void(0)"><img style="width:13px;"
+                                    src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
+                        <li class="logo_name"><a class="text-left back">SELF MASTERY</a></li>
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+
+        </div>
+        <!-- MOBILE-MENU-AREA END -->
+    </header>
+    <!-- END HEADER -->
+    <div class="video-info-head mt-50">
+        <ul class="info-video pb-10">
+            <li class="logo_information" ng-click="contents()"><a class="text-left back">INFORMATION<span class="under-line active-line"></span></a></li>
+            <li class="logo_video unactive" ng-click="video()"><a class="text-left back">VIDEOS<span class=""></span></a></li>
+        </ul>
+    </div>
+    <div class="vision-listing">
+        <div class="col-sm-12 col-xs-12" ng-if="truelist">
+            <div class="self-mastery" >
+                <div class="self-mastery-head" ng-if="first.length > 0">
+                    <h3>{{first_cat.title | ucwords | limitTo:30}}</h3>
+                </div>
+                <div class="vision-listing-content bg-color" ng-repeat="x in first">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head" ng-if="second.length > 0">
+                    <h3>{{second_cat.title | ucwords | limitTo:30}}</h3>
+                </div> 
+                <div class="vision-listing-content bg-color1" ng-repeat="x in second">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head" ng-if="third.length > 0">
+                    <h3>{{third_cat.title | ucwords | limitTo:30}}</h3>
+                </div>
+                <div class="vision-listing-content bg-color2" ng-repeat="x in third">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="self-mastery" >
+                <div class="self-mastery-head" ng-if="fourth.length > 0">
+                    <h3>{{fourth_cat.title | ucwords | limitTo:30}}</h3>
+                </div>
+                <div class="vision-listing-content bg-color4" ng-repeat="x in fourth">
+                    <div class="content-para-mastery">
+                        <p>{{x.description | ucwords}}</p>
+                    </div>
+                    <a href="javascript:(0)">
+                        <div class="take-membership">
+                            <div class="take-membership-para">
+                                <p>Take Membership</p>
+                            </div>
+                            <div class="take-membership-img">
+                                <img src="assets/img/member-arrow.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="no_data_wrapper" ng-if="!fourth.length > 0 || !third.length > 0 || !second.length > 0 || !first.length > 0">
+            <div>
+                <img src="img/no_data_found.png">
+                <h3 class="text-center">Not Found !!!</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        $('.digit1 input').keyup(function () {
+            if ($(this).val().length == $(this).attr("maxlength")) {
+                $(this).next().focus();
+            }
+        });
+
+    </script>
+</div>
