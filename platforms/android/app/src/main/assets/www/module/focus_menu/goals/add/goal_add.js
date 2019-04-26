@@ -386,6 +386,7 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
          //alert();
          loading.deactive();
          res = response;
+         // $cookieStore.put('removelooping','yes')
          console.log(res.data.data)
          if (res.data.ErrorCode == 0) {
             $cookieStore.remove('goal_id')

@@ -4,6 +4,8 @@ app.controller('menu', function ($rootScope, $scope, $http, $location, $interval
    $scope.backwithremove = function () {
       window.history.back();
    }
+
+   // navigator.app.clearHistory(); 
    
   // $scope.notific_length = $rootScope.morningfocus;
    console.log($rootScope.notification);

@@ -91,7 +91,7 @@
 						</div>
 						<div id="checkboxes">
 						    <label class="container" ng-repeat="x in get_pay_method">{{x.title}}
-								<input type="checkbox" name="payment_type" value="{{x.id}}" ng-init="payment_type = '1'" ng-model="payment_type" name="radio" >
+								<input type="radio" name="payment_type" ng-model="payment_type" value="{{x.id}}" ng-init="payment_type = '1'">
 								<span class="checkmark"></span>
 						    </label>
 							

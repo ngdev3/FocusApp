@@ -70,7 +70,7 @@ app.controller('goal_detail', function ($rootScope, $scope, $http, $location, $i
     }
 
     $scope.edit_focus_detail = function (id) {
-
+       
         $location.path('/focus_menu/goal/add');
 
     }

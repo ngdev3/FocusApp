@@ -39,17 +39,27 @@ app.controller('morning_focus', function ($rootScope, $scope, $http, $location, 
                $scope.morningfocus = res.data.data;
                setTimeout(function(){
                 loading.deactive();
-               
+               var globalcount = 1;
                 $.each(res.data.data, function(key, val) {
-                  console.log(count);
-                 count++;
+                    console.log(count);
+                    count++;
+
                   if(count < 4){
                   console.log("#detail_data_" + val.id);
-                  $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  if(globalcount){
+                      $("#detail_data_" + val.id).addClass("bg-color" + count);
+                    globalcount = 0
                 }else{
-      
+                    globalcount = 1
+                    $("#detail_data_" + val.id).addClass("bg-right bg-color" + count);
+                    // globalcount++;
+                  }
+
+                }else{ 
+                      
                   count = 0;
-                  $("#detail_data_" + val.id).addClass("bg-color" + count);
+                  globalcount = 1
+                  $("#detail_data_" + val.id).addClass(" bg-right  bg-color" + count);
                 }
                 });
               },500)

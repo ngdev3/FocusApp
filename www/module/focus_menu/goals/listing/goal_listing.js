@@ -15,6 +15,14 @@ app.controller("goal_listing", function(
     $location.path("/login");
   }
 
+//   document.addEventListener('backbutton', function (evt) {
+   
+//     $location.path("/focus_menu");
+//   //  navigator.app.clearHistory();
+//     window.history.back();
+// }, false);
+
+
   $scope.backwithremove = function() {
     $location.path("/focus_menu");
   };

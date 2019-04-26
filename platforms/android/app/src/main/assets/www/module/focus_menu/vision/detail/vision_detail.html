@@ -25,7 +25,7 @@
 	
 	<div class="col-sm-12 col-xs-12 uploaded-pic">
 	    <div class="uploaded-pic-title">
-		    <h3>Uploaded Pictures</h3>
+		    <h3 class="font-color">Uploaded Pictures</h3>
 		</div>
 	</div>
 	<div class="pic-gallery">
@@ -33,84 +33,24 @@
 			<div class="uploaded-image">
 				<img src="{{vision_url}}/{{x.file_name}}">
 			</div>
-			
 		</div>	
-		<!-- <div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>
-        <div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>	
-		<div class="upload-image">
-			<div class="uploaded-image">
-				<img src="assets/img/upload-pic1.png">
-			</div>
-			
-		</div>		 -->
-		
 	</div>
-	
-	
 	<div class="col-sm-12 col-xs-12 your-vision mt-10">
 	    <div class="heading">
-            <h3>Your Vision</h3> 
+            <h3 class="font-color">Your Vision</h3> 
         </div>
 		<div class="heading-para">
-            <p>{{focus_details.vision_title}}</p> 
+            <p class="font-color">{{focus_details.vision_title}}</p> 
         </div>
 	</div>
 	<div class="col-sm-12 col-xs-12 your-vision mt-10">
 	    <div class="heading-goal">
-            <h3>Goal Achievement Date</h3> 
+            <h3 class="font-color">Goal Achievement Date</h3> 
         </div>
 		<div class="heading-goal-para">
-            <p>{{ focus_details.goal_date | myDateFormat }}</p> 
+            <p class="font-color">{{ focus_details.goal_date | myDateFormat }}</p> 
         </div>
 	</div>
-	 
-
 </div>
 </div>
 <script>
