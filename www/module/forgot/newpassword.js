@@ -59,7 +59,7 @@ $scope.forgot = function(form){
                 return false;
             }
 
-    loading.active();
+            loading.active();
 
             var args = $.param({
                 'user_id_verify': $cookieStore.get('userid'),
