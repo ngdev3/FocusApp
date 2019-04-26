@@ -53,10 +53,10 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 					$scope.meeting_goals[i].campuses = res.data.data.goal_name[i].action_step;
 				}
 				$scope.set_date = new Date(res.data.data.focus_data.set_date);
-				$scope.set_time = new Date(res.data.data.focus_data.set_time);
+				$scope.set_time = res.data.data.focus_data.set_time;
 				$scope.truelist = true;
 				$scope.set_reminder = res.data.data.focus_data.set_reminder;
-				$scope.notification = new Date(res.data.data.focus_data.set_notification);
+				$scope.notification = res.data.data.focus_data.set_notification;
 				setTimeout(function () {
 					$.each($scope.goal_days, function (i, v) {
 						console.log(v)
@@ -173,7 +173,7 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 			error_str += "Goal Meeting, ";
 			//return;
 		}
-
+console.log($scope)
 		if (error_str !== '') {
 			error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
 			alert(error_str);

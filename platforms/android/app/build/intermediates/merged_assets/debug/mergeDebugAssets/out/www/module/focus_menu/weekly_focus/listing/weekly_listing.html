@@ -79,7 +79,7 @@
 	<div class="pl-10 pr-10 pt-5 mt-50" ng-init="get_morning_focus()">
 		<div class="weekly-process">
 			
-			<div class="weekly-up section-1 weekly-color-up-1" id="detail_data_{{x.id}}"    ng-repeat="x in morningfocus">
+			<div class="weekly-up section-1 weekly-color-up-1" id="detail_data_{{x.id}}"    ng-repeat="x in weeklyfocus">
 				<div class="week-title" ng-click="weekly_details(x.id)">{{x.weekly_title | ucwords}}</div>
 				<div class="week-date" ng-click="weekly_details(x.id)"><span ng-repeat="y in x.days">{{y.short_name | ucwords}}, </span></div>
 				<div class="week-time" ng-click="weekly_details(x.id)">{{x.set_time | myTimeFormat}}</div>

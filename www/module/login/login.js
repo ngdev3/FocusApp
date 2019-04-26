@@ -129,12 +129,14 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                     console.log($cookieStore.get('userimage'))
                     $location.path('/dashboard/home');
 
-                } else {
+                } else if(response.data.ErrorCode == 2){
 
                     alert(response.data.message)
                     $cookieStore.put('usertempemail',$scope.email_id);
                     $location.path('/register');
                     // model.show('Alert', response.data.responseMessage);
+                }else{
+                    alert(response.data.message)
                 }
 
             }).finally(function () {
