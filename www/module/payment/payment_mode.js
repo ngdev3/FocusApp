@@ -6,6 +6,7 @@ app.controller('payment_mode', function ($scope, $http, $location, $cookieStore,
         return false;
     }
 
+    //$scope.payment_type = 1;
 
     loading.active();
     var args = $.param({
@@ -223,10 +224,8 @@ app.controller('payment_mode', function ($scope, $http, $location, $cookieStore,
                                     $scope.ref.close();
                                     $scope.ref.executeScript({code: "localStorage.removeItem('isCloseSelf')"})
                                    // $scope.payment_info();
-                                }
-                                    
-                            })
-                               
+                                }                                    
+                            })                               
                             } 
                         }
                     );
