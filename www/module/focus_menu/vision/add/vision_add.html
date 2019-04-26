@@ -1,5 +1,8 @@
 <div ng-controller="vision_add" >
+<style>
+input::placeholder{color: yellow;}
 
+</style>
 	<header class="container-fluid nav-down" >
 		<div class="row">
 			<nav class="navbar navbar-inverse">
@@ -20,7 +23,7 @@
 		<form method="post" name="loginform" novalidate>
 			<div class="my_vision pt-5 mt-35">
 				<div class="mui-select my-visn vision-my col-sm-12 col-xs-12">
-					<Select class="choose-background1" name="background" ng-model="background" ng-change="select_bg()">
+					<Select class="choose-background1 font-color" name="background" ng-model="background" ng-change="select_bg()">
 						<option value="">Select Background</option>
 						<option value="{{x.id}}" style="color: black;" ng-repeat="x in morningfocus">
 							{{x.scheme_color_name}}
@@ -28,8 +31,8 @@
 					</Select>
 				</div>
 				<div class="multiple-upload">
-					<p>Upload Pictures</p>
-					<button ng-click="file_uploads_at_app()">Choose Files </button>
+					<p class=" font-color">Upload Pictures</p>
+					<button class="font-color button-color" ng-click="file_uploads_at_app()">Choose Files </button>
 				</div>
 				<div id="uploadPreview"></div>
 				<div class="pic-gallery">
@@ -45,13 +48,13 @@
 				</div>
 				<div class="enter-vision">
 					<div class="mui-textfield my-vison vision-field col-sm-12 col-xs-12" style="width: 96%;margin-left: 15px;">
-						<input type="text" name="vision_name" ng-model="vision_name" placeholder="Enter Your Vision"
+						<input class="font-color" type="text" name="vision_name" ng-model="vision_name" placeholder="Enter Your Vision"
 							required>
 					</div>
 				</div>
 				<div class="add-goal">
 					<div class="mui-textfield my-vison col-sm-12 col-xs-12">
-						<input type="date" id="user_dob" min="{{set_min_date}}" dateFormat name="goal_date" ng-model="goal_date"
+						<input class="font-color" type="date" id="user_dob" min="{{set_min_date}}" dateFormat name="goal_date" ng-model="goal_date"
 							placeholder="Add Goal Achievement" required>
 						<div class="calender-icon">
 							<img src="assets/img/date-icon.png">
@@ -60,7 +63,7 @@
 
 				</div>
 				<div class="col-sm-12 col-xs-12 save-bttn">
-					<button class="save" ng-click="save_goal('loginform')">Save</button>
+					<button class="save button-color font-color" ng-click="save_goal('loginform')">Save</button>
 				</div>
 			</div>
 		</form>

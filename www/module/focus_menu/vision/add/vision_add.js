@@ -226,9 +226,11 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
                 $scope.getcolor = res.data.data;
                 $scope.background_color = res.data.data.background_color;
                 $scope.button_color = res.data.data.button_color;
-                $('.body_bg').css('background', $scope.background_color)
-                $('.save-bttn').css('background-color', $scope.button_color)
-                $('.multiple-upload').css('background', $scope.background_color)
+                $('.body_bg , .multiple-upload').css('background', $scope.background_color)
+               
+                $('.button-color').css('background-color', $scope.button_color)
+               
+                $('.font-color, ::placeholder').css('color', res.data.data.font_color)
                 $scope.truelist = true;
 
             }
