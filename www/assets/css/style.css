@@ -1585,6 +1585,7 @@ input[type=checkbox], input[type=radio] {
     width: 100%;
     background: #ffffff;
     z-index: 99999;
+	top: 0;
 }
 .loading-overlay > .loading{
 	z-index: 99999999;
