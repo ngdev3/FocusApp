@@ -15,7 +15,7 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
     });
         if(project_name_val != '/focus'){
             $scope.email_id = 'rajat54@yopmail.com';
-            $scope.userpassword = '123456';
+            $scope.userpassword = '123456a';
         }
 
    /*  if ($cookieStore.get('userinfo')) {

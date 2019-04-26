@@ -234,7 +234,7 @@ app.controller('payment_mode', function ($scope, $http, $location, $cookieStore,
 
                
                     
-                    $scope.ref = window.open(payment_url + '/pioneer/welcome/pay/2/'+$cookieStore.get('userinfo').id,'_blank','location=no');
+                    $scope.ref = window.open(payment_url + '/welcome/pay/2/'+$cookieStore.get('userinfo').id,'_blank','location=no');
                     $scope.ref.addEventListener('loadstart', function(event) {  });
                     $scope.ref.addEventListener('loadstop', function(event) {
                         setget =  setInterval($scope.getStateSecondWindow, 5000);
