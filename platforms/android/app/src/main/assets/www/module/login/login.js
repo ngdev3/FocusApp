@@ -13,9 +13,10 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
         tx.executeSql('CREATE TABLE IF NOT EXISTS userinfo (id INTEGER PRIMARY KEY AUTOINCREMENT, uid, fname, email_address, lname, profile_image)');
 
     });
-
+if(project_name_val != '/focus'){
     $scope.email_id = 'rajat54@yopmail.com';
-    $scope.userpassword = '123456';
+     $scope.userpassword = '123456';
+}
 
    /*  if ($cookieStore.get('userinfo')) {
         $location.path('/dashboard/home');
