@@ -11,8 +11,13 @@ app.controller('register', function ($rootScope, $scope, $http, $location, $inte
         return false;
     }
 
+    if ($cookieStore.get('usertempemail')) {
+        $scope.email_id = $cookieStore.get('usertempemail')
+    }
+
   
   
+    
 
 
     $scope.loginusers = function (form) {
@@ -130,9 +135,11 @@ app.controller('register', function ($rootScope, $scope, $http, $location, $inte
                 data: args //forms user object
 
             }).then(function (response) {
+                $cookieStore.remove('usertempemail');
                 if (!response.data.ErrorCode) {
                     alert(response.data.message)
-                $location.path('/login');
+                   
+                    $location.path('/login');
 
             } else {
 

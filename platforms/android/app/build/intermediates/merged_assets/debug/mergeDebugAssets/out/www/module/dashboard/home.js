@@ -23,7 +23,35 @@ app.controller('home', function ($controller, $scope, $http, $location, $cookieS
     }
 
     $scope.membership = function(){
-        $location.path('/membership/before_member');
+        loading.active();
+        var args = $.param({
+         user_id : $cookieStore.get('userinfo').id,
+         apikey : apikey
+     })
+     $http({
+         headers: {
+             'Content-Type': 'application/x-www-form-urlencoded'
+         },
+         method: 'POST',
+         url: app_url + '/check_membership',
+         data : args   
+     }).then(function (response) {
+         //alert();
+         loading.deactive();
+         res = response;
+         console.log(res.data.data)
+         if(res.data.ErrorCode == 0){
+          //   $scope.ref.close();
+             $location.path('/membership/membership_plans')
+         }else{
+             //$scope.ref.close();
+            // $scope.ref.executeScript({code: "localStorage.removeItem('isCloseSelf')"})
+            // $scope.payment_info();
+            $location.path('/membership/before_member');
+         }
+             
+     })
+        
     }
 
     $scope.myprofile = function(){

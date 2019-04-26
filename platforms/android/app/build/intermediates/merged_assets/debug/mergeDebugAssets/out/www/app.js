@@ -1043,7 +1043,7 @@ app.filter('myDateFormat', function myDateFormat($filter) {
 
 app.filter('myTimeFormat', function myDateFormat($filter) {
     return function (text) {
-        var tempdate = new Date(text.replace(/-/g, "/"));
+        var tempdate = new Date();
         return $filter('date')(tempdate, "hh:mma");
     }
 });
@@ -1053,7 +1053,7 @@ app.filter('myTimecustomFormat', function myDateFormat($filter) {
         //  alert(text)
         if (text !== undefined) {
 
-            var tempdate = new Date(text.replace(/-/g, "/"));
+            var tempdate = new Date();
             return $filter('date')(tempdate, "hh:mma");
         }
     }

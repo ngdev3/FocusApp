@@ -41,11 +41,12 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
 
               if(res.data.data.focus_data.length > 0){
 
-                $scope.morningfocus = res.data.data.focus_data;
+                $scope.weeklyfocus = res.data.data.focus_data;
+                console.log($scope.weeklyfocus)
                 setTimeout(function(){
                   loading.deactive();
                  
-                  $.each($scope.morningfocus, function(key, val) {
+                  $.each($scope.weeklyfocus, function(key, val) {
                     console.log(count);
                    count++;
                     if(count < 6){

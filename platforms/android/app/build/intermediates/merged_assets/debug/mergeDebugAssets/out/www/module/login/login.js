@@ -131,7 +131,9 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
 
                 } else {
 
-                   alert(response.data.message)
+                    alert(response.data.message)
+                    $cookieStore.put('usertempemail',$scope.email_id);
+                    $location.path('/register');
                     // model.show('Alert', response.data.responseMessage);
                 }
 
