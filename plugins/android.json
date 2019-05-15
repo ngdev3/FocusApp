@@ -16,6 +16,9 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.focus.androidapp"
+    },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.focus.androidapp"
     },
@@ -23,9 +26,6 @@
       "PACKAGE_NAME": "com.focus.androidapp"
     },
     "onesignal-cordova-plugin": {
-      "PACKAGE_NAME": "com.focus.androidapp"
-    },
-    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.focus.androidapp"
     }
   },

@@ -79,11 +79,15 @@
 	<div class="pl-10 pr-10 pt-5 mt-50" ng-init="get_morning_focus()">
 		<div class="weekly-process">
 			
-			<div class="weekly-up section-1 weekly-color-up-1" id="detail_data_{{x.id}}"    ng-repeat="x in weeklyfocus">
+			<div class="weekly-up section-1 weekly-color-up-1" id="detail_data_{{x.id}}" ng-repeat="x in weeklyfocus" ng-if="x.dayss.defaulttime">   
+				<!-- //ng-if="x.dayss.caldate >= newdate"> -->
+				<!-- {{x.dayss.caldate}} -->
+				
 				<div class="week-title" ng-click="weekly_details(x.id)">{{x.weekly_title | ucwords}}</div>
-				<div class="week-date" ng-click="weekly_details(x.id)"><span ng-repeat="y in x.days">{{y.short_name | ucwords}}, </span></div>
+				<div class="week-date" ng-click="weekly_details(x.id)"><span ng-repeat="y in x.dayss.days">{{y.short_name | ucwords}}, </span></div>
 				<div class="week-time" ng-click="weekly_details(x.id)">{{x.set_time | myTimeFormat}}</div>
-				<button class="undone-new" ng-if="x.stats == 'done'"  ng-click="undone(x.id)">Undone</button>
+				<button class="undone-new" ng-if="x.stats == ''"  ng-click="undone(x.id)">Done</button>
+				<!-- <button class="undone-new" ng-if="x.stats == 'undone'"  ng-click="undone(x.id)">Undone</button> -->
 			</div>
 			<!-- <div class="weekly-up section-2 weekly-color-up-2">
 				<div class="week-title">Schedule Your Day</div>

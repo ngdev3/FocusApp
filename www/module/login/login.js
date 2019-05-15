@@ -116,9 +116,10 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                 url: app_url + '/login',
                 data: args //forms user object
 
-            }).then(function (response) {
+            }).then(
+                function (response) {
+                    // alert("11111");
                 console.log("---------------");
-                console.log(response);
                // alert(response)
                 if (!response.data.ErrorCode) {
                     db.transaction(function (tx) {
@@ -140,7 +141,8 @@ app.controller('login', function ($scope, $http, $location, $cookieStore, model,
                     alert(response.data.message)
                 }
 
-            }).finally(function () {
+            }).finally(function (a) {
+                // alert(a);
                 loading.deactive();
             });
 

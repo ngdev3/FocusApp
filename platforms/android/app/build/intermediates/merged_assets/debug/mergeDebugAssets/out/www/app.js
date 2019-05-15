@@ -520,9 +520,9 @@ app.run(function ($cordovaDialogs, $q, $http, $rootScope, $location, $interval, 
             data : args   
         }).then(function (response) {
             //alert();
-            //loading.deactive();
+            // loading.deactive();
             res = response;
-            $rootScope.notification_len = res.data.data.length;
+            $rootScope.notification_len = res.data.data.totalrows;
             console.log($rootScope.notification_len)
                 
         })
@@ -1043,8 +1043,14 @@ app.filter('myDateFormat', function myDateFormat($filter) {
 
 app.filter('myTimeFormat', function myDateFormat($filter) {
     return function (text) {
-        var tempdate = new Date();
-        return $filter('date')(tempdate, "hh:mma");
+        console.log(text)
+        if (text !== undefined) {
+            var tempdate = new Date(text.replace(/-/g, "/"));
+            // return $filter('date')(tempdate, "dd MMMM yyyy");
+            return $filter('date')(tempdate, "hh:mma");
+        }
+
+        // var tempdate = new Date();
     }
 });
 
@@ -1053,7 +1059,8 @@ app.filter('myTimecustomFormat', function myDateFormat($filter) {
         //  alert(text)
         if (text !== undefined) {
 
-            var tempdate = new Date();
+            var tempdate = new Date(text.replace(/-/g, "/"));
+            // return $filter('date')(tempdate, "dd MMMM yyyy");
             return $filter('date')(tempdate, "hh:mma");
         }
     }

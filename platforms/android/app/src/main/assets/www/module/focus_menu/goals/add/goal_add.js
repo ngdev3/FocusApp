@@ -104,11 +104,17 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
             $scope.goal_date = new Date(res.data.data.goal_data.target_date);
             $scope.notification_one = new Date(res.data.data.goal_action_step[0].set_time);
             $scope.notification_two = new Date(res.data.data.goal_action_step[1].set_time);
-            $scope.notification_three = new Date(res.data.data.goal_action_step[2].set_time);
+            if(res.data.data.goal_action_step[2]){
+
+               $scope.notification_three = new Date(res.data.data.goal_action_step[2].set_time);
+            }
 
             $scope.action_step_one = res.data.data.goal_action_step[0].title;
             $scope.action_step_two = res.data.data.goal_action_step[1].title;
-            $scope.action_step_three = res.data.data.goal_action_step[2].title;
+            if(res.data.data.goal_action_step[2]){
+               $scope.action_step_three = res.data.data.goal_action_step[2].title;
+
+            }
 
             setTimeout(function () {
                $.each($scope.goal_days[0], function (i, v) {
@@ -124,13 +130,17 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
                   $('#select_day_two_' + v.id).addClass('select_day')
                })
             }, 500)
-            setTimeout(function () {
-               $.each($scope.goal_days[2], function (i, v) {
-                  console.log(v.id)
-                  $scope.select_days_three.push(v.id);
-                  $('#select_day_three_' + v.id).addClass('select_day')
-               })
-            }, 500)
+
+            if($scope.goal_days[2]){
+               setTimeout(function () {
+                  $.each($scope.goal_days[2], function (i, v) {
+                     console.log(v.id)
+                     $scope.select_days_three.push(v.id);
+                     $('#select_day_three_' + v.id).addClass('select_day')
+                  })
+               }, 500)
+            }
+           
 
             //   //   $scope.goal_data = res.data.data.goal_data;
             //   var goal_date_one = '';
@@ -277,7 +287,7 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
          // alert(id);
          return
 
-      } else if (type == 'notification_three') {
+      } else if (type == 'notification_three' && $scope.action_step_three != '' && $scope.action_step_three != undefined) {
 
 
          if (len3 <= 0) {
@@ -299,6 +309,10 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
          // alert(id);
          return
 
+      }else{
+         $('#' + type).removeClass('open')
+         // alert(id);
+         return
       }
    }
 
@@ -325,16 +339,37 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
          error_str += "Second Action Step here, ";
          //return;
       }
-      if ($scope.action_step_three == undefined || $scope.action_step_three == '') {
-         error_str += "Three Action Step here, ";
-         //return;
-      }
+     
 
-      if (len1 <= 0 || len2 <= 0 || len3 <= 0) {
+      if (len1 <= 0 || len2 <= 0) {
 
          error_str += "Select Days at All Notification Action Steps";
 
       }
+
+      console.log($scope.action_step_three)
+      if ($scope.action_step_three !== undefined && $scope.action_step_three !== '') {
+      // if (true) {
+         //return;
+         // alert("1")
+         if (len3 <= 0) {
+
+            error_str += "Select Days at All Notification Action Steps";
+   
+         }
+
+         collection_step = [$scope.action_step_one, $scope.action_step_two, $scope.action_step_three];
+         collection_days = [$scope.select_days_one, $scope.select_days_two, $scope.select_days_three];
+         collection_time = [$scope.notification_one, $scope.notification_two, $scope.notification_three];
+      }else{
+         // alert("2")
+         collection_step = [$scope.action_step_one, $scope.action_step_two];
+      collection_days = [$scope.select_days_one, $scope.select_days_two];
+      collection_time = [$scope.notification_one, $scope.notification_two];
+      
+      }
+
+
       if (error_str !== '') {
          error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
          alert(error_str);
@@ -342,10 +377,8 @@ app.controller('goal_add', function ($rootScope, $scope, $http, $location, $inte
       }
 
       loading.active();
-
-      collection_step = [$scope.action_step_one, $scope.action_step_two, $scope.action_step_three];
-      collection_days = [$scope.select_days_one, $scope.select_days_two, $scope.select_days_three];
-      collection_time = [$scope.notification_one, $scope.notification_two, $scope.notification_three];
+      console.log(collection_days)
+      console.log(collection_time)
 
       if (!$cookieStore.get('goal_id')) {
          var args = $.param({

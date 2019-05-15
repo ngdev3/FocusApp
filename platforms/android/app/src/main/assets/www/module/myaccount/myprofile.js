@@ -35,8 +35,16 @@ app.controller('myprofile', function ($scope, $http, $location, $interval, $cook
                 mediaType: navigator.camera.MediaType.PICTURE,
                 quality: 50,
                 EncodingType : 0,
+                allowEdit:true,
                 destinationType: Camera.DestinationType.FILE_URI,
+                popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY, 300, 600)
             });
+
+            window.onorientationchange = function() {
+                var cameraPopoverHandle = new CameraPopoverHandle();
+                var cameraPopoverOptions = new CameraPopoverOptions(0, 0, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY, 400, 500);
+                cameraPopoverHandle.setPosition(cameraPopoverOptions);
+            }
     
         }
         

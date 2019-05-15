@@ -16,8 +16,8 @@ app.controller('meeting_add', function ($rootScope, $scope, $http, $location, $i
 	var d = new Date();
 	var n = d.getTime();
 	var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss Z');
-	$scope.notification = n;
-	$scope.set_time = n;
+	$scope.notification = d;
+	$scope.set_time = d;
 
 
 	$scope.set_min_date = $filter('date')(new Date(), 'yyyy-MM-dd');

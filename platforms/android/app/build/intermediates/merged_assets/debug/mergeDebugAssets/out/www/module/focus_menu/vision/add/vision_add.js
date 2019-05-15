@@ -78,18 +78,29 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
 
     $scope.get_collection_image = function () {
         loading.active();
+        // get_vision_pics_per
+        if($cookieStore.get('vision_id')){
+
+            dynamicurl = "get_vision_pics_per"
+
+        }else{
+            
+            dynamicurl = "get_vision_pics"
+        }
+
         var args = $.param({
             apikey: apikey,
             user_id: $cookieStore.get('userinfo').id,
             typeofgoal: 'vision',
-            uuid: sessionStorage.u_ids
+            uuid: sessionStorage.u_ids,
+            vision_id:$cookieStore.get('vision_id')
         })
         $http({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            url: app_url + '/get_vision_pics',
+            url: app_url + '/'+dynamicurl,
             data: args
         }).then(function (response) {
             //alert();
@@ -111,6 +122,15 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
 
     $scope.file_uploads_at_app = function () {
         // alert("---")
+
+        if($cookieStore.get('vision_id')){
+
+            dynamicurl = "upload_banner_image_per"
+
+        }else{
+            
+            dynamicurl = "upload_banner_image"
+        }
         if (navigator.camera) {
             navigator.camera.getPicture(onSuccess, onFail, {
                 sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
@@ -136,11 +156,12 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
             var params = {};
             params.user_id = $cookieStore.get('userinfo').id;
             params.uuid = sessionStorage.u_ids;
+            params.vision_id = $cookieStore.get('vision_id');
             options.params = params;
             // options.headers =  { 'Content-Type': undefined }
             // alert(params);
             var ft = new FileTransfer();
-            ft.upload(imageURI, encodeURI(app_url + "/upload_banner_image"),
+            ft.upload(imageURI, encodeURI(app_url + "/"+dynamicurl),
                 function (result) {
                     loading.deactive();
                     var res = JSON.parse(result.response);
@@ -165,8 +186,44 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
         }
     }
 
+    $scope.prompt = function(id){
+        $.confirm({
+            title: 'Confirm!',
+            content: 'Are You Sure!',
+            columnClass:'col-md-4 col-md-offset-4',
+            buttons: {
+                confirm: function () {
+                    btnClass: 'btn-blue'
+                    $scope.delete_image(id);
+                },
+                cancel: function () {
+                    // $.alert('Canceled!');
+                },
+            }
+        });
+    }
+   
 
+
+    var dynamicurl;
     $scope.delete_image = function (id) {
+        // console.log(); return
+
+
+        if($scope.getdata.length == 1){
+            alert("You can not delete last image")
+            return false;
+        }
+
+        if($cookieStore.get('vision_id')){
+
+            dynamicurl = "delete_vision_pics_per"
+
+        }else{
+            
+            dynamicurl = "delete_vision_pics"
+        }
+
         loading.active();
 
         var args = $.param({
@@ -174,19 +231,21 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
             user_id: $cookieStore.get('userinfo').id,
             typeofgoal: 'vision',
             id: id,
-            uuid: sessionStorage.u_ids
+            uuid: sessionStorage.u_ids,
+            vision_id:$cookieStore.get('vision_id')
         })
         $http({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            url: app_url + '/delete_vision_pics',
+            url: app_url + '/'+dynamicurl,
             data: args
         }).then(function (response) {
             //alert();
             loading.deactive();
             res = response;
+            
             console.log(res.data.data)
             if (res.data.ErrorCode == 0) {
                 $scope.getdata = res.data.data.list;
@@ -198,6 +257,19 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
 
         })
 
+    }
+
+
+    $scope.view_image = function (url, file_name) {
+        //loading.active();
+        $('#profilepic').attr('src',url+"/"+file_name)
+        $('#notification_one').toggleClass('open');
+		$('.page-wrapper').toggleClass('blur');
+    }
+    $scope.view_image_close = function () {
+        //loading.active();
+        $('#notification_one').removeClass('open');
+		$('.page-wrapper').removeClass('blur');
     }
 
     $scope.select_bg = function () {
@@ -292,6 +364,15 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
 
     $scope.save_goal = function (form) {
 
+        if($cookieStore.get('vision_id')){
+
+            dynamicurl = "upload_vision_update"
+
+        }else{
+            
+            dynamicurl = "upload_vision"
+        }
+
         var error_str = '';
         if ($scope.background == undefined || $scope.background == '') {
             error_str += "Background, ";
@@ -302,9 +383,12 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
         if ($scope.vision_name == undefined || $scope.vision_name == '') {
             error_str += "Enter Your Vision, ";
         }
-        if (currentstatus < 0 || currentstatus > 10) {
+
+        if (currentstatus < 0 || currentstatus > 10 || currentstatus == undefined || currentstatus == '') {
             error_str += "Upload Picture, ";
         }
+
+       
 
         if (error_str !== '') {
             error_str = "<span style='font-weight:700;'> Following field must have valid information:</span><br/>" + error_str;
@@ -312,6 +396,8 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
             return
         }
 
+        // console.log(currentstatus)
+        // return
         loading.active();
 
 
@@ -321,9 +407,10 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
             background_id: $scope.background,
             goal_date: $scope.goal_date,
             vision_title: $scope.vision_name,
+            vision_id: $cookieStore.get('vision_id'),
         })
 
-        fullurl = app_url + '/upload_vision'
+        fullurl = app_url + '/'+dynamicurl
       //  alert(args);
         $http({
             headers: {
@@ -338,7 +425,7 @@ app.controller('vision_add', function ($filter, $cordovaImagePicker, $rootScope,
             res = response;
             console.log(res.data.data)
             if (res.data.ErrorCode == 0) {
-                $cookieStore.remove('weekly_id')
+                $cookieStore.remove('vision_id')
                 alert(res.data.message)
                 $location.path('/focus_menu/vision/listing')
             } else {

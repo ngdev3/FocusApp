@@ -2,6 +2,26 @@
 <style>
 input::placeholder{color: yellow;}
 
+
+.modal-wrapper.open .modal{
+    margin-top: -200px;
+    opacity: 1;
+    border-radius: 10px;
+    display: flex;
+	align-items: center;
+	overflow: visible;
+
+}
+
+.profile-pic{
+	width: 100%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    max-width: 100%;
+	padding: 25px;
+}
+
 </style>
 	<header class="container-fluid nav-down" >
 		<div class="row">
@@ -31,17 +51,17 @@ input::placeholder{color: yellow;}
 					</Select>
 				</div>
 				<div class="multiple-upload">
-					<p class=" font-color">Upload Pictures</p>
+					<p class=" clicktoopen font-color">Upload Pictures</p>
 					<button class="font-color button-color" ng-click="file_uploads_at_app()">Choose Files </button>
 				</div>
 				<div id="uploadPreview"></div>
 				<div class="pic-gallery">
 					<div class="upload-image" ng-repeat="x in getdata">
-						<div class="uploaded-image">
+						<div class="uploaded-image" ng-click="view_image(url, x.file_name)">
 							<img src="{{url}}/{{x.file_name}}"
 								style="padding: 1px;height: 73px;width: 73px;border: 1px solid #ddd;border-radius: 4px;">
 						</div>
-						<div class="cut-icon" ng-click="delete_image(x.id)">
+						<div class="cut-icon" ng-click="prompt(x.id)">
 							<a href="javascript:void(0)"><i class="fa fa-times" aria-hidden="true"></i></a>
 						</div>
 					</div>
@@ -68,4 +88,33 @@ input::placeholder{color: yellow;}
 			</div>
 		</form>
 	</div>
+
+	<div class="modal-wrapper " ng-init="get_days()" id="notification_one">
+		<div class="modal pl-20 pr-20">
+			<img class="profile-pic" id="profilepic" src="assets/img/upload-pic1.png">
+			<span ng-click="view_image_close()" style="
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    background: #2e4a79;
+    color: #fff;
+    padding: 3px 8px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    z-index: 9999999999999;
+">X</span>
+
+		</div>
+	</div>
+
+	<script>
+	
+	// $('.clicktoopen').click(function () {
+	// 			$('#notification_one').toggleClass('open');
+	// 			$('.page-wrapper').toggleClass('blur');
+	// 			return false;
+	// 		});
+			
+			</script>
 </div>

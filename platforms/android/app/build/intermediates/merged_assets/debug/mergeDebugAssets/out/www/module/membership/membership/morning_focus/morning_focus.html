@@ -1,5 +1,18 @@
 <div ng-controller="morning_focus">
+  <style>
 
+    .clock {
+        width: 73%;
+        display: inline-block;
+        text-align: end;
+    }
+    
+    .time {
+        width: 22%;
+        display: inline-block;
+    }
+    
+    </style>
 
   <header class="container-fluid nav-down" ng-init="get_morning_focus()">
     <div class="row">
@@ -32,7 +45,7 @@
             <img src="assets/img/morning-clock.png" style="height: 12px;">
           </div>
           <div class="time">
-            <p style="font-size: xx-small;">{{x.set_time |  myTimecustomFormat}}</p>
+            <p style="font-size: xx-small;">{{x.set_time}}</p>
           </div>
         </div>
       </div>

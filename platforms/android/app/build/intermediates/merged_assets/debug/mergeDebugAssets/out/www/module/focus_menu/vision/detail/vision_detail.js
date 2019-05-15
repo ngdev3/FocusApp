@@ -95,10 +95,21 @@ app.controller('vision_detail', function ($rootScope, $scope, $http, $location, 
 
 
  $scope.edit_focus_detail = function(id){
-    $location.path('/focus_menu/vision/add');
+     $location.path('/focus_menu/vision/add');
+} 
 
-  } 
 
+$scope.view_image = function (url, file_name) {
+    //loading.active();
+    $('#profilepic').attr('src',url+"/"+file_name)
+    $('#notification_one').toggleClass('open');
+    $('.page-wrapper').toggleClass('blur');
+}
+$scope.view_image_close = function () {
+    //loading.active();
+    $('#notification_one').removeClass('open');
+    $('.page-wrapper').removeClass('blur');
+}
  
    
 });

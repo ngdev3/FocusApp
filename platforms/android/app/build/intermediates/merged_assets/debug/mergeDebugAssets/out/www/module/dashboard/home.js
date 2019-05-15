@@ -10,6 +10,7 @@ app.controller('home', function ($controller, $scope, $http, $location, $cookieS
 
     $scope.username = $cookieStore.get('userinfo').fname + " " + $cookieStore.get('userinfo').lname
    $scope.user_type = $cookieStore.get('userinfo').user_type;
+   $scope.is_member = $cookieStore.get('userinfo').is_member;
 
     $scope.login = function(){
         $location.path('/login');
@@ -21,6 +22,42 @@ app.controller('home', function ($controller, $scope, $http, $location, $cookieS
     $scope.notification = function(){
         $location.path('/notification');
     }
+
+    $scope.activemembership = function(){
+        loading.active();
+        var args = $.param({
+         user_id : $cookieStore.get('userinfo').id,
+         apikey : apikey
+     })
+     $http({
+         headers: {
+             'Content-Type': 'application/x-www-form-urlencoded'
+         },
+         method: 'POST',
+         url: app_url + '/check_membership',
+         data : args   
+     }).then(function (response) {
+         //alert();
+         loading.deactive();
+         res = response;
+         console.log(res.data.data)
+         if(res.data.ErrorCode == 0){
+          //   $scope.ref.close();
+            // $location.path('/membership/membership_plans')
+            $scope.is_member = 1;
+         }else{
+             //$scope.ref.close();
+            // $scope.ref.executeScript({code: "localStorage.removeItem('isCloseSelf')"})
+            // $scope.payment_info();
+           // $location.path('/membership/before_member');
+           $scope.is_member = 0;
+         }
+             
+     })
+        
+    }
+
+    $scope.activemembership();
 
     $scope.membership = function(){
         loading.active();

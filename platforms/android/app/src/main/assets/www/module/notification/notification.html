@@ -82,7 +82,7 @@
   <!-- END HEADER -->
   <div class="notification pl-10 pr-10 pt-10 mt-50">
 		
-    <div class="notification_div" ng-repeat="x in morningfocus">
+    <div class="notification_div" ng-repeat="x in morningfocus" ng-click="read_notification(x.typeofcontent, x.id)">
       <div class="notify_icon_div">
         <div class="notification_icon">
           <i class="fa fa-bell-o" aria-hidden="true"></i>

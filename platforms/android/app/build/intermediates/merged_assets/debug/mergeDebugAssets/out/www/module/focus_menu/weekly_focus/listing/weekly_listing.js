@@ -5,6 +5,14 @@ app.controller('weekly_listing', function ($rootScope, $scope, $http, $location,
         window.history.back();
     } 
 
+    
+    
+
+$scope.newdate = $filter('date')(new Date(), "yyyy-MM-dd");
+$scope.newtime = $filter('date')(new Date(), "h:m");
+
+console.log($scope.newtime)
+
     $scope.add_weekly = function(){
       $cookieStore.remove('weekly_id')
       $location.path('/focus_menu/weekly/add');

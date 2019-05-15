@@ -33,35 +33,19 @@ app.controller('notification', function ($scope, $http, $location, $cookieStore,
             data : args   
         }).then(function (response) {
             //alert();
-            //loading.deactive();
+            loading.deactive();
             res = response;
             console.log(res.data.data)
             $rootScope.morningfocus = res.data.data.length;
             if(res.data.ErrorCode == 0){
-
-              if(res.data.data.length > 0){
-
-                $scope.morningfocus = res.data.data;
-
-                setTimeout(function(){
-                  loading.deactive();
-                 
-                  $.each(res.data.data, function(key, val) {
-                    console.log(count);
-                   count++;
-                    if(count < 4){
-                    console.log("#detail_data_" + val.id);
-                    $("#detail_data_" + val.id).addClass("bg-color" + count);
-                  }else{
-        
-                    count = 0;
-                    $("#detail_data_" + val.id).addClass("bg-color" + count);
-                  }
-                  });
-                },500)
-
+              $scope.morningfocus = res.data.data.totalval;
+              if($scope.morningfocus.length > 0){
+                
                 $scope.truelist = true;
               }
+            
+              // 3874
+
             }else{
               loading.deactive();
             }
@@ -70,4 +54,43 @@ app.controller('notification', function ($scope, $http, $location, $cookieStore,
 
     }
     
+    $scope.read_notification = function (type,id) {
+
+     // loading.active();
+
+      var args = $.param({
+          user_id : $cookieStore.get('userinfo').id,
+          apikey : apikey,
+          id : id,
+          type:type
+      })
+      $http({
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          method: 'POST',
+          url: app_url + '/read_notification_list',
+          data : args   
+      }).then(function (response) {
+          //alert();
+
+          loading.deactive();
+          res = response;
+          console.log(res.data.data)
+          $rootScope.morningfocus = res.data.data;
+          if(res.data.ErrorCode == 0){
+            $scope.get_vision_list();
+          }else{
+            loading.deactive();
+          }
+              
+      })
+
+      if(type == 'vision'){
+        $location.path('/focus_menu/vision/listing');
+      }
+
+
+
+  }
 });

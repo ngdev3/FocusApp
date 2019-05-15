@@ -1,6 +1,35 @@
 
 <div ng-controller="vision_detail" ng-init="get_vision_detail()">
-  
+		<style>
+				input::placeholder{color: yellow;}
+				
+				
+				.modal-wrapper.open .modal{
+    margin-top: 0;
+    opacity: 1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    top: 15%;
+				
+				}
+				.uploaded-image img{
+					    width: 100%;
+					height: 90px;
+					    padding: 3px;
+				}
+				
+				.profile-pic{
+					width: 100%;
+					display: block;
+					margin: 0 auto;
+					height: auto;
+					max-width: 100%;
+					padding: 25px;
+				}
+				
+				</style>  
     
 
 <header class="container-fluid nav-down">
@@ -10,7 +39,7 @@
 			<ul class="nav navbar-nav top_header">
 				<li class="menu_icon back_icon"><a ng-click="back()" href="javascript:void(0)"   ><img style="width:13px;" src="assets/img/icon/back.png" id="asdf" alt="menu icon" /></a></li>
 				<li class="logo_name"><a class="text-left back">VISION DETAILS</a></li>
-			    <!-- <li class="edit-icon"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="edit_focus_detail()"></i></li> -->
+			    <li class="edit-icon"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="edit_focus_detail()"></i></li>
 			</ul>
 			
 		  </div>
@@ -29,7 +58,7 @@
 		</div>
 	</div>
 	<div class="pic-gallery">
-	    <div class="upload-image" ng-repeat="x in goal_name">
+	    <div class="upload-image" ng-repeat="x in goal_name" ng-click="view_image(vision_url, x.file_name)">
 			<div class="uploaded-image">
 				<img src="{{vision_url}}/{{x.file_name}}">
 			</div>
@@ -53,6 +82,27 @@
 	</div>
 </div>
 </div>
+
+<div class="modal-wrapper " id="notification_one">
+		<div class="modal pl-20 pr-20">
+			<img class="profile-pic" id="profilepic" src="assets/img/upload-pic1.png">
+			<span ng-click="view_image_close()" style="
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    background: #2e4a79;
+    color: #fff;
+    padding: 3px 8px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    z-index: 9999999999999;
+">X</span>
+
+		</div>
+	</div>
+
+
 <script>
 
     $('.digit1 input').keyup(function(){

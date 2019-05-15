@@ -24,12 +24,12 @@
         "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\screen.png"
     },
     {
-        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
-    },
-    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_action_next_item.png.flat",
         "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_next_item.png"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
@@ -48,12 +48,12 @@
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\OneSignal-3.10.5.aar\\f4795034d079d34faa15595de095e6c7\\res\\layout\\onesignal_bgimage_notif_layout.xml"
     },
     {
-        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light.xml.flat",
-        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable\\common_google_signin_btn_icon_light.xml"
-    },
-    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
@@ -132,12 +132,12 @@
         "source": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
     },
     {
-        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
-    },
-    {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
         "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Rajat\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\f26200b5451c683966f654c38f0b265c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "J:\\xampp\\htdocs\\Projects2018\\FocusApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",

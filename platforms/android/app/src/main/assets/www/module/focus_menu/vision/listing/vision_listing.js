@@ -45,7 +45,7 @@ app.controller('vision_listing', function ($rootScope, $scope, $http, $location,
 
               if(res.data.data.focus_data.length > 0){
 
-                $scope.morningfocus = res.data.data.focus_data;
+                $scope.morningfocusoo = res.data.data.focus_data;
 
                 setTimeout(function(){
                   loading.deactive();
